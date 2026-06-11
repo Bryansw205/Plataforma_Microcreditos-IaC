@@ -1,0 +1,5 @@
+project_name    = "microcreditos"
+environment     = "dev"
+aws_region      = "us-east-1"
+app_port        = 8080
+container_image = "public.ecr.aws/docker/library/nginx:latest"
