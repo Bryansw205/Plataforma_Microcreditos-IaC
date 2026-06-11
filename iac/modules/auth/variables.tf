@@ -97,26 +97,6 @@ variable "allow_username_password_auth" {
   default     = false
 }
 
-
-variable "spa_callback_urls" {
-  description = "URLs de callback válidas para el cliente SPA"
-  type        = list(string)
-  default     = []
-}
-
-variable "spa_logout_urls" {
-  description = "URLs de logout válidas para el cliente SPA"
-  type        = list(string)
-  default     = []
-}
-
-variable "backend_callback_urls" {
-  description = "URLs de callback válidas para el cliente Backend (opcional si usa solo admin auth)"
-  type        = list(string)
-  default     = []
-}
-
-
 variable "custom_attributes" {
   description = "Atributos personalizados adicionales para el pool de usuarios"
   type = list(object({

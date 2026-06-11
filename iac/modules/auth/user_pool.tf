@@ -1,5 +1,5 @@
 resource "aws_cognito_user_pool" "main" {
-  name = "${var.name_prefix}-usuarios"
+  name = "${local.name_prefix}-usuarios"
 
   mfa_configuration = "ON"
 
@@ -104,7 +104,7 @@ resource "aws_cognito_user_pool" "main" {
   deletion_protection = var.enable_deletion_protection ? "ACTIVE" : "INACTIVE"
 
   tags = merge(local.common_tags, {
-    Name = "${var.name_prefix}-usuarios"
+    Name = "${local.name_prefix}-usuarios"
   })
 
   depends_on = []
@@ -112,10 +112,10 @@ resource "aws_cognito_user_pool" "main" {
 
 
 resource "aws_cognito_user_pool_domain" "main" {
-  domain       = var.name_prefix
+  domain       = local.name_prefix
   user_pool_id = aws_cognito_user_pool.main.id
 
   tags = merge(local.common_tags, {
-    Name = "${var.name_prefix}-domain"
+    Name = "${local.name_prefix}-domain"
   })
 }
