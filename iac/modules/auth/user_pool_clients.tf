@@ -23,14 +23,12 @@ resource "aws_cognito_user_pool_client" "spa" {
 
   allowed_oauth_flows_user_pool_client = true
 
-  callback_urls =  
-    [
+  callback_urls = [
       "https://${var.domain_name}/callback",
       "http://localhost:3000/callback",
     ]
   
-  logout_urls = 
-    [
+  logout_urls = [
       "https://${var.domain_name}",
       "http://localhost:3000",
     ]
@@ -46,11 +44,6 @@ resource "aws_cognito_user_pool_client" "spa" {
   }
 
   prevent_user_existence_errors = "ENABLED"
-
-  tags = merge(local.common_tags, {
-    Name = "${local.name_prefix}-cliente-spa"
-    Type = "public"
-  })
 }
 
 resource "aws_cognito_user_pool_client" "backend" {
@@ -75,9 +68,4 @@ resource "aws_cognito_user_pool_client" "backend" {
   }
 
   prevent_user_existence_errors = "ENABLED"
-
-  tags = merge(local.common_tags, {
-    Name = "${local.name_prefix}-cliente-backend"
-    Type = "confidential"
-  })
 }
