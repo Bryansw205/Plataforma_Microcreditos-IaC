@@ -309,3 +309,41 @@ resource "aws_wafv2_web_acl" "cloudfront" {
     Name = "${local.name_prefix}-cloudfront-waf"
   })
 }
+# Logging for Regional WAF
+resource "aws_cloudwatch_log_group" "regional_waf" {
+  count             = var.enable_regional_waf ? 1 : 0
+  name              = "aws-waf-logs-${local.name_prefix}-regional"
+  retention_in_days = 30
+
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-regional-waf-logs"
+  })
+}
+
+resource "aws_wafv2_web_acl_logging_configuration" "regional" {
+  count = var.enable_regional_waf ? 1 : 0
+
+  log_destination_configs = [aws_cloudwatch_log_group.regional_waf[0].arn]
+  resource_arn            = aws_wafv2_web_acl.regional[0].arn
+}
+
+# Logging for CloudFront WAF
+resource "aws_cloudwatch_log_group" "cloudfront_waf" {
+  provider = aws.us_east_1
+  count    = var.enable_cloudfront_waf ? 1 : 0
+
+  name              = "aws-waf-logs-${local.name_prefix}-cloudfront"
+  retention_in_days = 30
+
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-cloudfront-waf-logs"
+  })
+}
+
+resource "aws_wafv2_web_acl_logging_configuration" "cloudfront" {
+  provider = aws.us_east_1
+  count    = var.enable_cloudfront_waf ? 1 : 0
+
+  log_destination_configs = [aws_cloudwatch_log_group.cloudfront_waf[0].arn]
+  resource_arn            = aws_wafv2_web_acl.cloudfront[0].arn
+}
