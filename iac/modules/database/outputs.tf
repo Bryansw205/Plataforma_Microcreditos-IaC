@@ -12,3 +12,8 @@ output "db_secret_arn" {
   description = "ARN del secreto guardado en Secrets Manager con las contraseñas generadas"
   value       = aws_db_instance.main.master_user_secret[0].secret_arn
 }
+
+output "db_instance_arn" {
+  description = "ARN de la instancia RDS PostgreSQL (usado por el módulo de backup)"
+  value       = aws_db_instance.main.arn
+}
