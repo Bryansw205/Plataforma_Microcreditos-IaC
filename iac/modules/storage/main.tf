@@ -46,6 +46,8 @@ resource "aws_s3_bucket_lifecycle_configuration" "documents" {
     id     = "archiving-old-contracts"
     status = "Enabled"
 
+    filter {}
+
     # A los 90 días el contrato pasa a almacenamiento de acceso poco frecuente (Standard-IA)
     transition {
       days          = 90
