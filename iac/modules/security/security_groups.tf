@@ -1,4 +1,5 @@
 resource "aws_security_group" "alb" {
+  #checkov:skip=CKV2_AWS_5: "Este SG se exporta y asocia dinámicamente en el módulo principal o módulos dependientes"
   name        = "${local.name_prefix}-alb-sg"
   description = "Security group for Application Load Balancer"
   vpc_id      = var.vpc_id
@@ -9,6 +10,7 @@ resource "aws_security_group" "alb" {
 }
 
 resource "aws_security_group" "backend" {
+  #checkov:skip=CKV2_AWS_5: "Este SG se exporta y asocia dinámicamente en el módulo principal o módulos dependientes"
   name        = "${local.name_prefix}-backend-sg"
   description = "Security group for ECS Fargate backend"
   vpc_id      = var.vpc_id
@@ -19,6 +21,7 @@ resource "aws_security_group" "backend" {
 }
 
 resource "aws_security_group" "database" {
+  #checkov:skip=CKV2_AWS_5: "Este SG se exporta y asocia dinámicamente en el módulo principal o módulos dependientes"
   name        = "${local.name_prefix}-database-sg"
   description = "Security group for PostgreSQL or Aurora database"
   vpc_id      = var.vpc_id
@@ -29,6 +32,7 @@ resource "aws_security_group" "database" {
 }
 
 resource "aws_security_group" "redis" {
+  #checkov:skip=CKV2_AWS_5: "Este SG se exporta y asocia dinámicamente en el módulo principal o módulos dependientes"
   name        = "${local.name_prefix}-redis-sg"
   description = "Security group for ElastiCache Redis"
   vpc_id      = var.vpc_id
@@ -39,6 +43,7 @@ resource "aws_security_group" "redis" {
 }
 
 resource "aws_vpc_security_group_ingress_rule" "alb_http" {
+  #checkov:skip=CKV_AWS_260: "El ALB necesita recibir tráfico HTTP abierto para poder redirigirlo a HTTPS"
   for_each = toset(var.allowed_http_cidr_blocks)
 
   security_group_id = aws_security_group.alb.id
