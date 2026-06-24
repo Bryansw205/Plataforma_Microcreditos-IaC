@@ -1,5 +1,5 @@
 resource "aws_cognito_user_pool_client" "spa" {
-  client_name = "${local.name_prefix}-cliente-spa"
+  name = "${local.name_prefix}-cliente-spa"
   user_pool_id = aws_cognito_user_pool.main.id
 
   generate_secret = false
@@ -8,8 +8,6 @@ resource "aws_cognito_user_pool_client" "spa" {
     "ALLOW_USER_SRP_AUTH",      
     "ALLOW_REFRESH_TOKEN_AUTH", 
   ]
-
-  allow_admin_user_password_auth = var.allow_username_password_auth ? true : false
 
   supported_identity_providers = ["COGNITO"]
 
@@ -56,18 +54,15 @@ resource "aws_cognito_user_pool_client" "spa" {
 }
 
 resource "aws_cognito_user_pool_client" "backend" {
-  client_name = "${local.name_prefix}-cliente-backend"
+  name = "${local.name_prefix}-cliente-backend"
   user_pool_id = aws_cognito_user_pool.main.id
 
   generate_secret = true
 
-
   explicit_auth_flows = [
-    "ALLOW_ADMIN_NO_SRP_AUTH", 
+    "ALLOW_ADMIN_USER_PASSWORD_AUTH",
     "ALLOW_REFRESH_TOKEN_AUTH", 
   ]
-
-  allow_admin_user_password_auth = true
 
   access_token_validity  = var.access_token_validity_minutes
   id_token_validity      = var.access_token_validity_minutes
