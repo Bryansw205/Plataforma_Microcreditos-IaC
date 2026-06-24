@@ -1,0 +1,1078 @@
+<?xml version="1.0" ?>
+<testsuites disabled="0" errors="0" failures="33" tests="166" time="0.0">
+	<testsuite disabled="0" errors="0" failures="33" name="terraform scan" skipped="0" tests="166" time="0">
+		<properties>
+			<property name="directory" value="['/tf']"/>
+			<property name="add_check" value="False"/>
+			<property name="list" value="False"/>
+			<property name="output" value="['junitxml']"/>
+			<property name="output_file_path" value="results_corregido_angel.xml"/>
+			<property name="output_bc_ids" value="False"/>
+			<property name="include_all_checkov_policies" value="True"/>
+			<property name="quiet" value="False"/>
+			<property name="compact" value="False"/>
+			<property name="framework" value="['all']"/>
+			<property name="skip_framework" value="[]"/>
+			<property name="run_all_external_checks" value="False"/>
+			<property name="soft_fail" value="False"/>
+			<property name="skip_results_upload" value="False"/>
+			<property name="repo_id" value="cli_repo/tf"/>
+			<property name="branch" value="master"/>
+			<property name="skip_download" value="False"/>
+			<property name="use_enforcement_rules" value="False"/>
+			<property name="external_modules_download_path" value=".external_modules"/>
+			<property name="evaluate_variables" value="True"/>
+			<property name="no_cert_verify" value="False"/>
+			<property name="create_baseline" value="False"/>
+			<property name="output_baseline_as_skipped" value="False"/>
+			<property name="secrets_scan_file_type" value="[]"/>
+			<property name="enable_secret_scan_all_files" value="False"/>
+			<property name="block_list_secret_scan" value="[]"/>
+			<property name="summary_position" value="top"/>
+			<property name="skip_resources_without_violations" value="False"/>
+			<property name="deep_analysis" value="False"/>
+			<property name="no_fail_on_crash" value="False"/>
+			<property name="mask" value="defaultdict(&lt;class 'set'&gt;, {})"/>
+			<property name="scan_secrets_history" value="False"/>
+			<property name="secrets_history_timeout" value="12h"/>
+			<property name="custom_tool_name" value="Checkov"/>
+		</properties>
+		<testcase name="[NONE][CKV_AWS_29] Ensure all data stored in the ElastiCache Replication Group is securely encrypted at rest" classname="/iac/modules/cache/main.tf.aws_elasticache_replication_group.main" file="/iac/modules/cache/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_30] Ensure all data stored in the ElastiCache Replication Group is securely encrypted at transit" classname="/iac/modules/cache/main.tf.aws_elasticache_replication_group.main" file="/iac/modules/cache/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_358] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order" classname="/iac/modules/config/secrets.tf.aws_iam_policy_document.secrets_read_access" file="/iac/modules/config/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_1] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/iac/modules/config/secrets.tf.aws_iam_policy_document.secrets_read_access" file="/iac/modules/config/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_111] Ensure IAM policies does not allow write access without constraints" classname="/iac/modules/config/secrets.tf.aws_iam_policy_document.secrets_read_access" file="/iac/modules/config/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_107] Ensure IAM policies does not allow credentials exposure" classname="/iac/modules/config/secrets.tf.aws_iam_policy_document.secrets_read_access" file="/iac/modules/config/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_108] Ensure IAM policies does not allow data exfiltration" classname="/iac/modules/config/secrets.tf.aws_iam_policy_document.secrets_read_access" file="/iac/modules/config/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_356] Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions" classname="/iac/modules/config/secrets.tf.aws_iam_policy_document.secrets_read_access" file="/iac/modules/config/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_109] Ensure IAM policies does not allow permissions management / resource exposure without constraints" classname="/iac/modules/config/secrets.tf.aws_iam_policy_document.secrets_read_access" file="/iac/modules/config/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_49] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/iac/modules/config/secrets.tf.aws_iam_policy_document.secrets_read_access" file="/iac/modules/config/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_283] Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource" classname="/iac/modules/config/secrets.tf.aws_iam_policy_document.secrets_read_access" file="/iac/modules/config/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_110] Ensure IAM policies does not allow privilege escalation" classname="/iac/modules/config/secrets.tf.aws_iam_policy_document.secrets_read_access" file="/iac/modules/config/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_149] Ensure that Secrets Manager secret is encrypted using KMS CMK" classname="/iac/modules/config/secrets.tf.aws_secretsmanager_secret.api_keys" file="/iac/modules/config/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_149] Ensure that Secrets Manager secret is encrypted using KMS CMK" classname="/iac/modules/config/secrets.tf.aws_secretsmanager_secret.jwt_config" file="/iac/modules/config/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_149] Ensure that Secrets Manager secret is encrypted using KMS CMK" classname="/iac/modules/config/secrets.tf.aws_secretsmanager_secret.database[0]" file="/iac/modules/config/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_358] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order" classname="/iac/modules/config/ssm_parameters.tf.aws_iam_policy_document.ssm_read_access" file="/iac/modules/config/ssm_parameters.tf"/>
+		<testcase name="[NONE][CKV_AWS_1] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/iac/modules/config/ssm_parameters.tf.aws_iam_policy_document.ssm_read_access" file="/iac/modules/config/ssm_parameters.tf"/>
+		<testcase name="[NONE][CKV_AWS_111] Ensure IAM policies does not allow write access without constraints" classname="/iac/modules/config/ssm_parameters.tf.aws_iam_policy_document.ssm_read_access" file="/iac/modules/config/ssm_parameters.tf"/>
+		<testcase name="[NONE][CKV_AWS_107] Ensure IAM policies does not allow credentials exposure" classname="/iac/modules/config/ssm_parameters.tf.aws_iam_policy_document.ssm_read_access" file="/iac/modules/config/ssm_parameters.tf"/>
+		<testcase name="[NONE][CKV_AWS_108] Ensure IAM policies does not allow data exfiltration" classname="/iac/modules/config/ssm_parameters.tf.aws_iam_policy_document.ssm_read_access" file="/iac/modules/config/ssm_parameters.tf"/>
+		<testcase name="[NONE][CKV_AWS_356] Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions" classname="/iac/modules/config/ssm_parameters.tf.aws_iam_policy_document.ssm_read_access" file="/iac/modules/config/ssm_parameters.tf"/>
+		<testcase name="[NONE][CKV_AWS_109] Ensure IAM policies does not allow permissions management / resource exposure without constraints" classname="/iac/modules/config/ssm_parameters.tf.aws_iam_policy_document.ssm_read_access" file="/iac/modules/config/ssm_parameters.tf"/>
+		<testcase name="[NONE][CKV_AWS_49] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/iac/modules/config/ssm_parameters.tf.aws_iam_policy_document.ssm_read_access" file="/iac/modules/config/ssm_parameters.tf"/>
+		<testcase name="[NONE][CKV_AWS_283] Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource" classname="/iac/modules/config/ssm_parameters.tf.aws_iam_policy_document.ssm_read_access" file="/iac/modules/config/ssm_parameters.tf"/>
+		<testcase name="[NONE][CKV_AWS_110] Ensure IAM policies does not allow privilege escalation" classname="/iac/modules/config/ssm_parameters.tf.aws_iam_policy_document.ssm_read_access" file="/iac/modules/config/ssm_parameters.tf"/>
+		<testcase name="[NONE][CKV_AWS_337] Ensure SSM parameters are using KMS CMK" classname="/iac/modules/config/ssm_parameters.tf.aws_ssm_parameter.config" file="/iac/modules/config/ssm_parameters.tf"/>
+		<testcase name="[NONE][CKV_AWS_211] Ensure RDS uses a modern CaCert" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_250] Ensure that RDS PostgreSQL instances use a non vulnerable version with the log_fdw extension (https://aws.amazon.com/security/security-bulletins/AWS-2022-004/)" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_16] Ensure all data stored in the RDS is securely encrypted at rest" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_133] Ensure that RDS instances has backup policy" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_354] Ensure RDS Performance Insights are encrypted using KMS CMKs" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_17] Ensure all data stored in RDS is not publicly accessible" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_388] Ensure AWS Aurora PostgreSQL is not exposed to local file read vulnerability" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/iac/modules/networking/subnets.tf.aws_subnet.private_app[0]" file="/iac/modules/networking/subnets.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/iac/modules/networking/subnets.tf.aws_subnet.private_data[0]" file="/iac/modules/networking/subnets.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/iac/modules/networking/subnets.tf.aws_subnet.private_app[1]" file="/iac/modules/networking/subnets.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/iac/modules/networking/subnets.tf.aws_subnet.private_data[1]" file="/iac/modules/networking/subnets.tf"/>
+		<testcase name="[NONE][CKV_AWS_66] Ensure that CloudWatch Log Group specifies retention days" classname="/iac/modules/observability/main.tf.aws_cloudwatch_log_group.ecs_app" file="/iac/modules/observability/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_66] Ensure that CloudWatch Log Group specifies retention days" classname="/iac/modules/observability/main.tf.aws_cloudwatch_log_group.xray" file="/iac/modules/observability/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_319] Ensure that CloudWatch alarm actions are enabled" classname="/iac/modules/observability/main.tf.aws_cloudwatch_metric_alarm.ecs_high_cpu" file="/iac/modules/observability/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_319] Ensure that CloudWatch alarm actions are enabled" classname="/iac/modules/observability/main.tf.aws_cloudwatch_metric_alarm.ecs_high_memory" file="/iac/modules/observability/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_319] Ensure that CloudWatch alarm actions are enabled" classname="/iac/modules/observability/main.tf.aws_cloudwatch_metric_alarm.alb_5xx_errors" file="/iac/modules/observability/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_319] Ensure that CloudWatch alarm actions are enabled" classname="/iac/modules/observability/main.tf.aws_cloudwatch_metric_alarm.alb_unhealthy_targets" file="/iac/modules/observability/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_319] Ensure that CloudWatch alarm actions are enabled" classname="/iac/modules/observability/main.tf.aws_cloudwatch_metric_alarm.alb_high_latency" file="/iac/modules/observability/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/iac/modules/security/kms.tf.aws_kms_key.main" file="/iac/modules/security/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/iac/modules/security/kms.tf.aws_kms_key.main" file="/iac/modules/security/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/iac/modules/security/kms.tf.aws_kms_key.main" file="/iac/modules/security/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/iac/modules/security/security_groups.tf.aws_security_group.alb" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_security_group.alb" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_security_group.alb" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/iac/modules/security/security_groups.tf.aws_security_group.alb" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/iac/modules/security/security_groups.tf.aws_security_group.alb" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/iac/modules/security/security_groups.tf.aws_security_group.alb" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/iac/modules/security/security_groups.tf.aws_security_group.backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_security_group.backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_security_group.backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/iac/modules/security/security_groups.tf.aws_security_group.backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/iac/modules/security/security_groups.tf.aws_security_group.backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/iac/modules/security/security_groups.tf.aws_security_group.backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/iac/modules/security/security_groups.tf.aws_security_group.database" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_security_group.database" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_security_group.database" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/iac/modules/security/security_groups.tf.aws_security_group.database" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/iac/modules/security/security_groups.tf.aws_security_group.database" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/iac/modules/security/security_groups.tf.aws_security_group.database" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/iac/modules/security/security_groups.tf.aws_security_group.redis" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_security_group.redis" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_security_group.redis" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/iac/modules/security/security_groups.tf.aws_security_group.redis" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/iac/modules/security/security_groups.tf.aws_security_group.redis" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/iac/modules/security/security_groups.tf.aws_security_group.redis" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.alb_http[&quot;0.0.0.0/0&quot;]" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.alb_http[&quot;0.0.0.0/0&quot;]" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.alb_http[&quot;0.0.0.0/0&quot;]" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.alb_http[&quot;0.0.0.0/0&quot;]" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.alb_https[&quot;0.0.0.0/0&quot;]" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.alb_https[&quot;0.0.0.0/0&quot;]" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.alb_https[&quot;0.0.0.0/0&quot;]" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.alb_https[&quot;0.0.0.0/0&quot;]" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.alb_https[&quot;0.0.0.0/0&quot;]" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_egress_rule.alb_to_backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_egress_rule.alb_to_backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.backend_from_alb" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.backend_from_alb" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.backend_from_alb" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.backend_from_alb" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.backend_from_alb" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_egress_rule.backend_to_database" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_egress_rule.backend_to_database" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.database_from_backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.database_from_backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.database_from_backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.database_from_backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.database_from_backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_egress_rule.backend_to_redis" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_egress_rule.backend_to_redis" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_backend" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_egress_rule.backend_to_https" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_egress_rule.backend_to_https" file="/iac/modules/security/security_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_175] Ensure WAF has associated rules" classname="/iac/modules/security/waf.tf.aws_wafv2_web_acl.regional[0]" file="/iac/modules/security/waf.tf"/>
+		<testcase name="[NONE][CKV_AWS_342] Ensure WAF rule has any actions" classname="/iac/modules/security/waf.tf.aws_wafv2_web_acl.regional[0]" file="/iac/modules/security/waf.tf"/>
+		<testcase name="[NONE][CKV_AWS_175] Ensure WAF has associated rules" classname="/iac/modules/security/waf.tf.aws_wafv2_web_acl.cloudfront[0]" file="/iac/modules/security/waf.tf"/>
+		<testcase name="[NONE][CKV_AWS_342] Ensure WAF rule has any actions" classname="/iac/modules/security/waf.tf.aws_wafv2_web_acl.cloudfront[0]" file="/iac/modules/security/waf.tf"/>
+		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/iac/modules/storage/main.tf.aws_s3_bucket.documents" file="/iac/modules/storage/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_54] Ensure S3 bucket has block public policy enabled" classname="/iac/modules/storage/main.tf.aws_s3_bucket_public_access_block.documents" file="/iac/modules/storage/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_53] Ensure S3 bucket has block public ACLS enabled" classname="/iac/modules/storage/main.tf.aws_s3_bucket_public_access_block.documents" file="/iac/modules/storage/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_55] Ensure S3 bucket has ignore public ACLs enabled" classname="/iac/modules/storage/main.tf.aws_s3_bucket_public_access_block.documents" file="/iac/modules/storage/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_56] Ensure S3 bucket has 'restrict_public_buckets' enabled" classname="/iac/modules/storage/main.tf.aws_s3_bucket_public_access_block.documents" file="/iac/modules/storage/main.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/iac/modules/networking/route_tables.tf.aws_route_table.public" file="/iac/modules/networking/route_tables.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/iac/modules/networking/route_tables.tf.aws_route.public_internet" file="/iac/modules/networking/route_tables.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/iac/modules/networking/route_tables.tf.aws_route_table.private[0]" file="/iac/modules/networking/route_tables.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/iac/modules/networking/route_tables.tf.aws_route.private_nat[0]" file="/iac/modules/networking/route_tables.tf"/>
+		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/iac/modules/storage/main.tf.aws_s3_bucket.documents" file="/iac/modules/storage/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_20] S3 Bucket has an ACL defined which allows public READ access." classname="/iac/modules/storage/main.tf.aws_s3_bucket.documents" file="/iac/modules/storage/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/iac/modules/storage/main.tf.aws_s3_bucket.documents" file="/iac/modules/storage/main.tf"/>
+		<testcase name="[NONE][CKV2_AWS_61] Ensure that an S3 bucket has a lifecycle configuration" classname="/iac/modules/storage/main.tf.aws_s3_bucket.documents" file="/iac/modules/storage/main.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/iac/modules/networking/route_tables.tf.aws_route_table.public" file="/iac/modules/networking/route_tables.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/iac/modules/networking/route_tables.tf.aws_route.public_internet" file="/iac/modules/networking/route_tables.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/iac/modules/networking/route_tables.tf.aws_route_table.private[0]" file="/iac/modules/networking/route_tables.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/iac/modules/networking/route_tables.tf.aws_route.private_nat[0]" file="/iac/modules/networking/route_tables.tf"/>
+		<testcase name="[NONE][CKV2_AWS_69] Ensure AWS RDS database instance configured with encryption in transit" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf"/>
+		<testcase name="[NONE][CKV2_AWS_30] Ensure Postgres RDS as aws_db_instance has Query Logging enabled" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf"/>
+		<testcase name="[NONE][CKV_AWS_57] S3 Bucket has an ACL defined which allows public WRITE access." classname="/iac/modules/storage/main.tf.aws_s3_bucket.documents" file="/iac/modules/storage/main.tf"/>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/iac/modules/security/kms.tf.aws_kms_key.main" file="/iac/modules/security/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_145] Ensure that S3 buckets are encrypted with KMS by default" classname="/iac/modules/storage/main.tf.aws_s3_bucket.documents" file="/iac/modules/storage/main.tf"/>
+		<testcase name="[NONE][CKV2_AWS_19] Ensure that all EIP addresses allocated to a VPC are attached to EC2 instances" classname="/iac/modules/networking/nat_gateways.tf.aws_eip.nat[0]" file="/iac/modules/networking/nat_gateways.tf"/>
+		<testcase name="[NONE][CKV2_AWS_6] Ensure that S3 bucket has a Public Access block" classname="/iac/modules/storage/main.tf.aws_s3_bucket.documents" file="/iac/modules/storage/main.tf"/>
+		<testcase name="[NONE][CKV2_AWS_40] Ensure AWS IAM policy does not allow full IAM privileges" classname="/iac/modules/config/secrets.tf.aws_iam_policy_document.secrets_read_access" file="/iac/modules/config/secrets.tf"/>
+		<testcase name="[NONE][CKV2_AWS_40] Ensure AWS IAM policy does not allow full IAM privileges" classname="/iac/modules/config/ssm_parameters.tf.aws_iam_policy_document.ssm_read_access" file="/iac/modules/config/ssm_parameters.tf"/>
+		<testcase name="[NONE][CKV_AWS_191] Ensure ElastiCache replication group is encrypted by KMS using a customer managed Key (CMK)" classname="/iac/modules/cache/main.tf.aws_elasticache_replication_group.main" file="/iac/modules/cache/main.tf">
+			<failure type="failure" message="Ensure ElastiCache replication group is encrypted by KMS using a customer managed Key (CMK)">
+Resource: aws_elasticache_replication_group.main
+File: /iac/modules/cache/main.tf: 23-49
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-general-111
+
+		23 | resource &quot;aws_elasticache_replication_group&quot; &quot;main&quot; {
+		24 |   replication_group_id = &quot;${var.name_prefix}-redis&quot;
+		25 |   description          = &quot;Capa de cache ultrarapida en memoria para evaluar creditos&quot;
+		26 | 
+		27 |   # Arquitectura de Computo y Motor solicitado
+		28 |   engine         = &quot;redis&quot;
+		29 |   engine_version = &quot;7.1&quot;
+		30 |   node_type      = var.cache_node_type
+		31 |   port           = 6379
+		32 | 
+		33 |   # Configuración de Red y Seguridad Interna
+		34 |   parameter_group_name = aws_elasticache_parameter_group.main.name
+		35 |   subnet_group_name    = aws_elasticache_subnet_group.main.name
+		36 |   security_group_ids   = [var.elasticache_security_group_id]
+		37 | 
+		38 |   # Seguridad de los Datos (Cifrado en tránsito obligatorio de AWS Redis)
+		39 |   transit_encryption_enabled = true
+		40 |   at_rest_encryption_enabled = true
+		41 | 
+		42 |   # Táctica de disponibilidad: Habilita nodos de respaldo automáticos en producción
+		43 |   num_cache_clusters         = var.environment == &quot;prod&quot; ? 2 : 1
+		44 |   automatic_failover_enabled = var.environment == &quot;prod&quot; ? true : false
+		45 | 
+		46 |   tags = {
+		47 |     Name = &quot;${var.name_prefix}-redis-cache&quot;
+		48 |   }
+		49 | }</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_31] Ensure all data stored in the ElastiCache Replication Group is securely encrypted at transit and has auth token" classname="/iac/modules/cache/main.tf.aws_elasticache_replication_group.main" file="/iac/modules/cache/main.tf">
+			<failure type="failure" message="Ensure all data stored in the ElastiCache Replication Group is securely encrypted at transit and has auth token">
+Resource: aws_elasticache_replication_group.main
+File: /iac/modules/cache/main.tf: 23-49
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-11
+
+		23 | resource &quot;aws_elasticache_replication_group&quot; &quot;main&quot; {
+		24 |   replication_group_id = &quot;${var.name_prefix}-redis&quot;
+		25 |   description          = &quot;Capa de cache ultrarapida en memoria para evaluar creditos&quot;
+		26 | 
+		27 |   # Arquitectura de Computo y Motor solicitado
+		28 |   engine         = &quot;redis&quot;
+		29 |   engine_version = &quot;7.1&quot;
+		30 |   node_type      = var.cache_node_type
+		31 |   port           = 6379
+		32 | 
+		33 |   # Configuración de Red y Seguridad Interna
+		34 |   parameter_group_name = aws_elasticache_parameter_group.main.name
+		35 |   subnet_group_name    = aws_elasticache_subnet_group.main.name
+		36 |   security_group_ids   = [var.elasticache_security_group_id]
+		37 | 
+		38 |   # Seguridad de los Datos (Cifrado en tránsito obligatorio de AWS Redis)
+		39 |   transit_encryption_enabled = true
+		40 |   at_rest_encryption_enabled = true
+		41 | 
+		42 |   # Táctica de disponibilidad: Habilita nodos de respaldo automáticos en producción
+		43 |   num_cache_clusters         = var.environment == &quot;prod&quot; ? 2 : 1
+		44 |   automatic_failover_enabled = var.environment == &quot;prod&quot; ? true : false
+		45 | 
+		46 |   tags = {
+		47 |     Name = &quot;${var.name_prefix}-redis-cache&quot;
+		48 |   }
+		49 | }</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_353] Ensure that RDS instances have performance insights enabled" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf">
+			<failure type="failure" message="Ensure that RDS instances have performance insights enabled">
+Resource: aws_db_instance.main
+File: /iac/modules/database/main.tf: 32-77
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-353
+
+		32 | resource &quot;aws_db_instance&quot; &quot;main&quot; {
+		33 |   identifier = &quot;${var.name_prefix}-database&quot;
+		34 | 
+		35 |   # Especificación del Motor solicitado
+		36 |   engine         = &quot;postgres&quot;
+		37 |   engine_version = &quot;16.4&quot;
+		38 |   instance_class = var.db_instance_class
+		39 | 
+		40 |   # Almacenamiento elástico e inteligente GP3
+		41 |   allocated_storage     = 20
+		42 |   max_allocated_storage = 100 # Permite auto-escalar si se llena el disco
+		43 |   storage_type          = &quot;gp3&quot;
+		44 | 
+		45 |   # Cifrado de Datos Sensibles
+		46 |   storage_encrypted = true
+		47 |   kms_key_id        = var.rds_kms_key_arn # Llave criptográfica administrada
+		48 | 
+		49 |   # Credenciales del negocio (Se administrarán automáticamente a través de Secrets Manager)
+		50 |   db_name                     = var.db_name
+		51 |   username                    = var.db_username
+		52 |   manage_master_user_password = true # Delega la contraseña a AWS de forma segura
+		53 | 
+		54 |   # Arquitectura Multi-AZ
+		55 |   # Se activa automáticamente si el entorno es producción (&quot;prod&quot;)
+		56 |   multi_az = var.environment == &quot;prod&quot; ? true : false
+		57 | 
+		58 |   # Redes y Conectividad Segura
+		59 |   db_subnet_group_name   = aws_db_subnet_group.main.name
+		60 |   parameter_group_name   = aws_db_parameter_group.main.name
+		61 |   vpc_security_group_ids = [var.rds_security_group_id]
+		62 |   port                   = 5432
+		63 | 
+		64 |   # Ventanas de Mantenimiento y Respaldos Automatizados (Soporte de Recuperación)
+		65 |   backup_retention_period = 7
+		66 |   backup_window           = &quot;03:00-04:00&quot; # Se ejecuta en la madrugada de Perú
+		67 |   maintenance_window      = &quot;Mon:04:00-Mon:04:30&quot;
+		68 | 
+		69 |   # Protección contra eliminaciones accidentales en producción
+		70 |   deletion_protection = var.environment == &quot;prod&quot; ? true : false
+		71 |   skip_final_snapshot = var.environment == &quot;dev&quot; ? true : false
+		72 | 
+		73 |   tags = {
+		74 |     Name = &quot;${var.name_prefix}-database&quot;
+		75 |     Tier = &quot;Data&quot;
+		76 |   }
+		77 | }</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_226] Ensure DB instance gets all minor upgrades automatically" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf">
+			<failure type="failure" message="Ensure DB instance gets all minor upgrades automatically">
+Resource: aws_db_instance.main
+File: /iac/modules/database/main.tf: 32-77
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-db-instance-gets-all-minor-upgrades-automatically
+
+		32 | resource &quot;aws_db_instance&quot; &quot;main&quot; {
+		33 |   identifier = &quot;${var.name_prefix}-database&quot;
+		34 | 
+		35 |   # Especificación del Motor solicitado
+		36 |   engine         = &quot;postgres&quot;
+		37 |   engine_version = &quot;16.4&quot;
+		38 |   instance_class = var.db_instance_class
+		39 | 
+		40 |   # Almacenamiento elástico e inteligente GP3
+		41 |   allocated_storage     = 20
+		42 |   max_allocated_storage = 100 # Permite auto-escalar si se llena el disco
+		43 |   storage_type          = &quot;gp3&quot;
+		44 | 
+		45 |   # Cifrado de Datos Sensibles
+		46 |   storage_encrypted = true
+		47 |   kms_key_id        = var.rds_kms_key_arn # Llave criptográfica administrada
+		48 | 
+		49 |   # Credenciales del negocio (Se administrarán automáticamente a través de Secrets Manager)
+		50 |   db_name                     = var.db_name
+		51 |   username                    = var.db_username
+		52 |   manage_master_user_password = true # Delega la contraseña a AWS de forma segura
+		53 | 
+		54 |   # Arquitectura Multi-AZ
+		55 |   # Se activa automáticamente si el entorno es producción (&quot;prod&quot;)
+		56 |   multi_az = var.environment == &quot;prod&quot; ? true : false
+		57 | 
+		58 |   # Redes y Conectividad Segura
+		59 |   db_subnet_group_name   = aws_db_subnet_group.main.name
+		60 |   parameter_group_name   = aws_db_parameter_group.main.name
+		61 |   vpc_security_group_ids = [var.rds_security_group_id]
+		62 |   port                   = 5432
+		63 | 
+		64 |   # Ventanas de Mantenimiento y Respaldos Automatizados (Soporte de Recuperación)
+		65 |   backup_retention_period = 7
+		66 |   backup_window           = &quot;03:00-04:00&quot; # Se ejecuta en la madrugada de Perú
+		67 |   maintenance_window      = &quot;Mon:04:00-Mon:04:30&quot;
+		68 | 
+		69 |   # Protección contra eliminaciones accidentales en producción
+		70 |   deletion_protection = var.environment == &quot;prod&quot; ? true : false
+		71 |   skip_final_snapshot = var.environment == &quot;dev&quot; ? true : false
+		72 | 
+		73 |   tags = {
+		74 |     Name = &quot;${var.name_prefix}-database&quot;
+		75 |     Tier = &quot;Data&quot;
+		76 |   }
+		77 | }</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_161] Ensure RDS database has IAM authentication enabled" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf">
+			<failure type="failure" message="Ensure RDS database has IAM authentication enabled">
+Resource: aws_db_instance.main
+File: /iac/modules/database/main.tf: 32-77
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-rds-database-has-iam-authentication-enabled
+
+		32 | resource &quot;aws_db_instance&quot; &quot;main&quot; {
+		33 |   identifier = &quot;${var.name_prefix}-database&quot;
+		34 | 
+		35 |   # Especificación del Motor solicitado
+		36 |   engine         = &quot;postgres&quot;
+		37 |   engine_version = &quot;16.4&quot;
+		38 |   instance_class = var.db_instance_class
+		39 | 
+		40 |   # Almacenamiento elástico e inteligente GP3
+		41 |   allocated_storage     = 20
+		42 |   max_allocated_storage = 100 # Permite auto-escalar si se llena el disco
+		43 |   storage_type          = &quot;gp3&quot;
+		44 | 
+		45 |   # Cifrado de Datos Sensibles
+		46 |   storage_encrypted = true
+		47 |   kms_key_id        = var.rds_kms_key_arn # Llave criptográfica administrada
+		48 | 
+		49 |   # Credenciales del negocio (Se administrarán automáticamente a través de Secrets Manager)
+		50 |   db_name                     = var.db_name
+		51 |   username                    = var.db_username
+		52 |   manage_master_user_password = true # Delega la contraseña a AWS de forma segura
+		53 | 
+		54 |   # Arquitectura Multi-AZ
+		55 |   # Se activa automáticamente si el entorno es producción (&quot;prod&quot;)
+		56 |   multi_az = var.environment == &quot;prod&quot; ? true : false
+		57 | 
+		58 |   # Redes y Conectividad Segura
+		59 |   db_subnet_group_name   = aws_db_subnet_group.main.name
+		60 |   parameter_group_name   = aws_db_parameter_group.main.name
+		61 |   vpc_security_group_ids = [var.rds_security_group_id]
+		62 |   port                   = 5432
+		63 | 
+		64 |   # Ventanas de Mantenimiento y Respaldos Automatizados (Soporte de Recuperación)
+		65 |   backup_retention_period = 7
+		66 |   backup_window           = &quot;03:00-04:00&quot; # Se ejecuta en la madrugada de Perú
+		67 |   maintenance_window      = &quot;Mon:04:00-Mon:04:30&quot;
+		68 | 
+		69 |   # Protección contra eliminaciones accidentales en producción
+		70 |   deletion_protection = var.environment == &quot;prod&quot; ? true : false
+		71 |   skip_final_snapshot = var.environment == &quot;dev&quot; ? true : false
+		72 | 
+		73 |   tags = {
+		74 |     Name = &quot;${var.name_prefix}-database&quot;
+		75 |     Tier = &quot;Data&quot;
+		76 |   }
+		77 | }</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_293] Ensure that AWS database instances have deletion protection enabled" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf">
+			<failure type="failure" message="Ensure that AWS database instances have deletion protection enabled">
+Resource: aws_db_instance.main
+File: /iac/modules/database/main.tf: 32-77
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-293
+
+		32 | resource &quot;aws_db_instance&quot; &quot;main&quot; {
+		33 |   identifier = &quot;${var.name_prefix}-database&quot;
+		34 | 
+		35 |   # Especificación del Motor solicitado
+		36 |   engine         = &quot;postgres&quot;
+		37 |   engine_version = &quot;16.4&quot;
+		38 |   instance_class = var.db_instance_class
+		39 | 
+		40 |   # Almacenamiento elástico e inteligente GP3
+		41 |   allocated_storage     = 20
+		42 |   max_allocated_storage = 100 # Permite auto-escalar si se llena el disco
+		43 |   storage_type          = &quot;gp3&quot;
+		44 | 
+		45 |   # Cifrado de Datos Sensibles
+		46 |   storage_encrypted = true
+		47 |   kms_key_id        = var.rds_kms_key_arn # Llave criptográfica administrada
+		48 | 
+		49 |   # Credenciales del negocio (Se administrarán automáticamente a través de Secrets Manager)
+		50 |   db_name                     = var.db_name
+		51 |   username                    = var.db_username
+		52 |   manage_master_user_password = true # Delega la contraseña a AWS de forma segura
+		53 | 
+		54 |   # Arquitectura Multi-AZ
+		55 |   # Se activa automáticamente si el entorno es producción (&quot;prod&quot;)
+		56 |   multi_az = var.environment == &quot;prod&quot; ? true : false
+		57 | 
+		58 |   # Redes y Conectividad Segura
+		59 |   db_subnet_group_name   = aws_db_subnet_group.main.name
+		60 |   parameter_group_name   = aws_db_parameter_group.main.name
+		61 |   vpc_security_group_ids = [var.rds_security_group_id]
+		62 |   port                   = 5432
+		63 | 
+		64 |   # Ventanas de Mantenimiento y Respaldos Automatizados (Soporte de Recuperación)
+		65 |   backup_retention_period = 7
+		66 |   backup_window           = &quot;03:00-04:00&quot; # Se ejecuta en la madrugada de Perú
+		67 |   maintenance_window      = &quot;Mon:04:00-Mon:04:30&quot;
+		68 | 
+		69 |   # Protección contra eliminaciones accidentales en producción
+		70 |   deletion_protection = var.environment == &quot;prod&quot; ? true : false
+		71 |   skip_final_snapshot = var.environment == &quot;dev&quot; ? true : false
+		72 | 
+		73 |   tags = {
+		74 |     Name = &quot;${var.name_prefix}-database&quot;
+		75 |     Tier = &quot;Data&quot;
+		76 |   }
+		77 | }</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_157] Ensure that RDS instances have Multi-AZ enabled" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf">
+			<failure type="failure" message="Ensure that RDS instances have Multi-AZ enabled">
+Resource: aws_db_instance.main
+File: /iac/modules/database/main.tf: 32-77
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-73
+
+		32 | resource &quot;aws_db_instance&quot; &quot;main&quot; {
+		33 |   identifier = &quot;${var.name_prefix}-database&quot;
+		34 | 
+		35 |   # Especificación del Motor solicitado
+		36 |   engine         = &quot;postgres&quot;
+		37 |   engine_version = &quot;16.4&quot;
+		38 |   instance_class = var.db_instance_class
+		39 | 
+		40 |   # Almacenamiento elástico e inteligente GP3
+		41 |   allocated_storage     = 20
+		42 |   max_allocated_storage = 100 # Permite auto-escalar si se llena el disco
+		43 |   storage_type          = &quot;gp3&quot;
+		44 | 
+		45 |   # Cifrado de Datos Sensibles
+		46 |   storage_encrypted = true
+		47 |   kms_key_id        = var.rds_kms_key_arn # Llave criptográfica administrada
+		48 | 
+		49 |   # Credenciales del negocio (Se administrarán automáticamente a través de Secrets Manager)
+		50 |   db_name                     = var.db_name
+		51 |   username                    = var.db_username
+		52 |   manage_master_user_password = true # Delega la contraseña a AWS de forma segura
+		53 | 
+		54 |   # Arquitectura Multi-AZ
+		55 |   # Se activa automáticamente si el entorno es producción (&quot;prod&quot;)
+		56 |   multi_az = var.environment == &quot;prod&quot; ? true : false
+		57 | 
+		58 |   # Redes y Conectividad Segura
+		59 |   db_subnet_group_name   = aws_db_subnet_group.main.name
+		60 |   parameter_group_name   = aws_db_parameter_group.main.name
+		61 |   vpc_security_group_ids = [var.rds_security_group_id]
+		62 |   port                   = 5432
+		63 | 
+		64 |   # Ventanas de Mantenimiento y Respaldos Automatizados (Soporte de Recuperación)
+		65 |   backup_retention_period = 7
+		66 |   backup_window           = &quot;03:00-04:00&quot; # Se ejecuta en la madrugada de Perú
+		67 |   maintenance_window      = &quot;Mon:04:00-Mon:04:30&quot;
+		68 | 
+		69 |   # Protección contra eliminaciones accidentales en producción
+		70 |   deletion_protection = var.environment == &quot;prod&quot; ? true : false
+		71 |   skip_final_snapshot = var.environment == &quot;dev&quot; ? true : false
+		72 | 
+		73 |   tags = {
+		74 |     Name = &quot;${var.name_prefix}-database&quot;
+		75 |     Tier = &quot;Data&quot;
+		76 |   }
+		77 | }</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_129] Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf">
+			<failure type="failure" message="Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled">
+Resource: aws_db_instance.main
+File: /iac/modules/database/main.tf: 32-77
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-that-respective-logs-of-amazon-relational-database-service-amazon-rds-are-enabled
+
+		32 | resource &quot;aws_db_instance&quot; &quot;main&quot; {
+		33 |   identifier = &quot;${var.name_prefix}-database&quot;
+		34 | 
+		35 |   # Especificación del Motor solicitado
+		36 |   engine         = &quot;postgres&quot;
+		37 |   engine_version = &quot;16.4&quot;
+		38 |   instance_class = var.db_instance_class
+		39 | 
+		40 |   # Almacenamiento elástico e inteligente GP3
+		41 |   allocated_storage     = 20
+		42 |   max_allocated_storage = 100 # Permite auto-escalar si se llena el disco
+		43 |   storage_type          = &quot;gp3&quot;
+		44 | 
+		45 |   # Cifrado de Datos Sensibles
+		46 |   storage_encrypted = true
+		47 |   kms_key_id        = var.rds_kms_key_arn # Llave criptográfica administrada
+		48 | 
+		49 |   # Credenciales del negocio (Se administrarán automáticamente a través de Secrets Manager)
+		50 |   db_name                     = var.db_name
+		51 |   username                    = var.db_username
+		52 |   manage_master_user_password = true # Delega la contraseña a AWS de forma segura
+		53 | 
+		54 |   # Arquitectura Multi-AZ
+		55 |   # Se activa automáticamente si el entorno es producción (&quot;prod&quot;)
+		56 |   multi_az = var.environment == &quot;prod&quot; ? true : false
+		57 | 
+		58 |   # Redes y Conectividad Segura
+		59 |   db_subnet_group_name   = aws_db_subnet_group.main.name
+		60 |   parameter_group_name   = aws_db_parameter_group.main.name
+		61 |   vpc_security_group_ids = [var.rds_security_group_id]
+		62 |   port                   = 5432
+		63 | 
+		64 |   # Ventanas de Mantenimiento y Respaldos Automatizados (Soporte de Recuperación)
+		65 |   backup_retention_period = 7
+		66 |   backup_window           = &quot;03:00-04:00&quot; # Se ejecuta en la madrugada de Perú
+		67 |   maintenance_window      = &quot;Mon:04:00-Mon:04:30&quot;
+		68 | 
+		69 |   # Protección contra eliminaciones accidentales en producción
+		70 |   deletion_protection = var.environment == &quot;prod&quot; ? true : false
+		71 |   skip_final_snapshot = var.environment == &quot;dev&quot; ? true : false
+		72 | 
+		73 |   tags = {
+		74 |     Name = &quot;${var.name_prefix}-database&quot;
+		75 |     Tier = &quot;Data&quot;
+		76 |   }
+		77 | }</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_118] Ensure that enhanced monitoring is enabled for Amazon RDS instances" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf">
+			<failure type="failure" message="Ensure that enhanced monitoring is enabled for Amazon RDS instances">
+Resource: aws_db_instance.main
+File: /iac/modules/database/main.tf: 32-77
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/ensure-that-enhanced-monitoring-is-enabled-for-amazon-rds-instances
+
+		32 | resource &quot;aws_db_instance&quot; &quot;main&quot; {
+		33 |   identifier = &quot;${var.name_prefix}-database&quot;
+		34 | 
+		35 |   # Especificación del Motor solicitado
+		36 |   engine         = &quot;postgres&quot;
+		37 |   engine_version = &quot;16.4&quot;
+		38 |   instance_class = var.db_instance_class
+		39 | 
+		40 |   # Almacenamiento elástico e inteligente GP3
+		41 |   allocated_storage     = 20
+		42 |   max_allocated_storage = 100 # Permite auto-escalar si se llena el disco
+		43 |   storage_type          = &quot;gp3&quot;
+		44 | 
+		45 |   # Cifrado de Datos Sensibles
+		46 |   storage_encrypted = true
+		47 |   kms_key_id        = var.rds_kms_key_arn # Llave criptográfica administrada
+		48 | 
+		49 |   # Credenciales del negocio (Se administrarán automáticamente a través de Secrets Manager)
+		50 |   db_name                     = var.db_name
+		51 |   username                    = var.db_username
+		52 |   manage_master_user_password = true # Delega la contraseña a AWS de forma segura
+		53 | 
+		54 |   # Arquitectura Multi-AZ
+		55 |   # Se activa automáticamente si el entorno es producción (&quot;prod&quot;)
+		56 |   multi_az = var.environment == &quot;prod&quot; ? true : false
+		57 | 
+		58 |   # Redes y Conectividad Segura
+		59 |   db_subnet_group_name   = aws_db_subnet_group.main.name
+		60 |   parameter_group_name   = aws_db_parameter_group.main.name
+		61 |   vpc_security_group_ids = [var.rds_security_group_id]
+		62 |   port                   = 5432
+		63 | 
+		64 |   # Ventanas de Mantenimiento y Respaldos Automatizados (Soporte de Recuperación)
+		65 |   backup_retention_period = 7
+		66 |   backup_window           = &quot;03:00-04:00&quot; # Se ejecuta en la madrugada de Perú
+		67 |   maintenance_window      = &quot;Mon:04:00-Mon:04:30&quot;
+		68 | 
+		69 |   # Protección contra eliminaciones accidentales en producción
+		70 |   deletion_protection = var.environment == &quot;prod&quot; ? true : false
+		71 |   skip_final_snapshot = var.environment == &quot;dev&quot; ? true : false
+		72 | 
+		73 |   tags = {
+		74 |     Name = &quot;${var.name_prefix}-database&quot;
+		75 |     Tier = &quot;Data&quot;
+		76 |   }
+		77 | }</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/iac/modules/networking/subnets.tf.aws_subnet.public[0]" file="/iac/modules/networking/subnets.tf">
+			<failure type="failure" message="Ensure VPC subnets do not assign public IP by default">
+Resource: aws_subnet.public[0]
+File: /iac/modules/networking/subnets.tf: 2-14
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-vpc-subnets-do-not-assign-public-ip-by-default
+
+		2  | resource &quot;aws_subnet&quot; &quot;public&quot; {
+		3  |   count = length(var.public_subnet_cidrs)
+		4  | 
+		5  |   vpc_id                  = aws_vpc.main.id
+		6  |   cidr_block              = var.public_subnet_cidrs[count.index]
+		7  |   availability_zone       = var.availability_zones[count.index]
+		8  |   map_public_ip_on_launch = true
+		9  | 
+		10 |   tags = {
+		11 |     Name = &quot;${var.project_name}-${var.environment}-public-${var.availability_zones[count.index]}&quot;
+		12 |     Tier = &quot;public&quot;
+		13 |   }
+		14 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/iac/modules/networking/subnets.tf.aws_subnet.public[1]" file="/iac/modules/networking/subnets.tf">
+			<failure type="failure" message="Ensure VPC subnets do not assign public IP by default">
+Resource: aws_subnet.public[1]
+File: /iac/modules/networking/subnets.tf: 2-14
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-vpc-subnets-do-not-assign-public-ip-by-default
+
+		2  | resource &quot;aws_subnet&quot; &quot;public&quot; {
+		3  |   count = length(var.public_subnet_cidrs)
+		4  | 
+		5  |   vpc_id                  = aws_vpc.main.id
+		6  |   cidr_block              = var.public_subnet_cidrs[count.index]
+		7  |   availability_zone       = var.availability_zones[count.index]
+		8  |   map_public_ip_on_launch = true
+		9  | 
+		10 |   tags = {
+		11 |     Name = &quot;${var.project_name}-${var.environment}-public-${var.availability_zones[count.index]}&quot;
+		12 |     Tier = &quot;public&quot;
+		13 |   }
+		14 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_26] Ensure all data stored in the SNS topic is encrypted" classname="/iac/modules/observability/main.tf.aws_sns_topic.alerts" file="/iac/modules/observability/main.tf">
+			<failure type="failure" message="Ensure all data stored in the SNS topic is encrypted">
+Resource: aws_sns_topic.alerts
+File: /iac/modules/observability/main.tf: 6-14
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-15
+
+		6  | resource &quot;aws_sns_topic&quot; &quot;alerts&quot; {
+		7  |   name = &quot;${var.project}-${var.environment}-critical-alerts&quot;
+		8  | 
+		9  |   tags = {
+		10 |     Name        = &quot;${var.project}-${var.environment}-critical-alerts&quot;
+		11 |     Project     = var.project
+		12 |     Environment = var.environment
+		13 |   }
+		14 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_338] Ensure CloudWatch log groups retains logs for at least 1 year" classname="/iac/modules/observability/main.tf.aws_cloudwatch_log_group.ecs_app" file="/iac/modules/observability/main.tf">
+			<failure type="failure" message="Ensure CloudWatch log groups retains logs for at least 1 year">
+Resource: aws_cloudwatch_log_group.ecs_app
+File: /iac/modules/observability/main.tf: 22-31
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-338
+
+		22 | resource &quot;aws_cloudwatch_log_group&quot; &quot;ecs_app&quot; {
+		23 |   name              = &quot;/aws/ecs/${var.project}-${var.environment}/app&quot;
+		24 |   retention_in_days = var.log_retention_days
+		25 | 
+		26 |   tags = {
+		27 |     Name        = &quot;${var.project}-${var.environment}-ecs-logs&quot;
+		28 |     Project     = var.project
+		29 |     Environment = var.environment
+		30 |   }
+		31 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_158] Ensure that CloudWatch Log Group is encrypted by KMS" classname="/iac/modules/observability/main.tf.aws_cloudwatch_log_group.ecs_app" file="/iac/modules/observability/main.tf">
+			<failure type="failure" message="Ensure that CloudWatch Log Group is encrypted by KMS">
+Resource: aws_cloudwatch_log_group.ecs_app
+File: /iac/modules/observability/main.tf: 22-31
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-cloudwatch-log-group-is-encrypted-by-kms
+
+		22 | resource &quot;aws_cloudwatch_log_group&quot; &quot;ecs_app&quot; {
+		23 |   name              = &quot;/aws/ecs/${var.project}-${var.environment}/app&quot;
+		24 |   retention_in_days = var.log_retention_days
+		25 | 
+		26 |   tags = {
+		27 |     Name        = &quot;${var.project}-${var.environment}-ecs-logs&quot;
+		28 |     Project     = var.project
+		29 |     Environment = var.environment
+		30 |   }
+		31 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_338] Ensure CloudWatch log groups retains logs for at least 1 year" classname="/iac/modules/observability/main.tf.aws_cloudwatch_log_group.xray" file="/iac/modules/observability/main.tf">
+			<failure type="failure" message="Ensure CloudWatch log groups retains logs for at least 1 year">
+Resource: aws_cloudwatch_log_group.xray
+File: /iac/modules/observability/main.tf: 33-42
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-338
+
+		33 | resource &quot;aws_cloudwatch_log_group&quot; &quot;xray&quot; {
+		34 |   name              = &quot;/aws/xray/${var.project}-${var.environment}&quot;
+		35 |   retention_in_days = var.log_retention_days
+		36 | 
+		37 |   tags = {
+		38 |     Name        = &quot;${var.project}-${var.environment}-xray-logs&quot;
+		39 |     Project     = var.project
+		40 |     Environment = var.environment
+		41 |   }
+		42 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_158] Ensure that CloudWatch Log Group is encrypted by KMS" classname="/iac/modules/observability/main.tf.aws_cloudwatch_log_group.xray" file="/iac/modules/observability/main.tf">
+			<failure type="failure" message="Ensure that CloudWatch Log Group is encrypted by KMS">
+Resource: aws_cloudwatch_log_group.xray
+File: /iac/modules/observability/main.tf: 33-42
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-cloudwatch-log-group-is-encrypted-by-kms
+
+		33 | resource &quot;aws_cloudwatch_log_group&quot; &quot;xray&quot; {
+		34 |   name              = &quot;/aws/xray/${var.project}-${var.environment}&quot;
+		35 |   retention_in_days = var.log_retention_days
+		36 | 
+		37 |   tags = {
+		38 |     Name        = &quot;${var.project}-${var.environment}-xray-logs&quot;
+		39 |     Project     = var.project
+		40 |     Environment = var.environment
+		41 |   }
+		42 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/iac/modules/security/security_groups.tf.aws_vpc_security_group_ingress_rule.alb_http[&quot;0.0.0.0/0&quot;]" file="/iac/modules/security/security_groups.tf">
+			<failure type="failure" message="Ensure no security groups allow ingress from 0.0.0.0:0 to port 80">
+Resource: aws_vpc_security_group_ingress_rule.alb_http[&quot;0.0.0.0/0&quot;]
+File: /iac/modules/security/security_groups.tf: 41-50
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-groups-do-not-allow-ingress-from-00000-to-port-80
+
+		41 | resource &quot;aws_vpc_security_group_ingress_rule&quot; &quot;alb_http&quot; {
+		42 |   for_each = toset(var.allowed_http_cidr_blocks)
+		43 | 
+		44 |   security_group_id = aws_security_group.alb.id
+		45 |   description       = &quot;Allow HTTP traffic from allowed CIDR blocks&quot;
+		46 |   cidr_ipv4         = each.value
+		47 |   from_port         = 80
+		48 |   ip_protocol       = &quot;tcp&quot;
+		49 |   to_port           = 80
+		50 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_300] Ensure S3 lifecycle configuration sets period for aborting failed uploads" classname="/iac/modules/storage/main.tf.aws_s3_bucket_lifecycle_configuration.documents" file="/iac/modules/storage/main.tf">
+			<failure type="failure" message="Ensure S3 lifecycle configuration sets period for aborting failed uploads">
+Resource: aws_s3_bucket_lifecycle_configuration.documents
+File: /iac/modules/storage/main.tf: 42-61
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-300
+
+		42 | resource &quot;aws_s3_bucket_lifecycle_configuration&quot; &quot;documents&quot; {
+		43 |   bucket = aws_s3_bucket.documents.id
+		44 | 
+		45 |   rule {
+		46 |     id     = &quot;archiving-old-contracts&quot;
+		47 |     status = &quot;Enabled&quot;
+		48 | 
+		49 |     # A los 90 días el contrato pasa a almacenamiento de acceso poco frecuente (Standard-IA)
+		50 |     transition {
+		51 |       days          = 90
+		52 |       storage_class = &quot;STANDARD_IA&quot;
+		53 |     }
+		54 | 
+		55 |     # A los 180 días se archiva de forma masiva en Glacier para cumplimiento legal histórico
+		56 |     transition {
+		57 |       days          = 180
+		58 |       storage_class = &quot;GLACIER&quot;
+		59 |     }
+		60 |   }
+		61 | }  </failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_18] Ensure the S3 bucket has access logging enabled" classname="/iac/modules/storage/main.tf.aws_s3_bucket.documents" file="/iac/modules/storage/main.tf">
+			<failure type="failure" message="Ensure the S3 bucket has access logging enabled">
+Resource: aws_s3_bucket.documents
+File: /iac/modules/storage/main.tf: 5-8
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
+
+		5 | resource &quot;aws_s3_bucket&quot; &quot;documents&quot; {
+		6 |   bucket        = &quot;${var.name_prefix}-loan-documents-s3&quot;
+		7 |   force_destroy = var.environment == &quot;dev&quot; ? true : false # Permite limpiar fácil en desarrollo
+		8 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_60] Ensure RDS instance with copy tags to snapshots is enabled" classname="/iac/modules/database/main.tf.aws_db_instance.main" file="/iac/modules/database/main.tf">
+			<failure type="failure" message="Ensure RDS instance with copy tags to snapshots is enabled">
+Resource: aws_db_instance.main
+File: /iac/modules/database/main.tf: 32-77
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-2-60
+
+		32 | resource &quot;aws_db_instance&quot; &quot;main&quot; {
+		33 |   identifier = &quot;${var.name_prefix}-database&quot;
+		34 | 
+		35 |   # Especificación del Motor solicitado
+		36 |   engine         = &quot;postgres&quot;
+		37 |   engine_version = &quot;16.4&quot;
+		38 |   instance_class = var.db_instance_class
+		39 | 
+		40 |   # Almacenamiento elástico e inteligente GP3
+		41 |   allocated_storage     = 20
+		42 |   max_allocated_storage = 100 # Permite auto-escalar si se llena el disco
+		43 |   storage_type          = &quot;gp3&quot;
+		44 | 
+		45 |   # Cifrado de Datos Sensibles
+		46 |   storage_encrypted = true
+		47 |   kms_key_id        = var.rds_kms_key_arn # Llave criptográfica administrada
+		48 | 
+		49 |   # Credenciales del negocio (Se administrarán automáticamente a través de Secrets Manager)
+		50 |   db_name                     = var.db_name
+		51 |   username                    = var.db_username
+		52 |   manage_master_user_password = true # Delega la contraseña a AWS de forma segura
+		53 | 
+		54 |   # Arquitectura Multi-AZ
+		55 |   # Se activa automáticamente si el entorno es producción (&quot;prod&quot;)
+		56 |   multi_az = var.environment == &quot;prod&quot; ? true : false
+		57 | 
+		58 |   # Redes y Conectividad Segura
+		59 |   db_subnet_group_name   = aws_db_subnet_group.main.name
+		60 |   parameter_group_name   = aws_db_parameter_group.main.name
+		61 |   vpc_security_group_ids = [var.rds_security_group_id]
+		62 |   port                   = 5432
+		63 | 
+		64 |   # Ventanas de Mantenimiento y Respaldos Automatizados (Soporte de Recuperación)
+		65 |   backup_retention_period = 7
+		66 |   backup_window           = &quot;03:00-04:00&quot; # Se ejecuta en la madrugada de Perú
+		67 |   maintenance_window      = &quot;Mon:04:00-Mon:04:30&quot;
+		68 | 
+		69 |   # Protección contra eliminaciones accidentales en producción
+		70 |   deletion_protection = var.environment == &quot;prod&quot; ? true : false
+		71 |   skip_final_snapshot = var.environment == &quot;dev&quot; ? true : false
+		72 | 
+		73 |   tags = {
+		74 |     Name = &quot;${var.name_prefix}-database&quot;
+		75 |     Tier = &quot;Data&quot;
+		76 |   }
+		77 | }</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/iac/modules/security/security_groups.tf.aws_security_group.alb" file="/iac/modules/security/security_groups.tf">
+			<failure type="failure" message="Ensure that Security Groups are attached to another resource">
+Resource: aws_security_group.alb
+File: /iac/modules/security/security_groups.tf: 1-9
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-that-security-groups-are-attached-to-ec2-instances-or-elastic-network-interfaces-enis
+
+		1 | resource &quot;aws_security_group&quot; &quot;alb&quot; {
+		2 |   name        = &quot;${local.name_prefix}-alb-sg&quot;
+		3 |   description = &quot;Security group for Application Load Balancer&quot;
+		4 |   vpc_id      = var.vpc_id
+		5 | 
+		6 |   tags = merge(local.common_tags, {
+		7 |     Name = &quot;${local.name_prefix}-alb-sg&quot;
+		8 |   })
+		9 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/iac/modules/security/security_groups.tf.aws_security_group.backend" file="/iac/modules/security/security_groups.tf">
+			<failure type="failure" message="Ensure that Security Groups are attached to another resource">
+Resource: aws_security_group.backend
+File: /iac/modules/security/security_groups.tf: 11-19
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-that-security-groups-are-attached-to-ec2-instances-or-elastic-network-interfaces-enis
+
+		11 | resource &quot;aws_security_group&quot; &quot;backend&quot; {
+		12 |   name        = &quot;${local.name_prefix}-backend-sg&quot;
+		13 |   description = &quot;Security group for ECS Fargate backend&quot;
+		14 |   vpc_id      = var.vpc_id
+		15 | 
+		16 |   tags = merge(local.common_tags, {
+		17 |     Name = &quot;${local.name_prefix}-backend-sg&quot;
+		18 |   })
+		19 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/iac/modules/security/security_groups.tf.aws_security_group.database" file="/iac/modules/security/security_groups.tf">
+			<failure type="failure" message="Ensure that Security Groups are attached to another resource">
+Resource: aws_security_group.database
+File: /iac/modules/security/security_groups.tf: 21-29
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-that-security-groups-are-attached-to-ec2-instances-or-elastic-network-interfaces-enis
+
+		21 | resource &quot;aws_security_group&quot; &quot;database&quot; {
+		22 |   name        = &quot;${local.name_prefix}-database-sg&quot;
+		23 |   description = &quot;Security group for PostgreSQL or Aurora database&quot;
+		24 |   vpc_id      = var.vpc_id
+		25 | 
+		26 |   tags = merge(local.common_tags, {
+		27 |     Name = &quot;${local.name_prefix}-database-sg&quot;
+		28 |   })
+		29 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/iac/modules/security/security_groups.tf.aws_security_group.redis" file="/iac/modules/security/security_groups.tf">
+			<failure type="failure" message="Ensure that Security Groups are attached to another resource">
+Resource: aws_security_group.redis
+File: /iac/modules/security/security_groups.tf: 31-39
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-that-security-groups-are-attached-to-ec2-instances-or-elastic-network-interfaces-enis
+
+		31 | resource &quot;aws_security_group&quot; &quot;redis&quot; {
+		32 |   name        = &quot;${local.name_prefix}-redis-sg&quot;
+		33 |   description = &quot;Security group for ElastiCache Redis&quot;
+		34 |   vpc_id      = var.vpc_id
+		35 | 
+		36 |   tags = merge(local.common_tags, {
+		37 |     Name = &quot;${local.name_prefix}-redis-sg&quot;
+		38 |   })
+		39 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/iac/modules/storage/main.tf.aws_s3_bucket.documents" file="/iac/modules/storage/main.tf">
+			<failure type="failure" message="Ensure S3 buckets should have event notifications enabled">
+Resource: aws_s3_bucket.documents
+File: /iac/modules/storage/main.tf: 5-8
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
+
+		5 | resource &quot;aws_s3_bucket&quot; &quot;documents&quot; {
+		6 |   bucket        = &quot;${var.name_prefix}-loan-documents-s3&quot;
+		7 |   force_destroy = var.environment == &quot;dev&quot; ? true : false # Permite limpiar fácil en desarrollo
+		8 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_50] Ensure AWS ElastiCache Redis cluster with Multi-AZ Automatic Failover feature set to enabled" classname="/iac/modules/cache/main.tf.aws_elasticache_replication_group.main" file="/iac/modules/cache/main.tf">
+			<failure type="failure" message="Ensure AWS ElastiCache Redis cluster with Multi-AZ Automatic Failover feature set to enabled">
+Resource: aws_elasticache_replication_group.main
+File: /iac/modules/cache/main.tf: 23-49
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-elasticache-redis-cluster-with-multi-az-automatic-failover-feature-set-to-enabled
+
+		23 | resource &quot;aws_elasticache_replication_group&quot; &quot;main&quot; {
+		24 |   replication_group_id = &quot;${var.name_prefix}-redis&quot;
+		25 |   description          = &quot;Capa de cache ultrarapida en memoria para evaluar creditos&quot;
+		26 | 
+		27 |   # Arquitectura de Computo y Motor solicitado
+		28 |   engine         = &quot;redis&quot;
+		29 |   engine_version = &quot;7.1&quot;
+		30 |   node_type      = var.cache_node_type
+		31 |   port           = 6379
+		32 | 
+		33 |   # Configuración de Red y Seguridad Interna
+		34 |   parameter_group_name = aws_elasticache_parameter_group.main.name
+		35 |   subnet_group_name    = aws_elasticache_subnet_group.main.name
+		36 |   security_group_ids   = [var.elasticache_security_group_id]
+		37 | 
+		38 |   # Seguridad de los Datos (Cifrado en tránsito obligatorio de AWS Redis)
+		39 |   transit_encryption_enabled = true
+		40 |   at_rest_encryption_enabled = true
+		41 | 
+		42 |   # Táctica de disponibilidad: Habilita nodos de respaldo automáticos en producción
+		43 |   num_cache_clusters         = var.environment == &quot;prod&quot; ? 2 : 1
+		44 |   automatic_failover_enabled = var.environment == &quot;prod&quot; ? true : false
+		45 | 
+		46 |   tags = {
+		47 |     Name = &quot;${var.name_prefix}-redis-cache&quot;
+		48 |   }
+		49 | }</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_34] AWS SSM Parameter should be Encrypted" classname="/iac/modules/config/ssm_parameters.tf.aws_ssm_parameter.config" file="/iac/modules/config/ssm_parameters.tf">
+			<failure type="failure" message="AWS SSM Parameter should be Encrypted">
+Resource: aws_ssm_parameter.config
+File: /iac/modules/config/ssm_parameters.tf: 85-106
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-ssm-parameter-is-encrypted
+
+		85  | resource &quot;aws_ssm_parameter&quot; &quot;config&quot; {
+		86  |   for_each = local.ssm_parameters
+		87  | 
+		88  |   name            = &quot;${local.ssm_base_path}/${each.key}&quot;
+		89  |   type            = each.value.type
+		90  |   value           = each.value.value
+		91  |   description     = each.value.description
+		92  |   tier            = each.value.tier
+		93  |   data_type       = &quot;text&quot;
+		94  |   overwrite       = true
+		95  |   allowed_pattern = null
+		96  | 
+		97  |   tags = merge(local.common_tags, {
+		98  |     Name = &quot;${local.name_prefix}/${each.key}&quot;
+		99  |   })
+		100 | 
+		101 |   lifecycle {
+		102 |     prevent_destroy = false
+		103 |     ignore_changes = [
+		104 |     ]
+		105 |   }
+		106 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_144] Ensure that S3 bucket has cross-region replication enabled" classname="/iac/modules/storage/main.tf.aws_s3_bucket.documents" file="/iac/modules/storage/main.tf">
+			<failure type="failure" message="Ensure that S3 bucket has cross-region replication enabled">
+Resource: aws_s3_bucket.documents
+File: /iac/modules/storage/main.tf: 5-8
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-bucket-has-cross-region-replication-enabled
+
+		5 | resource &quot;aws_s3_bucket&quot; &quot;documents&quot; {
+		6 |   bucket        = &quot;${var.name_prefix}-loan-documents-s3&quot;
+		7 |   force_destroy = var.environment == &quot;dev&quot; ? true : false # Permite limpiar fácil en desarrollo
+		8 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_31] Ensure WAF2 has a Logging Configuration" classname="/iac/modules/security/waf.tf.aws_wafv2_web_acl.regional[0]" file="/iac/modules/security/waf.tf">
+			<failure type="failure" message="Ensure WAF2 has a Logging Configuration">
+Resource: aws_wafv2_web_acl.regional[0]
+File: /iac/modules/security/waf.tf: 15-153
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-logging-33
+
+		Code lines for this resource are too many. Please use IDE of your choice to review the file.</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_31] Ensure WAF2 has a Logging Configuration" classname="/iac/modules/security/waf.tf.aws_wafv2_web_acl.cloudfront[0]" file="/iac/modules/security/waf.tf">
+			<failure type="failure" message="Ensure WAF2 has a Logging Configuration">
+Resource: aws_wafv2_web_acl.cloudfront[0]
+File: /iac/modules/security/waf.tf: 171-311
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-logging-33
+
+		Code lines for this resource are too many. Please use IDE of your choice to review the file.</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_57] Ensure Secrets Manager secrets should have automatic rotation enabled" classname="/iac/modules/config/secrets.tf.aws_secretsmanager_secret.api_keys" file="/iac/modules/config/secrets.tf">
+			<failure type="failure" message="Ensure Secrets Manager secrets should have automatic rotation enabled">
+Resource: aws_secretsmanager_secret.api_keys
+File: /iac/modules/config/secrets.tf: 1-9
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-2-57
+
+		1 | resource &quot;aws_secretsmanager_secret&quot; &quot;api_keys&quot; {
+		2 |   name_prefix             = &quot;${local.name_prefix}-api-keys-&quot;
+		3 |   description             = &quot;Claves de API para servicios externos (Flow, Infocorp)&quot;
+		4 |   kms_key_id              = var.secrets_kms_key_arn != null ? var.secrets_kms_key_arn : null
+		5 |   recovery_window_in_days = var.environment == &quot;prod&quot; ? 30 : 7
+		6 |   tags = merge(local.common_tags, {
+		7 |     Name = &quot;${local.name_prefix}-api-keys&quot;
+		8 |   })
+		9 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_57] Ensure Secrets Manager secrets should have automatic rotation enabled" classname="/iac/modules/config/secrets.tf.aws_secretsmanager_secret.jwt_config" file="/iac/modules/config/secrets.tf">
+			<failure type="failure" message="Ensure Secrets Manager secrets should have automatic rotation enabled">
+Resource: aws_secretsmanager_secret.jwt_config
+File: /iac/modules/config/secrets.tf: 25-33
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-2-57
+
+		25 | resource &quot;aws_secretsmanager_secret&quot; &quot;jwt_config&quot; {
+		26 |   name_prefix             = &quot;${local.name_prefix}-jwt-config-&quot;
+		27 |   description             = &quot;Configuración de JWT: clave privada, algoritmo, expiración&quot;
+		28 |   kms_key_id              = var.secrets_kms_key_arn != null ? var.secrets_kms_key_arn : null
+		29 |   recovery_window_in_days = var.environment == &quot;prod&quot; ? 30 : 7
+		30 |   tags = merge(local.common_tags, {
+		31 |     Name = &quot;${local.name_prefix}-jwt-config&quot;
+		32 |   })
+		33 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_57] Ensure Secrets Manager secrets should have automatic rotation enabled" classname="/iac/modules/config/secrets.tf.aws_secretsmanager_secret.database[0]" file="/iac/modules/config/secrets.tf">
+			<failure type="failure" message="Ensure Secrets Manager secrets should have automatic rotation enabled">
+Resource: aws_secretsmanager_secret.database[0]
+File: /iac/modules/config/secrets.tf: 51-60
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-2-57
+
+		51 | resource &quot;aws_secretsmanager_secret&quot; &quot;database&quot; {
+		52 |   count                   = var.create_database_secret ? 1 : 0
+		53 |   name_prefix             = &quot;${local.name_prefix}-database-&quot;
+		54 |   description             = &quot;Credenciales de base de datos RDS&quot;
+		55 |   kms_key_id              = var.secrets_kms_key_arn != null ? var.secrets_kms_key_arn : null
+		56 |   recovery_window_in_days = var.environment == &quot;prod&quot; ? 30 : 7
+		57 |   tags = merge(local.common_tags, {
+		58 |     Name = &quot;${local.name_prefix}-database&quot;
+		59 |   })
+		60 | }
+</failure>
+		</testcase>
+	</testsuite>
+</testsuites>
