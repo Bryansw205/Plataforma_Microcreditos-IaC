@@ -114,8 +114,4 @@ resource "aws_cognito_user_pool" "main" {
 resource "aws_cognito_user_pool_domain" "main" {
   domain       = local.name_prefix
   user_pool_id = aws_cognito_user_pool.main.id
-
-  tags = merge(local.common_tags, {
-    Name = "${local.name_prefix}-domain"
-  })
 }

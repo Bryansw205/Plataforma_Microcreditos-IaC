@@ -1,5 +1,5 @@
 resource "aws_cognito_user_pool_client" "spa" {
-  client_name = "${local.name_prefix}-cliente-spa"
+  name = "${local.name_prefix}-cliente-spa"
   user_pool_id = aws_cognito_user_pool.main.id
 
   generate_secret = false
@@ -8,8 +8,6 @@ resource "aws_cognito_user_pool_client" "spa" {
     "ALLOW_USER_SRP_AUTH",      
     "ALLOW_REFRESH_TOKEN_AUTH", 
   ]
-
-  allow_admin_user_password_auth = var.allow_username_password_auth ? true : false
 
   supported_identity_providers = ["COGNITO"]
 
@@ -25,14 +23,12 @@ resource "aws_cognito_user_pool_client" "spa" {
 
   allowed_oauth_flows_user_pool_client = true
 
-  callback_urls =  
-    [
+  callback_urls = [
       "https://${var.domain_name}/callback",
       "http://localhost:3000/callback",
     ]
   
-  logout_urls = 
-    [
+  logout_urls = [
       "https://${var.domain_name}",
       "http://localhost:3000",
     ]
@@ -48,26 +44,18 @@ resource "aws_cognito_user_pool_client" "spa" {
   }
 
   prevent_user_existence_errors = "ENABLED"
-
-  tags = merge(local.common_tags, {
-    Name = "${local.name_prefix}-cliente-spa"
-    Type = "public"
-  })
 }
 
 resource "aws_cognito_user_pool_client" "backend" {
-  client_name = "${local.name_prefix}-cliente-backend"
+  name = "${local.name_prefix}-cliente-backend"
   user_pool_id = aws_cognito_user_pool.main.id
 
   generate_secret = true
 
-
   explicit_auth_flows = [
-    "ALLOW_ADMIN_NO_SRP_AUTH", 
+    "ALLOW_ADMIN_USER_PASSWORD_AUTH",
     "ALLOW_REFRESH_TOKEN_AUTH", 
   ]
-
-  allow_admin_user_password_auth = true
 
   access_token_validity  = var.access_token_validity_minutes
   id_token_validity      = var.access_token_validity_minutes
@@ -80,9 +68,4 @@ resource "aws_cognito_user_pool_client" "backend" {
   }
 
   prevent_user_existence_errors = "ENABLED"
-
-  tags = merge(local.common_tags, {
-    Name = "${local.name_prefix}-cliente-backend"
-    Type = "confidential"
-  })
 }

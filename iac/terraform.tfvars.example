@@ -1,0 +1,86 @@
+# ============================================================
+# Ejemplo de Variables – Plataforma de Microcréditos
+# ============================================================
+# Copiar este archivo como terraform.tfvars y ajustar los valores.
+# Las variables sin valor aquí son OBLIGATORIAS y deben definirse.
+
+# ─── Generales ───────────────────────────────────────────────
+aws_region   = "us-east-1"
+project_name = "microcreditos"
+environment  = "dev"
+
+tags = {
+  Owner      = "equipo-microcreditos"
+  Repository = "Plataforma_Microcreditos-IaC"
+}
+
+# ─── Networking ──────────────────────────────────────────────
+vpc_cidr                  = "10.0.0.0/16"
+availability_zones        = ["us-east-1a", "us-east-1b"]
+public_subnet_cidrs       = ["10.0.1.0/24", "10.0.2.0/24"]
+private_app_subnet_cidrs  = ["10.0.10.0/24", "10.0.11.0/24"]
+private_data_subnet_cidrs = ["10.0.20.0/24", "10.0.21.0/24"]
+enable_ha_nat             = false # true en prod para alta disponibilidad
+
+# ─── Security ────────────────────────────────────────────────
+backend_port              = 8080
+database_port             = 5432
+redis_port                = 6379
+allowed_http_cidr_blocks  = ["0.0.0.0/0"]
+allowed_https_cidr_blocks = ["0.0.0.0/0"]
+enable_regional_waf       = true
+enable_cloudfront_waf     = true
+blocked_ip_addresses      = []
+
+# ─── Observability ───────────────────────────────────────────
+notification_email = "soporte@example.com"  # OBLIGATORIO: Cambiar
+log_retention_days = 30
+
+# Estos valores se actualizan cuando el módulo de compute (ECS) exista:
+# ecs_cluster_name        = "microcreditos-dev-cluster"
+# ecs_service_name        = "microcreditos-dev-api"
+# alb_arn_suffix          = "app/microcreditos-dev-alb/1234567890"
+# target_group_arn_suffix = "targetgroup/microcreditos-dev-tg/1234567890"
+
+# ─── Database ────────────────────────────────────────────────
+db_instance_class = "db.t4g.micro"
+db_name           = "microcreditos"
+db_username       = "dbadmin"
+
+# ─── Cache ───────────────────────────────────────────────────
+cache_node_type = "cache.t4g.micro"
+
+# ─── Auth (Cognito) ─────────────────────────────────────────
+domain_name                      = "microcreditos.example.com" # OBLIGATORIO: Cambiar
+enable_deletion_protection       = false # true en prod
+password_minimum_length          = 12
+password_require_symbols         = true
+temporary_password_validity_days = 7
+access_token_validity_minutes    = 15
+refresh_token_validity_hours     = 24
+
+# ─── Config (SSM + Secrets) ─────────────────────────────────
+flow_api_url     = "https://api.flow.cl/v1"
+infocorp_api_url = "https://api.infocorp.com.pe/v1"
+max_credit_amount = 50000
+min_credit_amount = 500
+log_level         = "INFO"
+
+# ─── Messaging (SQS) ────────────────────────────────────────
+sqs_visibility_timeout_seconds = 30
+sqs_message_retention_seconds  = 345600  # 4 días
+sqs_receive_wait_time_seconds  = 10
+sqs_max_receive_count          = 3
+sqs_dlq_retention_seconds      = 1209600 # 14 días
+
+# ─── CDN (CloudFront) ───────────────────────────────────────
+frontend_bucket_name                 = "microcreditos-dev-frontend" # OBLIGATORIO: Cambiar
+frontend_bucket_regional_domain_name = "microcreditos-dev-frontend.s3.us-east-1.amazonaws.com" # OBLIGATORIO
+cdn_price_class                      = "PriceClass_100"
+# acm_certificate_arn = "arn:aws:acm:us-east-1:123456789012:certificate/xxxxx"
+# cdn_domain_aliases  = ["app.microcreditos.com"]
+
+# ─── Backup ─────────────────────────────────────────────────
+backup_schedule       = "cron(0 3 * * ? *)" # 3:00 AM UTC
+backup_retention_days = 7
+backup_window_minutes = 120
