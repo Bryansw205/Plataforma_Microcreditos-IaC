@@ -1,0 +1,8 @@
+aws_region  = "us-east-1"
+project_name = "microcreditos"
+environment  = "dev"
+
+tags = {
+  Owner      = "equipo-microcreditos"
+  Repository = "Plataforma_Microcreditos-IaC"
+}
