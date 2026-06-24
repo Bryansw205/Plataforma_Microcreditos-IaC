@@ -91,12 +91,6 @@ variable "refresh_token_validity_hours" {
   }
 }
 
-variable "allow_username_password_auth" {
-  description = "Permitir autenticación directa con usuario y contraseña (menos seguro, no recomendado)"
-  type        = bool
-  default     = false
-}
-
 variable "custom_attributes" {
   description = "Atributos personalizados adicionales para el pool de usuarios"
   type = list(object({
