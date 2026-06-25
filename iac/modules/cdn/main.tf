@@ -15,7 +15,10 @@ resource "aws_cloudfront_origin_access_control" "frontend" {
   signing_protocol                  = "sigv4"
 }
 
-# checkov:skip=CKV_AWS_310: Omitir failover de origen, ya que es un entorno de desarrollo/MVP y un unico bucket S3 es suficiente. :p
+data "aws_cloudfront_response_headers_policy" "security_headers" {
+  name = "Managed-SecurityHeadersPolicy"
+}
+
 resource "aws_cloudfront_distribution" "frontend" {
   enabled             = true
   comment             = "${var.project}-${var.environment}-frontend-cdn"
@@ -40,6 +43,7 @@ resource "aws_cloudfront_distribution" "frontend" {
     target_origin_id       = "s3-${var.frontend_bucket_name}"
     viewer_protocol_policy = "redirect-to-https"
     compress               = true
+     response_headers_policy_id = data.aws_cloudfront_response_headers_policy.security_headers.id
 
     allowed_methods = ["GET", "HEAD", "OPTIONS"]
     cached_methods  = ["GET", "HEAD"]
