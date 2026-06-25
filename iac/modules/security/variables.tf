@@ -96,11 +96,11 @@ variable "enable_rate_limit_rule" {
 variable "rate_limit_requests" {
   description = "Cantidad máxima de peticiones permitidas por IP durante la ventana de evaluación."
   type        = number
-  default     = 20
+  default     = 100
 
   validation {
-    condition     = var.rate_limit_requests >= 10
-    error_message = "rate_limit_requests debe ser mayor o igual a 10."
+    condition     = var.rate_limit_requests >= 100
+    error_message = "rate_limit_requests debe ser mayor o igual a 100."
   }
 }
 
