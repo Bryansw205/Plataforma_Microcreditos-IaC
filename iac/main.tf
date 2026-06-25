@@ -22,6 +22,7 @@
 resource "aws_cloudwatch_log_group" "vpc_flow_logs" {
   name              = "/aws/vpc/${local.name_prefix}/flow-logs"
   retention_in_days = var.log_retention_days
+  kms_key_id        = module.security.kms_key_arn
 
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-vpc-flow-logs"
@@ -141,6 +142,7 @@ module "observability" {
   alb_arn_suffix          = var.alb_arn_suffix
   target_group_arn_suffix = var.target_group_arn_suffix
   log_retention_days      = var.log_retention_days
+  kms_key_arn             = module.security.kms_key_arn
 }
 
 # ─────────────────────────────────────────────────────────────

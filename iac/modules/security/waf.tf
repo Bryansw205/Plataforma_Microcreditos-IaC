@@ -313,7 +313,8 @@ resource "aws_wafv2_web_acl" "cloudfront" {
 resource "aws_cloudwatch_log_group" "regional_waf" {
   count             = var.enable_regional_waf ? 1 : 0
   name              = "aws-waf-logs-${local.name_prefix}-regional"
-  retention_in_days = 30
+  retention_in_days = 365
+  kms_key_id        = aws_kms_key.main.arn
 
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-regional-waf-logs"
@@ -333,7 +334,8 @@ resource "aws_cloudwatch_log_group" "cloudfront_waf" {
   count    = var.enable_cloudfront_waf ? 1 : 0
 
   name              = "aws-waf-logs-${local.name_prefix}-cloudfront"
-  retention_in_days = 30
+  retention_in_days = 365
+  kms_key_id        = aws_kms_key.main.arn
 
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-cloudfront-waf-logs"

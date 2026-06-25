@@ -2,9 +2,9 @@
 # MODULE: observability
 # CloudWatch Logs, Métricas, Alarmas, SNS y X-Ray
 # ============================================================
-
 resource "aws_sns_topic" "alerts" {
-  name = "${var.project}-${var.environment}-critical-alerts"
+  name              = "${var.project}-${var.environment}-critical-alerts"
+  kms_master_key_id = var.kms_key_arn
 
   tags = {
     Name        = "${var.project}-${var.environment}-critical-alerts"
@@ -22,6 +22,7 @@ resource "aws_sns_topic_subscription" "email_alerts" {
 resource "aws_cloudwatch_log_group" "ecs_app" {
   name              = "/aws/ecs/${var.project}-${var.environment}/app"
   retention_in_days = var.log_retention_days
+  kms_key_id        = var.kms_key_arn
 
   tags = {
     Name        = "${var.project}-${var.environment}-ecs-logs"
@@ -33,6 +34,7 @@ resource "aws_cloudwatch_log_group" "ecs_app" {
 resource "aws_cloudwatch_log_group" "xray" {
   name              = "/aws/xray/${var.project}-${var.environment}"
   retention_in_days = var.log_retention_days
+  kms_key_id        = var.kms_key_arn
 
   tags = {
     Name        = "${var.project}-${var.environment}-xray-logs"
