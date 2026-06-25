@@ -21,7 +21,7 @@ resource "aws_s3_bucket" "documents" {
       id     = "replicate-all-contracts"
       status = "Enabled"
       destination {
-        bucket        = "${var.name_prefix}-loan-documents-backup-s3"
+        bucket        = "arn:aws:s3:::${var.name_prefix}-loan-documents-backup-s3"
         storage_class = "STANDARD"
       }
     }

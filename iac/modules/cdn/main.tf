@@ -15,9 +15,10 @@ resource "aws_cloudfront_origin_access_control" "frontend" {
   signing_protocol                  = "sigv4"
 }
 
-data "aws_cloudfront_response_headers_policy" "security_headers" {
-  name = "Managed-SecurityHeadersPolicy"
-}
+# Data block removed due to IAM permissions (AccessDenied)
+# data "aws_cloudfront_response_headers_policy" "security_headers" {
+#   name = "Managed-SecurityHeadersPolicy"
+# }
 
 # Solo se comenta el error 310 (Origin Failover) tal como solicitaste:
 # checkov:skip=CKV_AWS_310: Omitir failover de origen, ya que es un entorno de desarrollo/MVP y un unico bucket S3 es suficiente.
@@ -45,7 +46,8 @@ resource "aws_cloudfront_distribution" "frontend" {
     target_origin_id           = "s3-${var.frontend_bucket_name}"
     viewer_protocol_policy     = "redirect-to-https"
     compress                   = true
-    response_headers_policy_id = data.aws_cloudfront_response_headers_policy.security_headers.id
+    # 67f7725c-6f97-4210-82d7-5512b31e9d03 es el ID manejado por AWS para Managed-SecurityHeadersPolicy
+    response_headers_policy_id = "67f7725c-6f97-4210-82d7-5512b31e9d03"
 
     allowed_methods = ["GET", "HEAD", "OPTIONS"]
     cached_methods  = ["GET", "HEAD"]
