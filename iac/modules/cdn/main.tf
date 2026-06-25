@@ -68,8 +68,8 @@ resource "aws_cloudfront_distribution" "frontend" {
   viewer_certificate {
     cloudfront_default_certificate = local.use_custom_domain ? false : true
     acm_certificate_arn            = local.use_custom_domain ? var.acm_certificate_arn : null
-    ssl_support_method             = local.use_custom_domain ? "sni-only" : null
-    minimum_protocol_version       = local.use_custom_domain ? "TLSv1.2_2021" : null
+    ssl_support_method             = local.use_custom_domain ? "sni-only" : "sni-only"
+    minimum_protocol_version       = "TLSv1.2_2021"
   }
 
   restrictions {
