@@ -25,6 +25,11 @@ variable "s3_bucket_arn" {
   type        = string
 }
 
+variable "backup_kms_key_arn" {
+  description = "ARN de la llave KMS para el cifrado en reposo de la bóveda"
+  type        = string
+}
+
 # ─────────────────────────────────────────────────────────
 # Configuración de Frecuencia y Retención
 # ─────────────────────────────────────────────────────────

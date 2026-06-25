@@ -46,14 +46,24 @@ resource "aws_db_instance" "main" {
   storage_encrypted = true
   kms_key_id        = var.rds_kms_key_arn # Llave criptográfica administrada
 
+  # Mejoras para cumplimiento de seguridad (Insights, Logs, Actualizaciones, IAM, etc.)
+  performance_insights_enabled        = true
+  performance_insights_kms_key_id     = var.rds_kms_key_arn
+  auto_minor_version_upgrade          = true
+  iam_database_authentication_enabled = true
+  enabled_cloudwatch_logs_exports     = ["postgresql", "upgrade"]
+  copy_tags_to_snapshot               = true
+  monitoring_interval                 = 60
+  monitoring_role_arn                 = aws_iam_role.rds_monitoring.arn
+
   # Credenciales del negocio (Se administrarán automáticamente a través de Secrets Manager)
   db_name                     = var.db_name
   username                    = var.db_username
   manage_master_user_password = true # Delega la contraseña a AWS de forma segura
 
   # Arquitectura Multi-AZ
-  # Se activa automáticamente si el entorno es producción ("prod")
-  multi_az = var.environment == "prod" ? true : false
+  # Forzado a true para cumplir con las políticas de alta disponibilidad estáticas (CKV_AWS_157)
+  multi_az = true
 
   # Redes y Conectividad Segura
   db_subnet_group_name   = aws_db_subnet_group.main.name
@@ -67,11 +77,36 @@ resource "aws_db_instance" "main" {
   maintenance_window      = "Mon:04:00-Mon:04:30"
 
   # Protección contra eliminaciones accidentales en producción
-  deletion_protection = var.environment == "prod" ? true : false
+  # Forzado a true para cumplir con la política CKV_AWS_293 en todos los entornos
+  deletion_protection = true
   skip_final_snapshot = var.environment == "dev" ? true : false
 
   tags = {
     Name = "${var.name_prefix}-database"
     Tier = "Data"
   }
+}
+
+# -----------------------------------------------------------
+# Rol IAM para Monitoreo Mejorado (Enhanced Monitoring) de RDS
+# -----------------------------------------------------------
+resource "aws_iam_role" "rds_monitoring" {
+  name = "${var.name_prefix}-rds-monitoring-role"
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Principal = {
+          Service = "monitoring.rds.amazonaws.com"
+        }
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "rds_monitoring" {
+  role       = aws_iam_role.rds_monitoring.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole"
 }

@@ -18,6 +18,11 @@ variable "elasticache_security_group_id" {
   type        = string
 }
 
+variable "elasticache_kms_key_arn" {
+  description = "ARN de la llave KMS para el cifrado en reposo"
+  type        = string
+}
+
 variable "cache_node_type" {
   description = "Tipo de instancia solicitado para los nodos de cache"
   type        = string
