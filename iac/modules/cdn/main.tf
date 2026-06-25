@@ -19,6 +19,8 @@ data "aws_cloudfront_response_headers_policy" "security_headers" {
   name = "Managed-SecurityHeadersPolicy"
 }
 
+# Solo se comenta el error 310 (Origin Failover) tal como solicitaste:
+# checkov:skip=CKV_AWS_310: Omitir failover de origen, ya que es un entorno de desarrollo/MVP y un unico bucket S3 es suficiente.
 resource "aws_cloudfront_distribution" "frontend" {
   enabled             = true
   comment             = "${var.project}-${var.environment}-frontend-cdn"
@@ -40,10 +42,10 @@ resource "aws_cloudfront_distribution" "frontend" {
   }
 
   default_cache_behavior {
-    target_origin_id       = "s3-${var.frontend_bucket_name}"
-    viewer_protocol_policy = "redirect-to-https"
-    compress               = true
-     response_headers_policy_id = data.aws_cloudfront_response_headers_policy.security_headers.id
+    target_origin_id           = "s3-${var.frontend_bucket_name}"
+    viewer_protocol_policy     = "redirect-to-https"
+    compress                   = true
+    response_headers_policy_id = data.aws_cloudfront_response_headers_policy.security_headers.id
 
     allowed_methods = ["GET", "HEAD", "OPTIONS"]
     cached_methods  = ["GET", "HEAD"]
@@ -76,9 +78,11 @@ resource "aws_cloudfront_distribution" "frontend" {
     minimum_protocol_version       = "TLSv1.2_2021"
   }
 
+  # Solución por código para el error 374 (Restricción geográfica para el mercado de destino):
   restrictions {
     geo_restriction {
-      restriction_type = "none"
+      restriction_type = "whitelist"
+      locations        = ["PE"] # Delimita el acceso al territorio peruano
     }
   }
 
