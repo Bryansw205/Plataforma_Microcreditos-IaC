@@ -15,6 +15,7 @@ resource "aws_cloudfront_origin_access_control" "frontend" {
   signing_protocol                  = "sigv4"
 }
 
+# checkov:skip=CKV_AWS_310: Omitir failover de origen, ya que es un entorno de desarrollo/MVP y un unico bucket S3 es suficiente. :p
 resource "aws_cloudfront_distribution" "frontend" {
   enabled             = true
   comment             = "${var.project}-${var.environment}-frontend-cdn"
