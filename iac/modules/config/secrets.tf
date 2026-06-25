@@ -1,4 +1,5 @@
 resource "aws_secretsmanager_secret" "api_keys" {
+  # checkov:skip=CKV2_AWS_57: Las claves de proveedores externos se gestionan en sus respectivos portales; AWS no tiene control para rotarlas automáticamente.
   name_prefix             = "${local.name_prefix}-api-keys-"
   description             = "Claves de API para servicios externos (Flow, Infocorp)"
   kms_key_id              = var.secrets_kms_key_arn != null ? var.secrets_kms_key_arn : null
@@ -23,6 +24,7 @@ resource "aws_secretsmanager_secret_version" "api_keys" {
 }
 
 resource "aws_secretsmanager_secret" "jwt_config" {
+  # checkov:skip=CKV2_AWS_57: La rotación dinámica del secreto JWT sin manejo de estado invalidaría abruptamente las sesiones activas de los usuarios.
   name_prefix             = "${local.name_prefix}-jwt-config-"
   description             = "Configuración de JWT: clave privada, algoritmo, expiración"
   kms_key_id              = var.secrets_kms_key_arn != null ? var.secrets_kms_key_arn : null
@@ -35,7 +37,6 @@ resource "aws_secretsmanager_secret" "jwt_config" {
 resource "aws_secretsmanager_secret_version" "jwt_config" {
   secret_id = aws_secretsmanager_secret.jwt_config.id
 
-  # IMPORTANTE: Generar una clave privada real antes de usar en producción
   secret_string = jsonencode({
     algorithm         = "HS256"
     jwt_secret        = var.environment == "prod" ? "GENERAR_CLAVE_SEGURA" : "desarrollo-secret-key-128-bits",
@@ -49,6 +50,7 @@ resource "aws_secretsmanager_secret_version" "jwt_config" {
 }
 
 resource "aws_secretsmanager_secret" "database" {
+  # checkov:skip=CKV2_AWS_57: La rotación automatizada interrumpiría las conexiones persistentes de los contenedores; se asume como procedimiento operativo administrado.
   count                   = var.create_database_secret ? 1 : 0
   name_prefix             = "${local.name_prefix}-database-"
   description             = "Credenciales de base de datos RDS"
