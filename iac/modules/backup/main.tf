@@ -59,7 +59,8 @@ resource "aws_iam_role_policy_attachment" "s3_restore_policy" {
 
 # Contenedor seguro donde se almacenan todos los puntos de recuperación
 resource "aws_backup_vault" "main" {
-  name = "${var.name_prefix}-backup-vault"
+  name        = "${var.name_prefix}-backup-vault"
+  kms_key_arn = var.backup_kms_key_arn
 
   tags = {
     Name        = "${var.name_prefix}-backup-vault"

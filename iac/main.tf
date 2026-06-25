@@ -180,10 +180,11 @@ module "storage" {
 module "cache" {
   source = "./modules/cache"
 
-  name_prefix                = local.name_prefix
-  environment                = var.environment
-  private_data_subnet_ids    = module.networking.private_data_subnet_ids
+  name_prefix                   = local.name_prefix
+  environment                   = var.environment
+  private_data_subnet_ids       = module.networking.private_data_subnet_ids
   elasticache_security_group_id = module.security.redis_security_group_id
+  elasticache_kms_key_arn       = module.security.kms_key_arn
 
   cache_node_type = var.cache_node_type
 }
@@ -303,8 +304,9 @@ module "backup" {
   name_prefix    = local.name_prefix
   environment    = var.environment
 
-  rds_instance_arn = module.database.db_instance_arn
-  s3_bucket_arn    = module.storage.documents_bucket_arn
+  rds_instance_arn   = module.database.db_instance_arn
+  s3_bucket_arn      = module.storage.documents_bucket_arn
+  backup_kms_key_arn = module.security.kms_key_arn
 
   backup_schedule        = var.backup_schedule
   backup_retention_days  = var.backup_retention_days
