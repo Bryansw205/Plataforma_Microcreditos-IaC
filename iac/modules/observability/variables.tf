@@ -36,5 +36,10 @@ variable "target_group_arn_suffix" {
 variable "log_retention_days" {
   type        = number
   description = "Días de retención de logs en CloudWatch."
-  default     = 30
+  default     = 365
+}
+
+variable "kms_key_arn" {
+  type        = string
+  description = "ARN de la llave KMS para encriptar logs y SNS."
 }

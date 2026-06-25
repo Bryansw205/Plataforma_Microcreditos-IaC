@@ -174,7 +174,7 @@ variable "target_group_arn_suffix" {
 variable "log_retention_days" {
   description = "Días de retención de logs en CloudWatch."
   type        = number
-  default     = 30
+  default     = 365
 }
 
 # ─────────────────────────────────────────────────────────────

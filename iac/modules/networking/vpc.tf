@@ -17,3 +17,13 @@ resource "aws_internet_gateway" "main" {
     Name = "${var.project_name}-${var.environment}-igw"
   }
 }
+
+# Restringir el Security Group por defecto de la VPC (CKV2_AWS_12)
+resource "aws_default_security_group" "default" {
+  vpc_id = aws_vpc.main.id
+
+  # Sin reglas de ingress ni egress, Terraform remueve cualquier regla predeterminada
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-default-sg-restricted"
+  })
+}
