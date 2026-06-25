@@ -9,9 +9,12 @@ resource "aws_s3_bucket" "documents" {
   force_destroy = var.environment == "dev" ? true : false # Permite limpiar fácil en desarrollo
 
   # SOLUCIÓN CKV_AWS_18: Habilita el registro de accesos para auditorías inmutables
-  logging {
-    target_bucket = var.log_bucket_domain_name
-    target_prefix = "s3-access-logs/"
+  dynamic "logging" {
+    for_each = var.log_bucket_domain_name != "" ? [1] : []
+    content {
+      target_bucket = var.log_bucket_domain_name
+      target_prefix = "s3-access-logs/"
+    }
   }
 
   # SOLUCIÓN CKV_AWS_144: Configura la réplica entre regiones para recuperación ante desastres

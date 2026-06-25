@@ -30,10 +30,13 @@ resource "aws_cloudfront_distribution" "frontend" {
   aliases             = var.domain_aliases
   web_acl_id          = var.web_acl_id
 
-  logging_config {
-    include_cookies = false
-    bucket          = var.log_bucket_domain_name # Ej: "mi-bucket-logs.s3.amazonaws.com"
-    prefix          = var.log_prefix             # Ej: "cloudfront-frontend/"
+  dynamic "logging_config" {
+    for_each = var.log_bucket_domain_name != "" ? [1] : []
+    content {
+      include_cookies = false
+      bucket          = var.log_bucket_domain_name
+      prefix          = var.log_prefix
+    }
   }
 
   origin {
