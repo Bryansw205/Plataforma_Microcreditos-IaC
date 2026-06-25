@@ -23,6 +23,12 @@ resource "aws_cloudfront_distribution" "frontend" {
   aliases             = var.domain_aliases
   web_acl_id          = var.web_acl_id
 
+  logging_config {
+    include_cookies = false
+    bucket          = var.log_bucket_domain_name # Ej: "mi-bucket-logs.s3.amazonaws.com"
+    prefix          = var.log_prefix             # Ej: "cloudfront-frontend/"
+  }
+
   origin {
     domain_name              = var.frontend_bucket_regional_domain_name
     origin_id                = "s3-${var.frontend_bucket_name}"
