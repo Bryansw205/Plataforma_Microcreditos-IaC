@@ -1,4 +1,6 @@
 # Public Subnets
+
+# checkov:skip=CKV_AWS_130: Se requiere la asignacion automatica de IP publica de forma intencional por tratarse de la capa publica de la red. :3
 resource "aws_subnet" "public" {
   count = length(var.public_subnet_cidrs)
 
