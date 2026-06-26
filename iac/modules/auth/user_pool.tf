@@ -101,7 +101,7 @@ resource "aws_cognito_user_pool" "main" {
     email_sending_account = "COGNITO_DEFAULT"
   }
 
-  deletion_protection = var.enable_deletion_protection ? "ACTIVE" : "INACTIVE"
+  deletion_protection = "INACTIVE"
 
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-usuarios"
