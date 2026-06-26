@@ -3,6 +3,7 @@
 # ─────────────────────────────────────────────────────────
 
 resource "aws_lb" "main" {
+  #checkov:skip=CKV_AWS_150: Deletion protection is intentionally parameterized for prod only to allow dev teardown.
   name               = "${var.name_prefix}-alb"
   internal           = false
   load_balancer_type = "application"
