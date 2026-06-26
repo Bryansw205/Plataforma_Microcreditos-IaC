@@ -63,7 +63,6 @@ resource "aws_wafv2_web_acl" "regional" {
         rate_based_statement {
           limit                 = var.rate_limit_requests
           aggregate_key_type    = "IP"
-          evaluation_window_sec = var.rate_limit_evaluation_window_sec
         }
       }
 
@@ -221,7 +220,6 @@ resource "aws_wafv2_web_acl" "cloudfront" {
         rate_based_statement {
           limit                 = var.rate_limit_requests
           aggregate_key_type    = "IP"
-          evaluation_window_sec = var.rate_limit_evaluation_window_sec
         }
       }
 

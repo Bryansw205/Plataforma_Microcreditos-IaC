@@ -41,3 +41,15 @@ variable "price_class" {
   description = "Clase de precio de CloudFront."
   default     = "PriceClass_100"
 }
+
+variable "log_bucket_domain_name" {
+  type        = string
+  description = "Domain name for the logging bucket"
+  default     = ""
+}
+
+variable "log_prefix" {
+  type        = string
+  description = "Prefix for CloudFront logs"
+  default     = "cloudfront-logs/"
+}

@@ -314,3 +314,30 @@ module "backup" {
   backup_retention_days  = var.backup_retention_days
   backup_window_minutes  = var.backup_window_minutes
 }
+
+# ─────────────────────────────────────────────────────────────
+# Capa 12 – Compute (ECS Fargate + ALB)
+# ─────────────────────────────────────────────────────────────
+
+module "compute" {
+  source = "./modules/compute"
+
+  name_prefix = local.name_prefix
+  environment = var.environment
+  vpc_id      = module.networking.vpc_id
+
+  public_subnet_ids      = module.networking.public_subnet_ids
+  private_app_subnet_ids = module.networking.private_app_subnet_ids
+
+  alb_security_group_id = module.security.alb_security_group_id
+  ecs_security_group_id = module.security.backend_security_group_id
+  
+  # Asumiendo que el certificado que se usa en CloudFront aplica para el ALB.
+  acm_certificate_arn   = var.acm_certificate_arn
+
+  ecr_image_uri       = var.ecr_image_uri
+  cpu                 = var.cpu
+  memory              = var.memory
+  container_port      = var.backend_port
+  secrets_kms_key_arn = module.security.kms_key_arn
+}
