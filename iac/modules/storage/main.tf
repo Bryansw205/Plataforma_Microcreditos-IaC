@@ -16,19 +16,6 @@ resource "aws_s3_bucket" "documents" {
       target_prefix = "s3-access-logs/"
     }
   }
-
-  # SOLUCIÓN CKV_AWS_144: Configura la réplica entre regiones para recuperación ante desastres
-  replication_configuration {
-    role = var.replication_iam_role_arn
-    rules {
-      id     = "replicate-all-contracts"
-      status = "Enabled"
-      destination {
-        bucket        = "arn:aws:s3:::${var.name_prefix}-loan-documents-backup-s3"
-        storage_class = "STANDARD"
-      }
-    }
-  }
 }
 
 # Habilitar el control de versiones (Permite recuperar archivos modificados o borrados)
@@ -36,6 +23,25 @@ resource "aws_s3_bucket_versioning" "documents" {
   bucket = aws_s3_bucket.documents.id
   versioning_configuration {
     status = "Enabled"
+  }
+}
+
+# SOLUCIÓN CKV_AWS_144: Configura la réplica entre regiones para recuperación ante desastres
+resource "aws_s3_bucket_replication_configuration" "documents" {
+  # Asegura que el versionado esté listo antes de intentar configurar la réplica
+  depends_on = [aws_s3_bucket_versioning.documents]
+
+  bucket = aws_s3_bucket.documents.id
+  role   = var.replication_iam_role_arn
+
+  rule {
+    id     = "replicate-all-contracts"
+    status = "Enabled"
+
+    destination {
+      bucket        = "arn:aws:s3:::${var.name_prefix}-loan-documents-backup-s3"
+      storage_class = "STANDARD"
+    }
   }
 }
 

@@ -19,6 +19,23 @@ resource "aws_kms_key" "main" {
 
         Action   = "kms:*"
         Resource = "*"
+      },
+      {
+        Sid    = "AllowCloudWatchLogs"
+        Effect = "Allow"
+
+        Principal = {
+          Service = "logs.us-east-1.amazonaws.com"
+        }
+
+        Action = [
+          "kms:Encrypt*",
+          "kms:Decrypt*",
+          "kms:ReEncrypt*",
+          "kms:GenerateDataKey*",
+          "kms:Describe*"
+        ]
+        Resource = "*"
       }
     ]
   })
