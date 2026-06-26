@@ -10,6 +10,8 @@ resource "aws_lb" "main" {
   security_groups    = [var.alb_security_group_id]
   subnets            = var.public_subnet_ids
 
+  drop_invalid_header_fields = true
+
   enable_deletion_protection = var.environment == "prod" ? true : false
 
   tags = {
