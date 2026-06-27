@@ -340,4 +340,5 @@ module "compute" {
   memory              = var.memory
   container_port      = var.backend_port
   secrets_kms_key_arn = module.security.kms_key_arn
+  access_logs_bucket  = module.storage.alb_logs_bucket_id
 }
