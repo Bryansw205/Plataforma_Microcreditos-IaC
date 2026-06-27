@@ -1,0 +1,43 @@
+name: Analisis con SonarQube Cloud
+
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - "iac/**"
+      - "app/**"
+      - "sonar-project.properties"
+      - ".github/workflows/sonarqube.yml"
+
+  pull_request:
+    branches:
+      - dev
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - "iac/**"
+      - "app/**"
+      - "sonar-project.properties"
+      - ".github/workflows/sonarqube.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  sonarqube:
+    name: Analizar proyecto
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo del repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ejecutar analisis con SonarQube Cloud
+        uses: SonarSource/sonarqube-scan-action@v7.0.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
