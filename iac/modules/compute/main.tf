@@ -91,8 +91,8 @@ resource "aws_ecs_cluster" "main" {
 # ─────────────────────────────────────────────────────────
 # CloudWatch Log Group para el contenedor
 # ─────────────────────────────────────────────────────────
-# checkov:skip=CKV_AWS_338: Se define retención de 90 días para mitigar sobrecostos de almacenamiento en CloudWatch. El RNF_28 de observabilidad opera sobre eventos en tiempo real.
 resource "aws_cloudwatch_log_group" "app" {
+  #checkov:skip=CKV_AWS_338: Se define retención de 30 días para mitigar sobrecostos de almacenamiento en CloudWatch. El RNF_28 de observabilidad opera sobre eventos en tiempo real.
   name              = "/ecs/${var.name_prefix}-app"
   retention_in_days = 30
   kms_key_id        = var.secrets_kms_key_arn # Reusamos KMS para encriptar logs
