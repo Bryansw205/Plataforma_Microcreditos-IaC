@@ -21,8 +21,9 @@ resource "aws_cloudfront_origin_access_control" "frontend" {
 # }
 
 # Solo se comenta el error 310 (Origin Failover) tal como solicitaste:
-# checkov:skip=CKV_AWS_310: Omitir failover de origen, ya que es un entorno de desarrollo/MVP y un unico bucket S3 es suficiente.
 resource "aws_cloudfront_distribution" "frontend" {
+  # checkov:skip=CKV_AWS_310: Omitir failover de origen, ya que es un entorno de desarrollo/MVP y un unico bucket S3 es suficiente.
+
   enabled             = true
   comment             = "${var.project}-${var.environment}-frontend-cdn"
   default_root_object = "index.html"
