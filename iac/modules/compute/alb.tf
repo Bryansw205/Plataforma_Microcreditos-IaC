@@ -56,7 +56,8 @@ resource "aws_lb_listener" "https" {
   load_balancer_arn = aws_lb.main.arn
   port              = "443"
   protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-TLS-1-2-2017-01"
+
+  ssl_policy        = "ELBSecurityPolicy-TLS13-1-2-2021-06"
   certificate_arn   = var.acm_certificate_arn
 
   default_action {
@@ -66,6 +67,7 @@ resource "aws_lb_listener" "https" {
 }
 
 resource "aws_lb_listener" "http" {
+  #checkov:skip=CKV_AWS_103: HTTP listener on port 80 redirects to HTTPS 443 (TLS 1.3). TLS is not applicable to HTTP protocol.
   load_balancer_arn = aws_lb.main.arn
   port              = "80"
   protocol          = "HTTP"
