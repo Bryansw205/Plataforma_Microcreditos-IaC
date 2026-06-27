@@ -13,6 +13,7 @@ resource "aws_wafv2_ip_set" "regional_blocked_ips" {
 }
 
 resource "aws_wafv2_web_acl" "regional" {
+  # checkov:skip=CKV_AWS_103: El logging esta configurado externamente, Checkov no detecta la relacion por el uso de count [0]
   count = var.enable_regional_waf ? 1 : 0
 
   name        = "${local.name_prefix}-regional-waf"
@@ -168,6 +169,7 @@ resource "aws_wafv2_ip_set" "cloudfront_blocked_ips" {
 }
 
 resource "aws_wafv2_web_acl" "cloudfront" {
+  # checkov:skip=CKV_AWS_103: El logging esta configurado externamente, Checkov no detecta la relacion por el uso de count [0]
   provider = aws.us_east_1
 
   count = var.enable_cloudfront_waf ? 1 : 0

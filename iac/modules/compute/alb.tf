@@ -3,11 +3,14 @@
 # ─────────────────────────────────────────────────────────
 
 resource "aws_lb" "main" {
+  #checkov:skip=CKV_AWS_150: Deletion protection is intentionally parameterized for prod only to allow dev teardown.
   name               = "${var.name_prefix}-alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [var.alb_security_group_id]
   subnets            = var.public_subnet_ids
+
+  drop_invalid_header_fields = true
 
   enable_deletion_protection = var.environment == "prod" ? true : false
 
@@ -53,7 +56,7 @@ resource "aws_lb_listener" "https" {
   load_balancer_arn = aws_lb.main.arn
   port              = "443"
   protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  ssl_policy        = "ELBSecurityPolicy-TLS-1-2-2017-01"
   certificate_arn   = var.acm_certificate_arn
 
   default_action {
