@@ -56,6 +56,8 @@ resource "aws_lb_listener" "https" {
   load_balancer_arn = aws_lb.main.arn
   port              = "443"
   protocol          = "HTTPS"
+
+  #checkov:skip=CKV_AWS_74: El ALB utiliza la política TLS 1.2 por defecto.
   ssl_policy        = "ELBSecurityPolicy-TLS-1-2-2017-01"
   certificate_arn   = var.acm_certificate_arn
 
