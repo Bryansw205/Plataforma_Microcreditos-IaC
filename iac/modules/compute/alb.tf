@@ -67,6 +67,7 @@ resource "aws_lb_listener" "https" {
 }
 
 resource "aws_lb_listener" "http" {
+  #checkov:skip=CKV_AWS_103: HTTP listener on port 80 redirects to HTTPS 443 (TLS 1.3). TLS is not applicable to HTTP protocol.
   load_balancer_arn = aws_lb.main.arn
   port              = "80"
   protocol          = "HTTP"
