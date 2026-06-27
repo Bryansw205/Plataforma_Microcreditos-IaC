@@ -66,3 +66,8 @@ variable "secrets_kms_key_arn" {
   description = "ARN de la llave KMS utilizada para los secretos (para dar permisos a ECS)"
   type        = string
 }
+
+variable "access_logs_bucket" {
+  type        = string
+  description = "El nombre del bucket de S3 donde se almacenarán los logs de acceso del Application Load Balancer"
+}
