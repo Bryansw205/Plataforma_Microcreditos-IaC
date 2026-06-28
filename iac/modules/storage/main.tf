@@ -97,9 +97,14 @@ resource "aws_s3_bucket_lifecycle_configuration" "documents" {
   }
 }
 
-# SOLUCIÓN CKV2_AWS_62: Añadir notificaciones de eventos nativas orientadas al ecosistema de alertas
-resource "aws_s3_bucket_notification" "documents_notification" {
-  bucket = aws_s3_bucket.documents.id
+# SOLUCIÓN CKV2_AWS_62: Añadir notificaciones de eventos nativas orientadas al ecosistema de alertas(solución unificada :3)
+resource "aws_s3_bucket_notification" "unified_notifications" {
+  for_each = {
+    "loan_documents" = aws_s3_bucket.documents.id
+    "balancer_logs"  = aws_s3_bucket.alb_logs.id
+  }
+
+  bucket = each.value
 
   topic {
     topic_arn     = var.sns_topic_arn
