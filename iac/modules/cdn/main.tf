@@ -20,10 +20,10 @@ resource "aws_cloudfront_origin_access_control" "frontend" {
 #   name = "Managed-SecurityHeadersPolicy"
 # }
 
-# Solo se comenta el error 310 (Origin Failover) tal como solicitaste:
-resource "aws_cloudfront_distribution" "frontend" {
-  # checkov:skip=CKV_AWS_310: Omitir failover de origen, ya que es un entorno de desarrollo/MVP y un unico bucket S3 es suficiente.
 
+resource "aws_cloudfront_distribution" "frontend" {
+  #checkov:skip=CKV_AWS_310: Omitir failover de origen, ya que es un entorno de desarrollo/MVP y un unico bucket S3 es suficiente.
+  #checkov:skip=CKV2_AWS_47: Se omite WAFv2 con regla Log4j para evitar sobrecostos. CloudFront sirve contenido estático y la arquitectura no utiliza Java, por lo que la mitigación no aplica.
   enabled             = true
   comment             = "${var.project}-${var.environment}-frontend-cdn"
   default_root_object = "index.html"
@@ -31,7 +31,7 @@ resource "aws_cloudfront_distribution" "frontend" {
   aliases             = var.domain_aliases
   web_acl_id          = var.web_acl_id
 
-  dynamic "logging_config" {
+  dynamic "logging_config" { 
     for_each = var.log_bucket_domain_name != "" ? [1] : []
     content {
       include_cookies = false
