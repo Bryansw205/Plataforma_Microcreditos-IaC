@@ -134,6 +134,40 @@ resource "aws_s3_bucket_public_access_block" "alb_logs" {
   restrict_public_buckets = true
 }
 
+# SOLUCIÓN CKV2_AWS_61: Ciclo de vida para logs del ALB – evita acumulación indefinida de costos
+resource "aws_s3_bucket_lifecycle_configuration" "alb_logs" {
+  bucket = aws_s3_bucket.alb_logs.id
+
+  rule {
+    id     = "archive-and-expire-alb-logs"
+    status = "Enabled"
+
+    filter {}
+
+    # Limpia cargas multipartes incompletas
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 7
+    }
+
+    # A los 30 días mueve logs a acceso poco frecuente (más barato)
+    transition {
+      days          = 30
+      storage_class = "STANDARD_IA"
+    }
+
+    # A los 90 días archiva en Glacier para retención legal
+    transition {
+      days          = 90
+      storage_class = "GLACIER"
+    }
+
+    # A los 365 días elimina logs antiguos que ya no tienen valor operativo
+    expiration {
+      days = 365
+    }
+  }
+}
+
 data "aws_elb_service_account" "main" {}
 data "aws_caller_identity" "current" {}
 
