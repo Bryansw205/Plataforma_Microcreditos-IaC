@@ -120,6 +120,14 @@ resource "aws_s3_bucket" "alb_logs" {
   force_destroy = var.environment == "dev" ? true : false
 }
 
+resource "aws_s3_bucket_versioning" "alb_logs_versioning" {
+  bucket = aws_s3_bucket.alb_logs.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
 resource "aws_s3_bucket_server_side_encryption_configuration" "alb_logs" {
   bucket = aws_s3_bucket.alb_logs.id
 
