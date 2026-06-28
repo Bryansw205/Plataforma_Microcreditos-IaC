@@ -93,3 +93,11 @@ resource "aws_lb_listener" "http" {
     }
   }
 }
+
+#CORRECIÓN CKV2_AWS_28
+resource "aws_wafregional_web_acl_association" "alb_waf_assoc" {
+  count = var.web_acl_id != "" && var.web_acl_id != null ? 1 : 0
+
+  resource_arn = aws_lb.main.arn
+  web_acl_id   = var.web_acl_id
+}

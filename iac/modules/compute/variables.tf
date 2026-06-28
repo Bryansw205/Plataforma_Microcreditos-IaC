@@ -71,3 +71,9 @@ variable "access_logs_bucket" {
   type        = string
   description = "El nombre del bucket de S3 donde se almacenarán los logs de acceso del Application Load Balancer"
 }
+
+variable "web_acl_id" {
+  type        = string
+  default     = ""
+  description = "ID o ARN de la Web ACL de AWS WAF Regional para proteger el ALB publico"
+}
