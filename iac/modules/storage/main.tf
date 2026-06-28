@@ -148,6 +148,14 @@ resource "aws_s3_bucket_public_access_block" "alb_logs" {
   restrict_public_buckets = true
 }
 
+# SOLUCIÓN CKV_AWS_18: Habilita registro de accesos para el bucket de logs del ALB
+resource "aws_s3_bucket_logging" "alb_logs" {
+  bucket = aws_s3_bucket.alb_logs.id
+
+  target_bucket = aws_s3_bucket.alb_logs.id
+  target_prefix = "self-access-logs/"
+}
+
 # SOLUCIÓN CKV2_AWS_61: Ciclo de vida para logs del ALB – evita acumulación indefinida de costos
 resource "aws_s3_bucket_lifecycle_configuration" "alb_logs" {
   bucket = aws_s3_bucket.alb_logs.id
