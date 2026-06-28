@@ -116,6 +116,7 @@ resource "aws_s3_bucket_notification" "unified_notifications" {
 # Bucket para logs de ALB
 # -------------------------------------------------------------
 resource "aws_s3_bucket" "alb_logs" {
+  #checkov:skip=CKV_AWS_144: Se omite la replicación multi-región para los logs del ALB porque son datos de observabilidad temporal. Evita sobrecostos innecesarios de transferencia de red.
   bucket        = "${var.name_prefix}-alb-logs-s3"
   force_destroy = var.environment == "dev" ? true : false
 }
