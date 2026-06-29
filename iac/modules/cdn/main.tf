@@ -20,9 +20,42 @@ resource "aws_cloudfront_origin_access_control" "frontend" {
 #   name = "Managed-SecurityHeadersPolicy"
 # }
 
-# Solo se comenta el error 310 (Origin Failover) tal como solicitaste:
-# checkov:skip=CKV_AWS_310: Omitir failover de origen, ya que es un entorno de desarrollo/MVP y un unico bucket S3 es suficiente.
+resource "aws_cloudfront_response_headers_policy" "frontend_security" {
+  name    = "${var.project}-${var.environment}-frontend-security-headers"
+  comment = "Cabeceras de seguridad para el frontend de la plataforma de microcreditos"
+
+  security_headers_config {
+    content_type_options {
+      override = true
+    }
+
+    frame_options {
+      frame_option = "DENY"
+      override     = true
+    }
+
+    referrer_policy {
+      referrer_policy = "strict-origin-when-cross-origin"
+      override        = true
+    }
+
+    strict_transport_security {
+      access_control_max_age_sec = 31536000
+      include_subdomains         = true
+      preload                    = true
+      override                   = true
+    }
+
+    xss_protection {
+      protection = true
+      mode_block = true
+      override   = true
+    }
+  }
+}
 resource "aws_cloudfront_distribution" "frontend" {
+  #checkov:skip=CKV_AWS_310: Omitir failover de origen, ya que es un entorno de desarrollo/MVP y un unico bucket S3 es suficiente.
+  #checkov:skip=CKV2_AWS_47: Se omite WAFv2 con regla Log4j para evitar sobrecostos. CloudFront sirve contenido estático y la arquitectura no utiliza Java, por lo que la mitigación no aplica.
   enabled             = true
   comment             = "${var.project}-${var.environment}-frontend-cdn"
   default_root_object = "index.html"
@@ -46,14 +79,14 @@ resource "aws_cloudfront_distribution" "frontend" {
   }
 
   default_cache_behavior {
-    target_origin_id           = "s3-${var.frontend_bucket_name}"
-    viewer_protocol_policy     = "redirect-to-https"
-    compress                   = true
-    # 67f7725c-6f97-4210-82d7-5512b31e9d03 es el ID manejado por AWS para Managed-SecurityHeadersPolicy
-    response_headers_policy_id = "67f7725c-6f97-4210-82d7-5512b31e9d03"
+    target_origin_id       = "s3-${var.frontend_bucket_name}"
+    viewer_protocol_policy = "redirect-to-https"
+    compress               = true
 
-    allowed_methods = ["GET", "HEAD", "OPTIONS"]
-    cached_methods  = ["GET", "HEAD"]
+    # Política personalizada de cabeceras de seguridad para CloudFront
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.frontend_security.id
+    allowed_methods            = ["GET", "HEAD", "OPTIONS"]
+    cached_methods             = ["GET", "HEAD"]
 
     forwarded_values {
       query_string = false
