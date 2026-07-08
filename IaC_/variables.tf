@@ -81,3 +81,9 @@ variable "audit_retention_days" {
   type        = number
   default     = 365
 }
+
+variable "alert_email" {
+  description = "Correo electronico para recibir alertas SNS. Si queda vacio, no se crea suscripcion por email"
+  type        = string
+  default     = ""
+}

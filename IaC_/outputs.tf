@@ -97,3 +97,43 @@ output "sqs_processing_dlq_arn" {
   description = "ARN de la Dead-Letter Queue"
   value       = aws_sqs_queue.processing_dlq.arn
 }
+
+output "alerts_topic_name" {
+  description = "Nombre del topico SNS de alertas"
+  value       = aws_sns_topic.alerts.name
+}
+
+output "alerts_topic_arn" {
+  description = "ARN del topico SNS de alertas"
+  value       = aws_sns_topic.alerts.arn
+}
+
+output "parameter_tasa_interes_name" {
+  description = "Nombre del parametro de tasa de interes"
+  value       = aws_ssm_parameter.tasa_interes.name
+}
+
+output "parameter_limite_creditos_name" {
+  description = "Nombre del parametro de limite de creditos"
+  value       = aws_ssm_parameter.limite_creditos.name
+}
+
+output "parameter_plazo_maximo_name" {
+  description = "Nombre del parametro de plazo maximo"
+  value       = aws_ssm_parameter.plazo_maximo.name
+}
+
+output "parameter_tasa_interes_name" {
+  description = "Nombre del parametro de tasa de interes"
+  value       = aws_ssm_parameter.tasa_interes.name
+}
+
+output "parameter_limite_creditos_name" {
+  description = "Nombre del parametro de limite de creditos"
+  value       = aws_ssm_parameter.limite_creditos.name
+}
+
+output "parameter_plazo_maximo_name" {
+  description = "Nombre del parametro de plazo maximo"
+  value       = aws_ssm_parameter.plazo_maximo.name
+}
