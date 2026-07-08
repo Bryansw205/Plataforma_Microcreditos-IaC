@@ -77,3 +77,23 @@ output "redis_security_group_id" {
   description = "ID del Security Group de Redis"
   value       = aws_security_group.redis.id
 }
+
+output "sqs_processing_queue_url" {
+  description = "URL de la cola principal de procesamiento"
+  value       = aws_sqs_queue.processing.id
+}
+
+output "sqs_processing_queue_arn" {
+  description = "ARN de la cola principal de procesamiento"
+  value       = aws_sqs_queue.processing.arn
+}
+
+output "sqs_processing_dlq_url" {
+  description = "URL de la Dead-Letter Queue"
+  value       = aws_sqs_queue.processing_dlq.id
+}
+
+output "sqs_processing_dlq_arn" {
+  description = "ARN de la Dead-Letter Queue"
+  value       = aws_sqs_queue.processing_dlq.arn
+}

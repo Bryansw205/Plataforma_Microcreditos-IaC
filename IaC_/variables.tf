@@ -39,3 +39,33 @@ variable "redis_port" {
   type        = number
   default     = 6379
 }
+
+variable "sqs_message_retention_seconds" {
+  description = "Tiempo de retencion de mensajes en la cola principal de SQS"
+  type        = number
+  default     = 345600
+}
+
+variable "sqs_dlq_message_retention_seconds" {
+  description = "Tiempo de retencion de mensajes en la Dead-Letter Queue"
+  type        = number
+  default     = 1209600
+}
+
+variable "sqs_receive_wait_time_seconds" {
+  description = "Tiempo de espera para long polling en SQS"
+  type        = number
+  default     = 20
+}
+
+variable "sqs_visibility_timeout_seconds" {
+  description = "Tiempo durante el cual un mensaje queda oculto mientras el Worker lo procesa"
+  type        = number
+  default     = 60
+}
+
+variable "sqs_max_receive_count" {
+  description = "Cantidad maxima de intentos antes de enviar el mensaje a la DLQ"
+  type        = number
+  default     = 3
+}
