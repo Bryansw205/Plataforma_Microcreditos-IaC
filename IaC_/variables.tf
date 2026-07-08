@@ -69,3 +69,15 @@ variable "sqs_max_receive_count" {
   type        = number
   default     = 3
 }
+
+variable "documents_retention_days" {
+  description = "Dias de retencion para documentos y contratos con Object Lock"
+  type        = number
+  default     = 3650
+}
+
+variable "audit_retention_days" {
+  description = "Dias de retencion para registros de auditoria con Object Lock"
+  type        = number
+  default     = 365
+}
