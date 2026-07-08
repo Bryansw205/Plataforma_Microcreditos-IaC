@@ -21,3 +21,21 @@ variable "vpc_cidr" {
   type        = string
   default     = "10.0.0.0/16"
 }
+
+variable "backend_port" {
+  description = "Puerto interno del contenedor backend en ECS"
+  type        = number
+  default     = 3000
+}
+
+variable "database_port" {
+  description = "Puerto de Aurora PostgreSQL"
+  type        = number
+  default     = 5432
+}
+
+variable "redis_port" {
+  description = "Puerto de Redis"
+  type        = number
+  default     = 6379
+}
