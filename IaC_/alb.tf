@@ -7,18 +7,18 @@ locals {
 }
 
 resource "aws_lb" "api" {
-# checkov:skip=CKV2_AWS_20:El redirect HTTP→HTTPS está implementado en aws_lb_listener.http_redirect (HTTP 301). El listener http_forward solo existe en entornos siin certificado. :3
-# checkov:skip=CKV2_AWS_28:El WAF está asociado a CloudFront por diseño arquitectónico, no al ALB. :3
+  # checkov:skip=CKV2_AWS_20:El redirect HTTP→HTTPS está implementado en aws_lb_listener.http_redirect (HTTP 301). El listener http_forward solo existe en entornos siin certificado. :3
+  # checkov:skip=CKV2_AWS_28:El WAF está asociado a CloudFront por diseño arquitectónico, no al ALB. :3
   name               = "${local.name_prefix}-api-alb"
   internal           = false
   load_balancer_type = "application"
-  
+
   access_logs {
     bucket  = aws_s3_bucket.audit.bucket
     prefix  = "alb-access-logs"
     enabled = true
   }
-  
+
   security_groups = [
     aws_security_group.alb.id
   ]
@@ -37,7 +37,7 @@ resource "aws_lb" "api" {
 }
 
 resource "aws_lb_target_group" "ecs_api" {
-# checkov:skip=CKV_AWS_378:SSL termination en ALB. Tráfico ALB→ECS es HTTP interno en subnet privada (private_app). No expuesto externamente. :3
+  # checkov:skip=CKV_AWS_378:SSL termination en ALB. Tráfico ALB→ECS es HTTP interno en subnet privada (private_app). No expuesto externamente. :3
   name        = "${local.name_prefix}-ecs-api-tg"
   port        = var.backend_port
   protocol    = "HTTP"
@@ -105,7 +105,7 @@ resource "aws_lb_listener" "http_redirect" {
 }
 
 resource "aws_lb_listener" "http_forward" {
-# checkov:skip=CKV_AWS_103:Listener HTTP condicional (count = alb_certificate_arn == null). En producción con certificado ACM este recurso no se despliega. :o
+  # checkov:skip=CKV_AWS_103:Listener HTTP condicional (count = alb_certificate_arn == null). En producción con certificado ACM este recurso no se despliega. :o
   count             = local.alb_certificate_arn == null ? 1 : 0
   load_balancer_arn = aws_lb.api.arn
   port              = 80

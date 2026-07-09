@@ -14,7 +14,7 @@ resource "aws_db_subnet_group" "aurora" {
 }
 
 resource "aws_rds_cluster" "aurora" {
-  cluster_identifier = "${local.name_prefix}-aurora-postgresql"
+  cluster_identifier              = "${local.name_prefix}-aurora-postgresql"
   db_cluster_parameter_group_name = aws_rds_cluster_parameter_group.aurora.name
 
   engine         = "aurora-postgresql"
@@ -88,20 +88,20 @@ resource "aws_rds_cluster_parameter_group" "aurora" {
   description = "Parameter group para Aurora PostgreSQL con query logging (RNF_27)"
 
   parameter {
-    name  = "log_statement"
-    value = "ddl"   # Registra cambios de estructura (DDL). Usa "all" para máxima auditoría.
+    name         = "log_statement"
+    value        = "ddl" # Registra cambios de estructura (DDL). Usa "all" para máxima auditoría.
     apply_method = "immediate"
   }
 
   parameter {
-    name  = "log_min_duration_statement"
-    value = "1000"   # Registra queries > 1 segundo (relevante para RNF_09)
+    name         = "log_min_duration_statement"
+    value        = "1000" # Registra queries > 1 segundo (relevante para RNF_09)
     apply_method = "immediate"
   }
 
   parameter {
-    name  = "log_connections"
-    value = "1"
+    name         = "log_connections"
+    value        = "1"
     apply_method = "immediate"
   }
 

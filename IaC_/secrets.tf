@@ -1,6 +1,6 @@
 resource "aws_secretsmanager_secret" "db_api_credenciales" {
   #checkov:skip=CKV2_AWS_57: La rotacion automatica se configurara en entornos de produccion segun necesidades de seguridad.
-  name        = "${local.name_prefix}/app-credentials"
+  name_prefix = "${local.name_prefix}/app-credentials-"
   description = "Credenciales para Aurora y APIs externas de ${local.name_prefix}"
   kms_key_id  = aws_kms_key.main.arn
 
