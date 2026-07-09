@@ -21,8 +21,8 @@ resource "aws_rds_cluster" "aurora" {
   engine_version = var.aurora_engine_version
   database_name  = var.aurora_database_name
 
-  master_username             = var.aurora_master_username
-  manage_master_user_password = true
+  master_username               = var.aurora_master_username
+  manage_master_user_password   = true
   master_user_secret_kms_key_id = aws_kms_key.main.arn
 
   iam_database_authentication_enabled = true

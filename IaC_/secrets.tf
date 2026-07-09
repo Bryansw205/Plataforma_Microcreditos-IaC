@@ -14,9 +14,9 @@ resource "aws_secretsmanager_secret" "db_api_credenciales" {
 resource "aws_secretsmanager_secret_version" "db_api_credentials_value" {
   secret_id = aws_secretsmanager_secret.db_api_credenciales.id
   secret_string = jsonencode({
-    username = "admin_microcreditos" #DB
-    password = "cambiar_manualmente" #DB
-    api_key_flow = "cambiar_manualmente"
+    username         = "admin_microcreditos" #DB
+    password         = "cambiar_manualmente" #DB
+    api_key_flow     = "cambiar_manualmente"
     api_key_infocorp = "cambiar_manualmente"
   })
 }
