@@ -35,6 +35,7 @@ resource "aws_lb" "api" {
 }
 
 resource "aws_lb_target_group" "ecs_api" {
+# checkov:skip=CKV_AWS_378:SSL termination en ALB. Tráfico ALB→ECS es HTTP interno en subnet privada (private_app). No expuesto externamente. :3
   name        = "${local.name_prefix}-ecs-api-tg"
   port        = var.backend_port
   protocol    = "HTTP"
