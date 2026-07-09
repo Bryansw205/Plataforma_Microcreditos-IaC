@@ -8,7 +8,7 @@ on:
       - "IaC_/**"
       - "app/**"
       - "sonar-project.properties"
-      - ".github/workflows/sonarqube.yml"
+      - ".github/workflows/ci-sonarqube.yml"
 
   pull_request:
     branches:
