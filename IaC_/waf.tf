@@ -1,4 +1,22 @@
 resource "aws_wafv2_web_acl" "main" {
+  # checkov:skip=CKV2_AWS_47:El WAF adjunto posee la regla AWSManagedRulesKnownBadInputsRuleSet para Log4j.
+  rule {
+    name     = "AWSManagedRulesKnownBadInputs"
+    priority = 20
+    override_action { none {} }
+    statement {
+      managed_rule_group_statement {
+        name        = "AWSManagedRulesKnownBadInputsRuleSet"
+        vendor_name = "AWS"
+      }
+    }
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "KnownBadInputsRuleSet"
+      sampled_requests_enabled   = true
+    }
+  }
+
   provider    = aws.us_east_1
   name        = "${local.name_prefix}-waf"
   description = "Web ACL para proteger el ALB de ${local.name_prefix}"
