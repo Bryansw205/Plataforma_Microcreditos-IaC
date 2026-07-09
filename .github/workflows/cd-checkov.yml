@@ -1,0 +1,43 @@
+name: CD - Checkov
+
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - ".github/workflows/cd-checkov.yml"
+      - "IaC_/**"
+
+  workflow_dispatch:
+
+jobs:
+  checkov-audit:
+    name: Checkov reporte
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+
+      - name: Ejecutar Checkov vía Docker
+        id: checkov
+        continue-on-error: true
+        run: |
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            -v "$(pwd):/repo" \
+            --workdir /repo \
+            bridgecrew/checkov:3 \
+            --directory /repo/IaC_ \
+            -o junitxml \
+            --output-file-path /repo/
+
+      - name: Guardar reporte de Checkov
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: checkov-security-report
+          path: results_junitxml.xml
+          if-no-files-found: ignore
