@@ -193,8 +193,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "audit" {
 
   rule {
     apply_server_side_encryption_by_default {
-      kms_master_key_id = aws_kms_key.main.arn
-      sse_algorithm     = "aws:kms"
+      sse_algorithm     = "AES256"
     }
   }
 }
@@ -234,4 +233,24 @@ resource "aws_s3_bucket_lifecycle_configuration" "audit" {
       days_after_initiation = 7
     }
   }
+}
+
+data "aws_elb_service_account" "main" {}
+
+resource "aws_s3_bucket_policy" "audit_alb" {
+  bucket = aws_s3_bucket.audit.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = {
+          AWS = data.aws_elb_service_account.main.arn
+        }
+        Action   = "s3:PutObject"
+        Resource = "${aws_s3_bucket.audit.arn}/alb-access-logs/AWSLogs/${data.aws_caller_identity.current.account_id}/*"
+      }
+    ]
+  })
 }

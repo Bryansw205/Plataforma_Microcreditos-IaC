@@ -84,7 +84,7 @@ resource "aws_rds_cluster_instance" "aurora" {
 
 resource "aws_rds_cluster_parameter_group" "aurora" {
   name        = "${local.name_prefix}-aurora-params"
-  family      = "aurora-postgresql15"
+  family      = "aurora-postgresql16"
   description = "Parameter group para Aurora PostgreSQL con query logging (RNF_27)"
 
   parameter {

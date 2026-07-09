@@ -39,8 +39,8 @@ resource "aws_cloudfront_cache_policy" "api" {
   min_ttl     = 0
 
   parameters_in_cache_key_and_forwarded_to_origin {
-    enable_accept_encoding_brotli = true
-    enable_accept_encoding_gzip   = true
+    enable_accept_encoding_brotli = false
+    enable_accept_encoding_gzip   = false
 
     cookies_config {
       cookie_behavior = "none"
@@ -51,7 +51,7 @@ resource "aws_cloudfront_cache_policy" "api" {
     }
 
     query_strings_config {
-      query_string_behavior = "all"
+      query_string_behavior = "none"
     }
   }
 }
@@ -118,18 +118,12 @@ resource "aws_cloudfront_response_headers_policy" "security_headers" {
 }
 
 resource "aws_cloudfront_distribution" "main" {
-<<<<<<< HEAD
-# checkov:skip=CKV2_AWS_42:Certificado ACM personalizado (aws_acm_certificate.cloudfront) ya definido en acm.tf. Se activa al configurar var.domain_name en producción.
-# checkov:skip=CKV_AWS_174:Certificado personalizado pendiente de configuración de dominio. En producción se usará ACM con TLS 1.2.
-# checkov:skip=CKV_AWS_310:Origen único S3 con versioning y lifecycle configurados. S3 ofrece 99.999999999% de durabilidad. Failover de origen no aplica para contenido estatico.
-# checkov:skip=CKV_AWS_374:Plataforma de microcréditos con cobertura latinoamericana. Restricción geográfica no aplica por requisito de negocio de inclusión financiera.
-# checkov:skip=CKV2_AWS_47:El WAF adjunto posee la regla AWSManagedRulesKnownBadInputsRuleSet para Log4j. Falso positivo de validación cross-file.
-=======
-  # checkov:skip=CKV_AWS_86:CloudFront standard logging requiere ACL en S3. El bucket audit usa BucketOwnerEnforced y Object Lock. Para logs de CloudFront se recomienda bucket dedicado.
+  # checkov:skip=CKV2_AWS_42:Certificado ACM personalizado (aws_acm_certificate.cloudfront) ya definido en acm.tf. Se activa al configurar var.domain_name en producción.
+  # checkov:skip=CKV_AWS_174:Certificado personalizado pendiente de configuración de dominio. En producción se usará ACM con TLS 1.2.
   # checkov:skip=CKV_AWS_310:El frontend usa S3 con versioning y lifecycle. La API usa ALB como segundo origen.
   # checkov:skip=CKV_AWS_374:No se aplica restriccion geografica por requisito de inclusion financiera.
-
->>>>>>> a90ed936f12d9c50769347a44101754bb861e824
+  # checkov:skip=CKV2_AWS_47:El WAF adjunto posee la regla AWSManagedRulesKnownBadInputsRuleSet para Log4j. Falso positivo de validación cross-file.
+  # checkov:skip=CKV_AWS_86:CloudFront standard logging requiere ACL en S3. El bucket audit usa BucketOwnerEnforced y Object Lock. Para logs de CloudFront se recomienda bucket dedicado.
   enabled             = true
   comment             = "Distribucion CloudFront para ${local.name_prefix}"
   default_root_object = "index.html"
