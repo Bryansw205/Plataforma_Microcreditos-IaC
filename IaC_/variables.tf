@@ -288,3 +288,45 @@ variable "alarm_memory_threshold" {
   type        = number
   default     = 85
 }
+
+variable "api_image_uri" {
+  description = "Imagen Docker de la API. Si queda vacio, se usa el repositorio ECR creado por Terraform con tag latest"
+  type        = string
+  default     = ""
+}
+
+variable "worker_image_uri" {
+  description = "Imagen Docker del Worker. Si queda vacio, se usa el repositorio ECR creado por Terraform con tag latest"
+  type        = string
+  default     = ""
+}
+
+variable "ecs_worker_min_capacity" {
+  description = "Cantidad minima de tareas del Worker"
+  type        = number
+  default     = 1
+}
+
+variable "ecs_worker_max_capacity" {
+  description = "Cantidad maxima de tareas del Worker"
+  type        = number
+  default     = 5
+}
+
+variable "ecs_worker_queue_messages_target" {
+  description = "Cantidad objetivo de mensajes visibles en SQS para escalar el Worker"
+  type        = number
+  default     = 10
+}
+
+variable "ecs_health_check_grace_period_seconds" {
+  description = "Tiempo de gracia para que ECS espere antes de evaluar health checks del ALB"
+  type        = number
+  default     = 60
+}
+
+variable "ecs_enable_execute_command" {
+  description = "Habilita ECS Exec para diagnostico controlado"
+  type        = bool
+  default     = false
+}
