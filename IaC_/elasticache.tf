@@ -22,6 +22,7 @@ resource "aws_elasticache_replication_group" "redis" {
   num_cache_clusters         = 2
   at_rest_encryption_enabled = true
   transit_encryption_enabled = true
+  kms_key_id                 = aws_kms_key.main.arn
   apply_immediately          = true
   maintenance_window         = "sun:05:00-sun:06:00"
   snapshot_window            = "03:00-04:00"
