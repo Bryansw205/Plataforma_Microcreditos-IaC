@@ -160,6 +160,37 @@ output "parameter_plazo_maximo_name" {
   value       = aws_ssm_parameter.plazo_maximo.name
 }
 
+
+output "alb_arn" {
+  description = "ARN del Application Load Balancer de la API"
+  value       = aws_lb.api.arn
+}
+
+output "alb_dns_name" {
+  description = "DNS publico del Application Load Balancer de la API"
+  value       = aws_lb.api.dns_name
+}
+
+output "alb_zone_id" {
+  description = "Zone ID del Application Load Balancer"
+  value       = aws_lb.api.zone_id
+}
+
+output "ecs_api_target_group_arn" {
+  description = "ARN del Target Group del ECS API Service"
+  value       = aws_lb_target_group.ecs_api.arn
+}
+
+output "ecs_api_target_group_name" {
+  description = "Nombre del Target Group del ECS API Service"
+  value       = aws_lb_target_group.ecs_api.name
+}
+
+output "alb_https_listener_arn" {
+  description = "ARN del listener HTTPS del ALB"
+  value       = local.alb_certificate_arn != null ? aws_lb_listener.https[0].arn : null
+}
+
 output "cloudfront_certificate_arn" {
   description = "ARN del certificado ACM para CloudFront"
   value       = length(aws_acm_certificate.cloudfront) > 0 ? aws_acm_certificate.cloudfront[0].arn : ""

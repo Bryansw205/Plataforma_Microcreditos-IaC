@@ -153,3 +153,58 @@ variable "aurora_apply_immediately" {
   type        = bool
   default     = true
 }
+
+
+variable "alb_enable_deletion_protection" {
+  description = "Habilitar proteccion contra borrado en el ALB"
+  type        = bool
+  default     = false
+}
+
+variable "alb_idle_timeout" {
+  description = "Tiempo maximo en segundos de conexion inactiva en el ALB"
+  type        = number
+  default     = 60
+}
+
+variable "alb_deregistration_delay" {
+  description = "Tiempo de espera en segundos para desregistrar un target en el ALB"
+  type        = number
+  default     = 30
+}
+
+variable "alb_health_check_path" {
+  description = "Ruta del endpoint de health check para la API"
+  type        = string
+  default     = "/health"
+}
+
+variable "alb_health_check_interval" {
+  description = "Intervalo en segundos entre cada health check"
+  type        = number
+  default     = 30
+}
+
+variable "alb_health_check_timeout" {
+  description = "Tiempo de espera en segundos para que un health check se considere fallido"
+  type        = number
+  default     = 5
+}
+
+variable "alb_healthy_threshold" {
+  description = "Cantidad de verificaciones exitosas para considerar el target sano"
+  type        = number
+  default     = 3
+}
+
+variable "alb_unhealthy_threshold" {
+  description = "Cantidad de verificaciones fallidas para considerar el target insano"
+  type        = number
+  default     = 3
+}
+
+variable "alb_ssl_policy" {
+  description = "Politica SSL a usar en el listener HTTPS del ALB"
+  type        = string
+  default     = "ELBSecurityPolicy-TLS13-1-2-2021-06"
+}
