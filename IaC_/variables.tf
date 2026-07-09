@@ -87,3 +87,69 @@ variable "alert_email" {
   type        = string
   default     = ""
 }
+
+variable "aurora_engine_version" {
+  description = "Version del motor Aurora PostgreSQL"
+  type        = string
+  default     = "16.4"
+}
+
+variable "aurora_database_name" {
+  description = "Nombre de la base de datos principal"
+  type        = string
+  default     = "microcreditos"
+}
+
+variable "aurora_master_username" {
+  description = "Usuario administrador de Aurora PostgreSQL"
+  type        = string
+  default     = "admin_microcreditos"
+}
+
+variable "aurora_instance_class" {
+  description = "Clase de instancia para Aurora PostgreSQL"
+  type        = string
+  default     = "db.t4g.medium"
+}
+
+variable "aurora_instance_count" {
+  description = "Cantidad de instancias Aurora. Se usan 2 para tener Writer y Reader en Multi-AZ"
+  type        = number
+  default     = 2
+}
+
+variable "aurora_backup_retention_period" {
+  description = "Dias de retencion de backups automaticos para PITR"
+  type        = number
+  default     = 7
+}
+
+variable "aurora_preferred_backup_window" {
+  description = "Ventana preferida para backups automaticos"
+  type        = string
+  default     = "05:00-06:00"
+}
+
+variable "aurora_preferred_maintenance_window" {
+  description = "Ventana preferida para mantenimiento"
+  type        = string
+  default     = "sun:06:00-sun:07:00"
+}
+
+variable "aurora_deletion_protection" {
+  description = "Proteccion contra eliminacion accidental del cluster Aurora. En produccion debe ser true"
+  type        = bool
+  default     = false
+}
+
+variable "aurora_skip_final_snapshot" {
+  description = "Omitir snapshot final al destruir. En produccion debe ser false"
+  type        = bool
+  default     = true
+}
+
+variable "aurora_apply_immediately" {
+  description = "Aplicar cambios de Aurora inmediatamente"
+  type        = bool
+  default     = true
+}

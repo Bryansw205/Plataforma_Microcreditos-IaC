@@ -119,6 +119,41 @@ output "parameter_limite_creditos_name" {
 }
 
 
+output "aurora_cluster_id" {
+  description = "ID del cluster Aurora PostgreSQL"
+  value       = aws_rds_cluster.aurora.id
+}
+
+output "aurora_cluster_arn" {
+  description = "ARN del cluster Aurora PostgreSQL"
+  value       = aws_rds_cluster.aurora.arn
+}
+
+output "aurora_writer_endpoint" {
+  description = "Endpoint principal del cluster Aurora para lecturas y escrituras"
+  value       = aws_rds_cluster.aurora.endpoint
+}
+
+output "aurora_reader_endpoint" {
+  description = "Endpoint de lectura del cluster Aurora"
+  value       = aws_rds_cluster.aurora.reader_endpoint
+}
+
+output "aurora_database_name" {
+  description = "Nombre de la base de datos principal"
+  value       = aws_rds_cluster.aurora.database_name
+}
+
+output "aurora_port" {
+  description = "Puerto de Aurora PostgreSQL"
+  value       = aws_rds_cluster.aurora.port
+}
+
+output "aurora_master_secret_arn" {
+  description = "ARN del secreto administrado por RDS para el usuario maestro"
+  value       = aws_rds_cluster.aurora.master_user_secret[0].secret_arn
+  sensitive   = true
+}
 
 output "parameter_plazo_maximo_name" {
   description = "Nombre del parametro de plazo maximo"
