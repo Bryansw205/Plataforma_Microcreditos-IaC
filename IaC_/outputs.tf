@@ -201,3 +201,14 @@ output "alb_certificate_arn" {
   value       = var.aws_region == "us-east-1" ? (length(aws_acm_certificate.cloudfront) > 0 ? aws_acm_certificate.cloudfront[0].arn : "") : (length(aws_acm_certificate.alb) > 0 ? aws_acm_certificate.alb[0].arn : "")
 }
 
+output "ecs_execution_role_arn" {
+  description = "ARN del ECS Task Execution Role"
+  value       = aws_iam_role.ecs_execution_role.arn
+}
+
+output "ecs_task_role_arn" {
+  description = "ARN del ECS Task Role"
+  value       = aws_iam_role.ecs_task_role.arn
+}
+
+
