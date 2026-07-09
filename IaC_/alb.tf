@@ -10,7 +10,13 @@ resource "aws_lb" "api" {
   name               = "${local.name_prefix}-api-alb"
   internal           = false
   load_balancer_type = "application"
-
+  
+  access_logs {
+    bucket  = aws_s3_bucket.audit.bucket
+    prefix  = "alb-access-logs"
+    enabled = true
+  }
+  
   security_groups = [
     aws_security_group.alb.id
   ]
