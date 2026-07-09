@@ -1,0 +1,53 @@
+name: CI - SonarQube
+
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - "IaC_/**"
+      - "app/**"
+      - "sonar-project.properties"
+      - ".github/workflows/sonarqube.yml"
+
+  pull_request:
+    branches:
+      - dev
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - "IaC_/**"
+      - "app/**"
+      - "sonar-project.properties"
+      - ".github/workflows/ci-sonarqube.yml"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sonarqube-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sonarqube:
+    name: Analizar proyecto
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo del repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ejecutar analisis con SonarQube Cloud
+        uses: SonarSource/sonarqube-scan-action@v7.0.0
+        with:
+          args: >
+            -Dsonar.qualitygate.wait=true
+            -Dsonar.qualitygate.timeout=600
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
