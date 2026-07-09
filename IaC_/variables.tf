@@ -158,7 +158,7 @@ variable "aurora_apply_immediately" {
 variable "alb_enable_deletion_protection" {
   description = "Habilita proteccion contra eliminacion accidental del Application Load Balancer"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "alb_idle_timeout" {
