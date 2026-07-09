@@ -32,6 +32,9 @@ resource "aws_cloudfront_cache_policy" "frontend" {
 }
 
 resource "aws_cloudfront_distribution" "main" {
+# checkov:skip=CKV_AWS_174:Certificado personalizado pendiente de configuración de dominio. En producción se usará ACM con TLS 1.2.
+# checkov:skip=CKV_AWS_310:Origen único S3 con versioning y lifecycle configurados. S3 ofrece 99.999999999% de durabilidad. Failover de origen no aplica para contenido estatico.
+# checkov:skip=CKV_AWS_374:Plataforma de microcréditos con cobertura latinoamericana. Restricción geográfica no aplica por requisito de negocio de inclusión financiera.
   enabled             = true
   comment             = "Distribucion CloudFront para ${local.name_prefix}"
   default_root_object = "index.html"
