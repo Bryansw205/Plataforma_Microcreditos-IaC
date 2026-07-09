@@ -1,59 +1,75 @@
-  resource "aws_lb" "main" {
-  name               = "${local.name_prefix}-alb"
+locals {
+  alb_certificate_arn = var.domain_name != "" ? (
+    var.aws_region == "us-east-1"
+    ? aws_acm_certificate.cloudfront[0].arn
+    : aws_acm_certificate.alb[0].arn
+  ) : null
+}
+
+resource "aws_lb" "api" {
+  name               = "${local.name_prefix}-api-alb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.alb.id]
-  subnets            = aws_subnet.public[*].id
 
-  enable_deletion_protection = false
+  security_groups = [
+    aws_security_group.alb.id
+  ]
+
+  subnets = aws_subnet.public[*].id
+
+  enable_deletion_protection = var.alb_enable_deletion_protection
+  enable_http2               = true
+  drop_invalid_header_fields = true
+  idle_timeout               = var.alb_idle_timeout
 
   tags = merge(local.common_tags, {
-    Name = "${local.name_prefix}-alb"
+    Name = "${local.name_prefix}-api-alb"
+    Type = "application-load-balancer"
   })
 }
 
 resource "aws_lb_target_group" "ecs_api" {
-  name        = "${local.name_prefix}-api-tg"
+  name        = "${local.name_prefix}-ecs-api-tg"
   port        = var.backend_port
   protocol    = "HTTP"
+  target_type = "ip"
   vpc_id      = aws_vpc.main.id
-  target_type = "ip" # ECS Fargate usa el tipo 'ip'
+
+  deregistration_delay = var.alb_deregistration_delay
 
   health_check {
-    path                = "/health"
-    healthy_threshold   = 3
-    unhealthy_threshold = 3
-    timeout             = 5
-    interval            = 30
-    matcher             = "200-299"
+    enabled             = true
+    path                = var.alb_health_check_path
+    protocol            = "HTTP"
+    port                = "traffic-port"
+    matcher             = "200-399"
+    interval            = var.alb_health_check_interval
+    timeout             = var.alb_health_check_timeout
+    healthy_threshold   = var.alb_healthy_threshold
+    unhealthy_threshold = var.alb_unhealthy_threshold
   }
 
   tags = merge(local.common_tags, {
-    Name = "${local.name_prefix}-api-tg"
+    Name = "${local.name_prefix}-ecs-api-tg"
+    Type = "ecs-api-target-group"
   })
 }
 
-
-locals {
-  # Determinamos el ARN del certificado correcto a usar basado en la region.
-  # Si var.domain_name esta vacio, esto resultara en null.
-  alb_cert_arn = var.domain_name != "" ? (
-    var.aws_region == "us-east-1" ? aws_acm_certificate.cloudfront[0].arn : aws_acm_certificate.alb[0].arn
-  ) : null
-}
-
-
 resource "aws_lb_listener" "https" {
-  count = local.alb_cert_arn != null ? 1 : 0
+  count = local.alb_certificate_arn != null ? 1 : 0
 
-  load_balancer_arn = aws_lb.main.arn
-  port              = "443"
+  load_balancer_arn = aws_lb.api.arn
+  port              = 443
   protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-TLS13-1-2-2021-06"
-  certificate_arn   = local.alb_cert_arn
+  ssl_policy        = var.alb_ssl_policy
+  certificate_arn   = local.alb_certificate_arn
 
   default_action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.ecs_api.arn
   }
+
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-https-listener"
+  })
 }

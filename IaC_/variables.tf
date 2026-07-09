@@ -156,55 +156,135 @@ variable "aurora_apply_immediately" {
 
 
 variable "alb_enable_deletion_protection" {
-  description = "Habilitar proteccion contra borrado en el ALB"
+  description = "Habilita proteccion contra eliminacion accidental del Application Load Balancer"
   type        = bool
   default     = false
 }
 
 variable "alb_idle_timeout" {
-  description = "Tiempo maximo en segundos de conexion inactiva en el ALB"
+  description = "Tiempo maximo de inactividad de una conexion en el ALB"
   type        = number
   default     = 60
 }
 
 variable "alb_deregistration_delay" {
-  description = "Tiempo de espera en segundos para desregistrar un target en el ALB"
+  description = "Tiempo de espera para retirar una tarea del Target Group durante el drenado de conexiones"
   type        = number
   default     = 30
 }
 
 variable "alb_health_check_path" {
-  description = "Ruta del endpoint de health check para la API"
+  description = "Ruta usada por el Target Group para comprobar la salud del ECS API Service"
   type        = string
-  default     = "/health"
+  default     = "/actuator/health"
 }
 
 variable "alb_health_check_interval" {
-  description = "Intervalo en segundos entre cada health check"
+  description = "Intervalo de comprobacion de salud del Target Group"
   type        = number
   default     = 30
 }
 
 variable "alb_health_check_timeout" {
-  description = "Tiempo de espera en segundos para que un health check se considere fallido"
+  description = "Tiempo maximo de espera para cada comprobacion de salud"
   type        = number
   default     = 5
 }
 
 variable "alb_healthy_threshold" {
-  description = "Cantidad de verificaciones exitosas para considerar el target sano"
+  description = "Cantidad de comprobaciones exitosas para considerar saludable una tarea"
   type        = number
-  default     = 3
+  default     = 2
 }
 
 variable "alb_unhealthy_threshold" {
-  description = "Cantidad de verificaciones fallidas para considerar el target insano"
+  description = "Cantidad de comprobaciones fallidas para considerar no saludable una tarea"
   type        = number
-  default     = 3
+  default     = 2
 }
 
 variable "alb_ssl_policy" {
-  description = "Politica SSL a usar en el listener HTTPS del ALB"
+  description = "Politica TLS utilizada por el listener HTTPS del ALB"
   type        = string
   default     = "ELBSecurityPolicy-TLS13-1-2-2021-06"
+}
+
+# ============================================================
+# ECS Fargate Variables (Basado en el documento de Arquitectura)
+# ============================================================
+
+variable "ecs_api_cpu" {
+  description = "CPU units para el contenedor de la API (1024 = 1 vCPU)"
+  type        = number
+  default     = 512
+}
+
+variable "ecs_api_memory" {
+  description = "Memoria en MB para el contenedor de la API"
+  type        = number
+  default     = 1024
+}
+
+variable "ecs_worker_cpu" {
+  description = "CPU units para el contenedor Worker"
+  type        = number
+  default     = 512
+}
+
+variable "ecs_worker_memory" {
+  description = "Memoria en MB para el contenedor Worker"
+  type        = number
+  default     = 1024
+}
+
+variable "ecs_api_min_capacity" {
+  description = "Capacidad minima de tareas para la API (Para HA)"
+  type        = number
+  default     = 2
+}
+
+variable "ecs_api_max_capacity" {
+  description = "Capacidad maxima de tareas para la API"
+  type        = number
+  default     = 10
+}
+
+variable "ecs_scale_cpu_threshold" {
+  description = "Porcentaje de CPU para disparar el Auto Scaling de ECS (RNF_11)"
+  type        = number
+  default     = 70
+}
+
+variable "ecs_scale_memory_threshold" {
+  description = "Porcentaje de memoria para disparar el Auto Scaling de ECS (RNF_11)"
+  type        = number
+  default     = 70
+}
+
+# ============================================================
+# Security & Observability Variables (Basado en el documento RNF)
+# ============================================================
+
+variable "cognito_jwt_validity_minutes" {
+  description = "Tiempo maximo de vigencia de tokens JWT (RNF_17)"
+  type        = number
+  default     = 15
+}
+
+variable "waf_rate_limit" {
+  description = "Limite de peticiones por 5 minutos por IP antes de bloquear (RNF_15). Nota: AWS WAFv2 requiere un minimo de 100."
+  type        = number
+  default     = 100
+}
+
+variable "alarm_cpu_threshold" {
+  description = "Porcentaje de CPU critico para enviar alerta (RNF_26)"
+  type        = number
+  default     = 85
+}
+
+variable "alarm_memory_threshold" {
+  description = "Porcentaje de memoria critico para enviar alerta (RNF_26)"
+  type        = number
+  default     = 85
 }
