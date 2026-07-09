@@ -31,3 +31,12 @@ terraform.rc
 .DS_Store
 Thumbs.db
 IaC_/.terraform/
+
+node_modules/
+**/node_modules/
+
+.env
+**/.env
+
+dist/
+build/
