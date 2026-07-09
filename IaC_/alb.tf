@@ -7,6 +7,7 @@ locals {
 }
 
 resource "aws_lb" "api" {
+# checkov:skip=CKV2_AWS_20:El redirect HTTP→HTTPS está implementado en aws_lb_listener.http_redirect (HTTP 301). El listener http_forward solo existe en entornos siin certificado. :3
   name               = "${local.name_prefix}-api-alb"
   internal           = false
   load_balancer_type = "application"
