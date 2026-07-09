@@ -38,6 +38,12 @@ resource "aws_cloudfront_distribution" "main" {
   price_class         = "PriceClass_100"
   web_acl_id          = aws_wafv2_web_acl.main.arn
 
+  logging_config {
+    include_cookies = false
+    bucket          = aws_s3_bucket.audit.bucket_domain_name
+    prefix          = "cloudfront-access-logs/"
+  }
+
   origin {
     domain_name              = aws_s3_bucket.frontend.bucket_regional_domain_name
     origin_id                = "s3-frontend"
