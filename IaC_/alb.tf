@@ -103,6 +103,7 @@ resource "aws_lb_listener" "http_redirect" {
 }
 
 resource "aws_lb_listener" "http_forward" {
+# checkov:skip=CKV_AWS_103:Listener HTTP condicional (count = alb_certificate_arn == null). En producción con certificado ACM este recurso no se despliega. :o
   count             = local.alb_certificate_arn == null ? 1 : 0
   load_balancer_arn = aws_lb.api.arn
   port              = 80
