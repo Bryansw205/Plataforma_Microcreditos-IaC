@@ -159,3 +159,14 @@ output "parameter_plazo_maximo_name" {
   description = "Nombre del parametro de plazo maximo"
   value       = aws_ssm_parameter.plazo_maximo.name
 }
+
+output "cloudfront_certificate_arn" {
+  description = "ARN del certificado ACM para CloudFront"
+  value       = length(aws_acm_certificate.cloudfront) > 0 ? aws_acm_certificate.cloudfront[0].arn : ""
+}
+
+output "alb_certificate_arn" {
+  description = "ARN del certificado ACM para el ALB"
+  value       = var.aws_region == "us-east-1" ? (length(aws_acm_certificate.cloudfront) > 0 ? aws_acm_certificate.cloudfront[0].arn : "") : (length(aws_acm_certificate.alb) > 0 ? aws_acm_certificate.alb[0].arn : "")
+}
+
