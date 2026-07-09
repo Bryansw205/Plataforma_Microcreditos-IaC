@@ -1,0 +1,657 @@
+<?xml version="1.0" ?>
+<testsuites disabled="0" errors="0" failures="24" tests="185" time="0.0">
+	<testsuite disabled="0" errors="0" failures="24" name="terraform scan" skipped="0" tests="169" time="0">
+		<properties>
+			<property name="directory" value="['/tf']"/>
+			<property name="add_check" value="False"/>
+			<property name="list" value="False"/>
+			<property name="output" value="['junitxml']"/>
+			<property name="output_file_path" value="results_corregido.xml"/>
+			<property name="output_bc_ids" value="False"/>
+			<property name="include_all_checkov_policies" value="True"/>
+			<property name="quiet" value="False"/>
+			<property name="compact" value="False"/>
+			<property name="framework" value="['all']"/>
+			<property name="skip_framework" value="[]"/>
+			<property name="run_all_external_checks" value="False"/>
+			<property name="soft_fail" value="False"/>
+			<property name="skip_results_upload" value="False"/>
+			<property name="repo_id" value="cli_repo/tf"/>
+			<property name="branch" value="master"/>
+			<property name="skip_download" value="False"/>
+			<property name="use_enforcement_rules" value="False"/>
+			<property name="external_modules_download_path" value=".external_modules"/>
+			<property name="evaluate_variables" value="True"/>
+			<property name="no_cert_verify" value="False"/>
+			<property name="create_baseline" value="False"/>
+			<property name="output_baseline_as_skipped" value="False"/>
+			<property name="secrets_scan_file_type" value="[]"/>
+			<property name="enable_secret_scan_all_files" value="False"/>
+			<property name="block_list_secret_scan" value="[]"/>
+			<property name="summary_position" value="top"/>
+			<property name="skip_resources_without_violations" value="False"/>
+			<property name="deep_analysis" value="False"/>
+			<property name="no_fail_on_crash" value="False"/>
+			<property name="mask" value="defaultdict(&lt;class 'set'&gt;, {})"/>
+			<property name="scan_secrets_history" value="False"/>
+			<property name="secrets_history_timeout" value="12h"/>
+			<property name="custom_tool_name" value="Checkov"/>
+		</properties>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/IaC_/kms.tf.aws_kms_key.main" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/IaC_/kms.tf.aws_kms_key.main" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/IaC_/kms.tf.aws_kms_key.main" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/IaC_/networking.tf.aws_subnet.private_app[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/IaC_/networking.tf.aws_subnet.private_data[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/IaC_/networking.tf.aws_subnet.private_app[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/IaC_/networking.tf.aws_subnet.private_data[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_337] Ensure SSM parameters are using KMS CMK" classname="/IaC_/parameter_store.tf.aws_ssm_parameter.tasa_interes" file="/IaC_/parameter_store.tf"/>
+		<testcase name="[NONE][CKV_AWS_337] Ensure SSM parameters are using KMS CMK" classname="/IaC_/parameter_store.tf.aws_ssm_parameter.limite_creditos" file="/IaC_/parameter_store.tf"/>
+		<testcase name="[NONE][CKV_AWS_337] Ensure SSM parameters are using KMS CMK" classname="/IaC_/parameter_store.tf.aws_ssm_parameter.plazo_maximo" file="/IaC_/parameter_store.tf"/>
+		<testcase name="[NONE][CKV_AWS_41] Ensure no hard coded AWS access key and secret key exists in provider" classname="/IaC_/providers.tf.aws.default" file="/IaC_/providers.tf"/>
+		<testcase name="[NONE][CKV_AWS_41] Ensure no hard coded AWS access key and secret key exists in provider" classname="/IaC_/providers.tf.aws.us_east_1" file="/IaC_/providers.tf"/>
+		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_55] Ensure S3 bucket has ignore public ACLs enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_54] Ensure S3 bucket has block public policy enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_56] Ensure S3 bucket has 'restrict_public_buckets' enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_53] Ensure S3 bucket has block public ACLS enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_300] Ensure S3 lifecycle configuration sets period for aborting failed uploads" classname="/IaC_/s3.tf.aws_s3_bucket_lifecycle_configuration.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_55] Ensure S3 bucket has ignore public ACLs enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_54] Ensure S3 bucket has block public policy enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_56] Ensure S3 bucket has 'restrict_public_buckets' enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_53] Ensure S3 bucket has block public ACLS enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_300] Ensure S3 lifecycle configuration sets period for aborting failed uploads" classname="/IaC_/s3.tf.aws_s3_bucket_lifecycle_configuration.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_55] Ensure S3 bucket has ignore public ACLs enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_54] Ensure S3 bucket has block public policy enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_56] Ensure S3 bucket has 'restrict_public_buckets' enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_53] Ensure S3 bucket has block public ACLS enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_300] Ensure S3 lifecycle configuration sets period for aborting failed uploads" classname="/IaC_/s3.tf.aws_s3_bucket_lifecycle_configuration.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_149] Ensure that Secrets Manager secret is encrypted using KMS CMK" classname="/IaC_/secrets.tf.aws_secretsmanager_secret.db_api_credenciales" file="/IaC_/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_security_group.alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_security_group.alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_security_group.alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_security_group.alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.alb_https_from_cloudfront" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.alb_https_from_cloudfront" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.alb_https_from_cloudfront" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.alb_https_from_cloudfront" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.alb_https_from_cloudfront" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.alb_to_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.alb_to_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.ecs_api_from_alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.ecs_api_from_alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.ecs_api_from_alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.ecs_api_from_alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.ecs_api_from_alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_api_to_aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_api_to_aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_api_to_redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_api_to_redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_api_to_https" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_api_to_https" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_worker_to_aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_worker_to_aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_worker_to_redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_worker_to_redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_worker_to_https" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_worker_to_https" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_security_group.aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_security_group.aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_security_group.aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_security_group.aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_security_group.redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_security_group.redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_security_group.redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_security_group.redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_26] Ensure all data stored in the SNS topic is encrypted" classname="/IaC_/sns.tf.aws_sns_topic.alerts" file="/IaC_/sns.tf"/>
+		<testcase name="[NONE][CKV_AWS_168] Ensure SQS queue policy is not public by only allowing specific services or principals to access it" classname="/IaC_/sqs.tf.aws_sqs_queue.processing_dlq" file="/IaC_/sqs.tf"/>
+		<testcase name="[NONE][CKV_AWS_27] Ensure all data stored in the SQS queue is encrypted" classname="/IaC_/sqs.tf.aws_sqs_queue.processing_dlq" file="/IaC_/sqs.tf"/>
+		<testcase name="[NONE][CKV_AWS_168] Ensure SQS queue policy is not public by only allowing specific services or principals to access it" classname="/IaC_/sqs.tf.aws_sqs_queue.processing" file="/IaC_/sqs.tf"/>
+		<testcase name="[NONE][CKV_AWS_27] Ensure all data stored in the SQS queue is encrypted" classname="/IaC_/sqs.tf.aws_sqs_queue.processing" file="/IaC_/sqs.tf"/>
+		<testcase name="[NONE][CKV2_AWS_6] Ensure that S3 bucket has a Public Access block" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_6] Ensure that S3 bucket has a Public Access block" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_6] Ensure that S3 bucket has a Public Access block" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/IaC_/networking.tf.aws_route_table.public" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/IaC_/networking.tf.aws_route_table.private_app[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/IaC_/networking.tf.aws_route_table.private_data[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/IaC_/networking.tf.aws_route_table.private_app[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/IaC_/networking.tf.aws_route_table.private_data[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_61] Ensure that an S3 bucket has a lifecycle configuration" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_61] Ensure that an S3 bucket has a lifecycle configuration" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_61] Ensure that an S3 bucket has a lifecycle configuration" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/IaC_/networking.tf.aws_route_table.public" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/IaC_/networking.tf.aws_route_table.private_app[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/IaC_/networking.tf.aws_route_table.private_data[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/IaC_/networking.tf.aws_route_table.private_app[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/IaC_/networking.tf.aws_route_table.private_data[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_20] S3 Bucket has an ACL defined which allows public READ access." classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_20] S3 Bucket has an ACL defined which allows public READ access." classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_20] S3 Bucket has an ACL defined which allows public READ access." classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_19] Ensure that all EIP addresses allocated to a VPC are attached to EC2 instances" classname="/IaC_/networking.tf.aws_eip.nat[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_19] Ensure that all EIP addresses allocated to a VPC are attached to EC2 instances" classname="/IaC_/networking.tf.aws_eip.nat[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_57] S3 Bucket has an ACL defined which allows public WRITE access." classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_57] S3 Bucket has an ACL defined which allows public WRITE access." classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_57] S3 Bucket has an ACL defined which allows public WRITE access." classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_65] Ensure access control lists for S3 buckets are disabled" classname="/IaC_/s3.tf.aws_s3_bucket_ownership_controls.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_65] Ensure access control lists for S3 buckets are disabled" classname="/IaC_/s3.tf.aws_s3_bucket_ownership_controls.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_65] Ensure access control lists for S3 buckets are disabled" classname="/IaC_/s3.tf.aws_s3_bucket_ownership_controls.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_145] Ensure that S3 buckets are encrypted with KMS by default" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_145] Ensure that S3 buckets are encrypted with KMS by default" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/IaC_/networking.tf.aws_subnet.public[0]" file="/IaC_/networking.tf">
+			<failure type="failure" message="Ensure VPC subnets do not assign public IP by default">
+Resource: aws_subnet.public[0]
+File: /IaC_/networking.tf: 23-35
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-vpc-subnets-do-not-assign-public-ip-by-default
+
+		23 | resource &quot;aws_subnet&quot; &quot;public&quot; {
+		24 |   count = 2
+		25 | 
+		26 |   vpc_id                  = aws_vpc.main.id
+		27 |   cidr_block              = cidrsubnet(var.vpc_cidr, 8, count.index)
+		28 |   availability_zone       = data.aws_availability_zones.available.names[count.index]
+		29 |   map_public_ip_on_launch = true
+		30 | 
+		31 |   tags = merge(local.common_tags, {
+		32 |     Name = &quot;${local.name_prefix}-public-${count.index + 1}&quot;
+		33 |     Tier = &quot;public&quot;
+		34 |   })
+		35 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/IaC_/networking.tf.aws_subnet.public[1]" file="/IaC_/networking.tf">
+			<failure type="failure" message="Ensure VPC subnets do not assign public IP by default">
+Resource: aws_subnet.public[1]
+File: /IaC_/networking.tf: 23-35
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-vpc-subnets-do-not-assign-public-ip-by-default
+
+		23 | resource &quot;aws_subnet&quot; &quot;public&quot; {
+		24 |   count = 2
+		25 | 
+		26 |   vpc_id                  = aws_vpc.main.id
+		27 |   cidr_block              = cidrsubnet(var.vpc_cidr, 8, count.index)
+		28 |   availability_zone       = data.aws_availability_zones.available.names[count.index]
+		29 |   map_public_ip_on_launch = true
+		30 | 
+		31 |   tags = merge(local.common_tags, {
+		32 |     Name = &quot;${local.name_prefix}-public-${count.index + 1}&quot;
+		33 |     Tier = &quot;public&quot;
+		34 |   })
+		35 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_57] Ensure Secrets Manager secrets should have automatic rotation enabled" classname="/IaC_/secrets.tf.aws_secretsmanager_secret.db_api_credenciales" file="/IaC_/secrets.tf">
+			<failure type="failure" message="Ensure Secrets Manager secrets should have automatic rotation enabled">
+Resource: aws_secretsmanager_secret.db_api_credenciales
+File: /IaC_/secrets.tf: 1-11
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-2-57
+
+		1  | resource &quot;aws_secretsmanager_secret&quot; &quot;db_api_credenciales&quot; {
+		2  |   name        = &quot;${local.name_prefix}/app-credentials&quot;
+		3  |   description = &quot;Credenciales para Aurora y APIs externas de ${local.name_prefix}&quot;
+		4  |   kms_key_id  = aws_kms_key.main.arn
+		5  | 
+		6  |   recovery_window_in_days = 30
+		7  | 
+		8  |   tags = merge(local.common_tags, {
+		9  |     Name = &quot;${local.name_prefix}-sm-secret&quot;
+		10 |   })
+		11 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_12] Ensure the default security group of every VPC restricts all traffic" classname="/IaC_/networking.tf.aws_vpc.main" file="/IaC_/networking.tf">
+			<failure type="failure" message="Ensure the default security group of every VPC restricts all traffic">
+Resource: aws_vpc.main
+File: /IaC_/networking.tf: 5-13
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-4
+
+		5  | resource &quot;aws_vpc&quot; &quot;main&quot; {
+		6  |   cidr_block           = var.vpc_cidr
+		7  |   enable_dns_support   = true
+		8  |   enable_dns_hostnames = true
+		9  | 
+		10 |   tags = merge(local.common_tags, {
+		11 |     Name = &quot;${local.name_prefix}-vpc&quot;
+		12 |   })
+		13 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_144] Ensure that S3 bucket has cross-region replication enabled" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf">
+			<failure type="failure" message="Ensure that S3 bucket has cross-region replication enabled">
+Resource: aws_s3_bucket.frontend
+File: /IaC_/s3.tf: 3-10
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-bucket-has-cross-region-replication-enabled
+
+		3  | resource &quot;aws_s3_bucket&quot; &quot;frontend&quot; {
+		4  |   bucket = &quot;${local.name_prefix}-frontend-${data.aws_caller_identity.current.account_id}&quot;
+		5  | 
+		6  |   tags = merge(local.common_tags, {
+		7  |     Name = &quot;${local.name_prefix}-frontend-bucket&quot;
+		8  |     Type = &quot;frontend&quot;
+		9  |   })
+		10 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_144] Ensure that S3 bucket has cross-region replication enabled" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf">
+			<failure type="failure" message="Ensure that S3 bucket has cross-region replication enabled">
+Resource: aws_s3_bucket.documents
+File: /IaC_/s3.tf: 68-76
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-bucket-has-cross-region-replication-enabled
+
+		68 | resource &quot;aws_s3_bucket&quot; &quot;documents&quot; {
+		69 |   bucket              = &quot;${local.name_prefix}-documents-${data.aws_caller_identity.current.account_id}&quot;
+		70 |   object_lock_enabled = true
+		71 | 
+		72 |   tags = merge(local.common_tags, {
+		73 |     Name = &quot;${local.name_prefix}-documents-bucket&quot;
+		74 |     Type = &quot;documents&quot;
+		75 |   })
+		76 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_144] Ensure that S3 bucket has cross-region replication enabled" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf">
+			<failure type="failure" message="Ensure that S3 bucket has cross-region replication enabled">
+Resource: aws_s3_bucket.audit
+File: /IaC_/s3.tf: 156-164
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-bucket-has-cross-region-replication-enabled
+
+		156 | resource &quot;aws_s3_bucket&quot; &quot;audit&quot; {
+		157 |   bucket              = &quot;${local.name_prefix}-audit-${data.aws_caller_identity.current.account_id}&quot;
+		158 |   object_lock_enabled = true
+		159 | 
+		160 |   tags = merge(local.common_tags, {
+		161 |     Name = &quot;${local.name_prefix}-audit-bucket&quot;
+		162 |     Type = &quot;audit&quot;
+		163 |   })
+		164 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_11] Ensure VPC flow logging is enabled in all VPCs" classname="/IaC_/networking.tf.aws_vpc.main" file="/IaC_/networking.tf">
+			<failure type="failure" message="Ensure VPC flow logging is enabled in all VPCs">
+Resource: aws_vpc.main
+File: /IaC_/networking.tf: 5-13
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/logging-9-enable-vpc-flow-logging
+
+		5  | resource &quot;aws_vpc&quot; &quot;main&quot; {
+		6  |   cidr_block           = var.vpc_cidr
+		7  |   enable_dns_support   = true
+		8  |   enable_dns_hostnames = true
+		9  | 
+		10 |   tags = merge(local.common_tags, {
+		11 |     Name = &quot;${local.name_prefix}-vpc&quot;
+		12 |   })
+		13 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf">
+			<failure type="failure" message="Ensure S3 buckets should have event notifications enabled">
+Resource: aws_s3_bucket.frontend
+File: /IaC_/s3.tf: 3-10
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
+
+		3  | resource &quot;aws_s3_bucket&quot; &quot;frontend&quot; {
+		4  |   bucket = &quot;${local.name_prefix}-frontend-${data.aws_caller_identity.current.account_id}&quot;
+		5  | 
+		6  |   tags = merge(local.common_tags, {
+		7  |     Name = &quot;${local.name_prefix}-frontend-bucket&quot;
+		8  |     Type = &quot;frontend&quot;
+		9  |   })
+		10 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf">
+			<failure type="failure" message="Ensure S3 buckets should have event notifications enabled">
+Resource: aws_s3_bucket.documents
+File: /IaC_/s3.tf: 68-76
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
+
+		68 | resource &quot;aws_s3_bucket&quot; &quot;documents&quot; {
+		69 |   bucket              = &quot;${local.name_prefix}-documents-${data.aws_caller_identity.current.account_id}&quot;
+		70 |   object_lock_enabled = true
+		71 | 
+		72 |   tags = merge(local.common_tags, {
+		73 |     Name = &quot;${local.name_prefix}-documents-bucket&quot;
+		74 |     Type = &quot;documents&quot;
+		75 |   })
+		76 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf">
+			<failure type="failure" message="Ensure S3 buckets should have event notifications enabled">
+Resource: aws_s3_bucket.audit
+File: /IaC_/s3.tf: 156-164
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/bc-aws-2-62
+
+		156 | resource &quot;aws_s3_bucket&quot; &quot;audit&quot; {
+		157 |   bucket              = &quot;${local.name_prefix}-audit-${data.aws_caller_identity.current.account_id}&quot;
+		158 |   object_lock_enabled = true
+		159 | 
+		160 |   tags = merge(local.common_tags, {
+		161 |     Name = &quot;${local.name_prefix}-audit-bucket&quot;
+		162 |     Type = &quot;audit&quot;
+		163 |   })
+		164 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_18] Ensure the S3 bucket has access logging enabled" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf">
+			<failure type="failure" message="Ensure the S3 bucket has access logging enabled">
+Resource: aws_s3_bucket.frontend
+File: /IaC_/s3.tf: 3-10
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
+
+		3  | resource &quot;aws_s3_bucket&quot; &quot;frontend&quot; {
+		4  |   bucket = &quot;${local.name_prefix}-frontend-${data.aws_caller_identity.current.account_id}&quot;
+		5  | 
+		6  |   tags = merge(local.common_tags, {
+		7  |     Name = &quot;${local.name_prefix}-frontend-bucket&quot;
+		8  |     Type = &quot;frontend&quot;
+		9  |   })
+		10 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_18] Ensure the S3 bucket has access logging enabled" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf">
+			<failure type="failure" message="Ensure the S3 bucket has access logging enabled">
+Resource: aws_s3_bucket.documents
+File: /IaC_/s3.tf: 68-76
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
+
+		68 | resource &quot;aws_s3_bucket&quot; &quot;documents&quot; {
+		69 |   bucket              = &quot;${local.name_prefix}-documents-${data.aws_caller_identity.current.account_id}&quot;
+		70 |   object_lock_enabled = true
+		71 | 
+		72 |   tags = merge(local.common_tags, {
+		73 |     Name = &quot;${local.name_prefix}-documents-bucket&quot;
+		74 |     Type = &quot;documents&quot;
+		75 |   })
+		76 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_18] Ensure the S3 bucket has access logging enabled" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf">
+			<failure type="failure" message="Ensure the S3 bucket has access logging enabled">
+Resource: aws_s3_bucket.audit
+File: /IaC_/s3.tf: 156-164
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-13-enable-logging
+
+		156 | resource &quot;aws_s3_bucket&quot; &quot;audit&quot; {
+		157 |   bucket              = &quot;${local.name_prefix}-audit-${data.aws_caller_identity.current.account_id}&quot;
+		158 |   object_lock_enabled = true
+		159 | 
+		160 |   tags = merge(local.common_tags, {
+		161 |     Name = &quot;${local.name_prefix}-audit-bucket&quot;
+		162 |     Type = &quot;audit&quot;
+		163 |   })
+		164 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/IaC_/segurity_groups.tf.aws_security_group.alb" file="/IaC_/segurity_groups.tf">
+			<failure type="failure" message="Ensure that Security Groups are attached to another resource">
+Resource: aws_security_group.alb
+File: /IaC_/segurity_groups.tf: 17-25
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-that-security-groups-are-attached-to-ec2-instances-or-elastic-network-interfaces-enis
+
+		17 | resource &quot;aws_security_group&quot; &quot;alb&quot; {
+		18 |   name        = &quot;${local.name_prefix}-alb-sg&quot;
+		19 |   description = &quot;Permite trafico HTTPS desde CloudFront hacia el ALB&quot;
+		20 |   vpc_id      = aws_vpc.main.id
+		21 | 
+		22 |   tags = merge(local.common_tags, {
+		23 |     Name = &quot;${local.name_prefix}-alb-sg&quot;
+		24 |   })
+		25 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_api" file="/IaC_/segurity_groups.tf">
+			<failure type="failure" message="Ensure that Security Groups are attached to another resource">
+Resource: aws_security_group.ecs_api
+File: /IaC_/segurity_groups.tf: 52-60
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-that-security-groups-are-attached-to-ec2-instances-or-elastic-network-interfaces-enis
+
+		52 | resource &quot;aws_security_group&quot; &quot;ecs_api&quot; {
+		53 |   name        = &quot;${local.name_prefix}-ecs-api-sg&quot;
+		54 |   description = &quot;Security Group para ECS API Service&quot;
+		55 |   vpc_id      = aws_vpc.main.id
+		56 | 
+		57 |   tags = merge(local.common_tags, {
+		58 |     Name = &quot;${local.name_prefix}-ecs-api-sg&quot;
+		59 |   })
+		60 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_worker" file="/IaC_/segurity_groups.tf">
+			<failure type="failure" message="Ensure that Security Groups are attached to another resource">
+Resource: aws_security_group.ecs_worker
+File: /IaC_/segurity_groups.tf: 108-116
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-that-security-groups-are-attached-to-ec2-instances-or-elastic-network-interfaces-enis
+
+		108 | resource &quot;aws_security_group&quot; &quot;ecs_worker&quot; {
+		109 |   name        = &quot;${local.name_prefix}-ecs-worker-sg&quot;
+		110 |   description = &quot;Security Group para ECS Worker Service&quot;
+		111 |   vpc_id      = aws_vpc.main.id
+		112 | 
+		113 |   tags = merge(local.common_tags, {
+		114 |     Name = &quot;${local.name_prefix}-ecs-worker-sg&quot;
+		115 |   })
+		116 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/IaC_/segurity_groups.tf.aws_security_group.aurora" file="/IaC_/segurity_groups.tf">
+			<failure type="failure" message="Ensure that Security Groups are attached to another resource">
+Resource: aws_security_group.aurora
+File: /IaC_/segurity_groups.tf: 153-161
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-that-security-groups-are-attached-to-ec2-instances-or-elastic-network-interfaces-enis
+
+		153 | resource &quot;aws_security_group&quot; &quot;aurora&quot; {
+		154 |   name        = &quot;${local.name_prefix}-aurora-sg&quot;
+		155 |   description = &quot;Security Group para Aurora PostgreSQL&quot;
+		156 |   vpc_id      = aws_vpc.main.id
+		157 | 
+		158 |   tags = merge(local.common_tags, {
+		159 |     Name = &quot;${local.name_prefix}-aurora-sg&quot;
+		160 |   })
+		161 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/IaC_/segurity_groups.tf.aws_security_group.redis" file="/IaC_/segurity_groups.tf">
+			<failure type="failure" message="Ensure that Security Groups are attached to another resource">
+Resource: aws_security_group.redis
+File: /IaC_/segurity_groups.tf: 188-196
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-that-security-groups-are-attached-to-ec2-instances-or-elastic-network-interfaces-enis
+
+		188 | resource &quot;aws_security_group&quot; &quot;redis&quot; {
+		189 |   name        = &quot;${local.name_prefix}-redis-sg&quot;
+		190 |   description = &quot;Security Group para ElastiCache Redis&quot;
+		191 |   vpc_id      = aws_vpc.main.id
+		192 | 
+		193 |   tags = merge(local.common_tags, {
+		194 |     Name = &quot;${local.name_prefix}-redis-sg&quot;
+		195 |   })
+		196 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_34] AWS SSM Parameter should be Encrypted" classname="/IaC_/parameter_store.tf.aws_ssm_parameter.tasa_interes" file="/IaC_/parameter_store.tf">
+			<failure type="failure" message="AWS SSM Parameter should be Encrypted">
+Resource: aws_ssm_parameter.tasa_interes
+File: /IaC_/parameter_store.tf: 1-10
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-ssm-parameter-is-encrypted
+
+		1  | resource &quot;aws_ssm_parameter&quot; &quot;tasa_interes&quot; {
+		2  |   name        = &quot;/${local.name_prefix}/app/tasa_interes&quot;
+		3  |   description = &quot;Tasa de interés para ${local.name_prefix}&quot;
+		4  |   type        = &quot;String&quot;
+		5  |   value       = &quot;15.5&quot;
+		6  | 
+		7  |   tags = merge(local.common_tags, {
+		8  |     Name = &quot;${local.name_prefix}-ssm-parameter-tasa&quot;
+		9  |   })
+		10 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_34] AWS SSM Parameter should be Encrypted" classname="/IaC_/parameter_store.tf.aws_ssm_parameter.limite_creditos" file="/IaC_/parameter_store.tf">
+			<failure type="failure" message="AWS SSM Parameter should be Encrypted">
+Resource: aws_ssm_parameter.limite_creditos
+File: /IaC_/parameter_store.tf: 12-21
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-ssm-parameter-is-encrypted
+
+		12 | resource &quot;aws_ssm_parameter&quot; &quot;limite_creditos&quot; {
+		13 |   name        = &quot;/${local.name_prefix}/app/limite_creditos&quot;
+		14 |   description = &quot;Limite de creditos para ${local.name_prefix}&quot;
+		15 |   type        = &quot;String&quot;
+		16 |   value       = &quot;5000&quot;
+		17 | 
+		18 |   tags = merge(local.common_tags, {
+		19 |     Name = &quot;${local.name_prefix}-ssm-parameter-limite&quot;
+		20 |   })
+		21 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_34] AWS SSM Parameter should be Encrypted" classname="/IaC_/parameter_store.tf.aws_ssm_parameter.plazo_maximo" file="/IaC_/parameter_store.tf">
+			<failure type="failure" message="AWS SSM Parameter should be Encrypted">
+Resource: aws_ssm_parameter.plazo_maximo
+File: /IaC_/parameter_store.tf: 23-32
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-ssm-parameter-is-encrypted
+
+		23 | resource &quot;aws_ssm_parameter&quot; &quot;plazo_maximo&quot; {
+		24 |   name        = &quot;/${local.name_prefix}/app/plazo_maximo&quot;
+		25 |   description = &quot;Plazo máximo para ${local.name_prefix}&quot;
+		26 |   type        = &quot;String&quot;
+		27 |   value       = &quot;12&quot;
+		28 | 
+		29 |   tags = merge(local.common_tags, {
+		30 |     Name = &quot;${local.name_prefix}-ssm-parameter-plazo&quot;
+		31 |   })
+		32 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/IaC_/kms.tf.aws_kms_key.main" file="/IaC_/kms.tf">
+			<failure type="failure" message="Ensure KMS key Policy is defined">
+Resource: aws_kms_key.main
+File: /IaC_/kms.tf: 1-9
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/bc-aws-2-64
+
+		1 | resource &quot;aws_kms_key&quot; &quot;main&quot; {
+		2 |   description             = &quot;KMS key para ${local.name_prefix}&quot;
+		3 |   deletion_window_in_days = 30
+		4 |   enable_key_rotation     = true
+		5 | 
+		6 |   tags = merge(local.common_tags, {
+		7 |     Name = &quot;${local.name_prefix}-kms-key&quot;
+		8 |   })
+		9 | }
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_145] Ensure that S3 buckets are encrypted with KMS by default" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf">
+			<failure type="failure" message="Ensure that S3 buckets are encrypted with KMS by default">
+Resource: aws_s3_bucket.frontend
+File: /IaC_/s3.tf: 3-10
+Guideline: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-s3-buckets-are-encrypted-with-kms-by-default
+
+		3  | resource &quot;aws_s3_bucket&quot; &quot;frontend&quot; {
+		4  |   bucket = &quot;${local.name_prefix}-frontend-${data.aws_caller_identity.current.account_id}&quot;
+		5  | 
+		6  |   tags = merge(local.common_tags, {
+		7  |     Name = &quot;${local.name_prefix}-frontend-bucket&quot;
+		8  |     Type = &quot;frontend&quot;
+		9  |   })
+		10 | }
+</failure>
+		</testcase>
+	</testsuite>
+	<testsuite disabled="0" errors="0" failures="0" name="github_actions scan" skipped="0" tests="16" time="0">
+		<properties>
+			<property name="directory" value="['/tf']"/>
+			<property name="add_check" value="False"/>
+			<property name="list" value="False"/>
+			<property name="output" value="['junitxml']"/>
+			<property name="output_file_path" value="results_corregido.xml"/>
+			<property name="output_bc_ids" value="False"/>
+			<property name="include_all_checkov_policies" value="True"/>
+			<property name="quiet" value="False"/>
+			<property name="compact" value="False"/>
+			<property name="framework" value="['all']"/>
+			<property name="skip_framework" value="[]"/>
+			<property name="run_all_external_checks" value="False"/>
+			<property name="soft_fail" value="False"/>
+			<property name="skip_results_upload" value="False"/>
+			<property name="repo_id" value="cli_repo/tf"/>
+			<property name="branch" value="master"/>
+			<property name="skip_download" value="False"/>
+			<property name="use_enforcement_rules" value="False"/>
+			<property name="external_modules_download_path" value=".external_modules"/>
+			<property name="evaluate_variables" value="True"/>
+			<property name="no_cert_verify" value="False"/>
+			<property name="create_baseline" value="False"/>
+			<property name="output_baseline_as_skipped" value="False"/>
+			<property name="secrets_scan_file_type" value="[]"/>
+			<property name="enable_secret_scan_all_files" value="False"/>
+			<property name="block_list_secret_scan" value="[]"/>
+			<property name="summary_position" value="top"/>
+			<property name="skip_resources_without_violations" value="False"/>
+			<property name="deep_analysis" value="False"/>
+			<property name="no_fail_on_crash" value="False"/>
+			<property name="mask" value="defaultdict(&lt;class 'set'&gt;, {})"/>
+			<property name="scan_secrets_history" value="False"/>
+			<property name="secrets_history_timeout" value="12h"/>
+			<property name="custom_tool_name" value="Checkov"/>
+		</properties>
+		<testcase name="[NONE][CKV_GHA_5] Found artifact build without evidence of cosign sign execution in pipeline" classname="/.github/workflows/sonarqube.yml.jobs" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/sonarqube.yml.jobs(sonarqube)" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/sonarqube.yml.jobs(sonarqube)" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/sonarqube.yml.jobs(sonarqube)" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_6] Found artifact build without evidence of cosign sbom attestation in pipeline" classname="/.github/workflows/sonarqube.yml.jobs" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/sonarqube.yml.jobs(sonarqube)" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_7] The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. " classname="/.github/workflows/sonarqube.yml.on(Analisis con SonarQube Cloud)" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/sonarqube.yml.jobs(sonarqube).steps[1](Descargar codigo del repositorio)" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/sonarqube.yml.jobs(sonarqube).steps[2](Ejecutar analisis con SonarQube Cloud)" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/sonarqube.yml.jobs(sonarqube).steps[1](Descargar codigo del repositorio)" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/sonarqube.yml.jobs(sonarqube).steps[2](Ejecutar analisis con SonarQube Cloud)" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/sonarqube.yml.jobs(sonarqube).steps[1](Descargar codigo del repositorio)" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/sonarqube.yml.jobs(sonarqube).steps[2](Ejecutar analisis con SonarQube Cloud)" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/sonarqube.yml.jobs(sonarqube).steps[1](Descargar codigo del repositorio)" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/sonarqube.yml.jobs(sonarqube).steps[2](Ejecutar analisis con SonarQube Cloud)" file="/.github/workflows/sonarqube.yml"/>
+		<testcase name="[NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all" classname="/.github/workflows/sonarqube.yml.on(Analisis con SonarQube Cloud)" file="/.github/workflows/sonarqube.yml"/>
+	</testsuite>
+</testsuites>

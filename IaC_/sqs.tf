@@ -2,7 +2,7 @@ resource "aws_sqs_queue" "processing_dlq" {
   name                      = "${local.name_prefix}-processing-dlq"
   message_retention_seconds = var.sqs_dlq_message_retention_seconds
   kms_master_key_id         = aws_kms_key.main.arn
-  sqs_managed_sse_enabled   = false
+
 
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-processing-dlq"
@@ -18,7 +18,7 @@ resource "aws_sqs_queue" "processing" {
   receive_wait_time_seconds  = var.sqs_receive_wait_time_seconds
   visibility_timeout_seconds = var.sqs_visibility_timeout_seconds
   kms_master_key_id          = aws_kms_key.main.arn
-  sqs_managed_sse_enabled    = false
+
 
   redrive_policy = jsonencode({
     deadLetterTargetArn = aws_sqs_queue.processing_dlq.arn
