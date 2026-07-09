@@ -54,6 +54,8 @@ resource "aws_cloudfront_distribution" "main" {
   }
 
   default_cache_behavior {
+  # Solución CKV2_AWS_32
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.security_headers.id
     target_origin_id       = "s3-frontend"
     viewer_protocol_policy = "redirect-to-https"
     cache_policy_id        = aws_cloudfront_cache_policy.frontend.id
@@ -113,4 +115,33 @@ resource "aws_s3_bucket_policy" "frontend_cloudfront" {
       }
     ]
   })
+}
+
+resource "aws_cloudfront_response_headers_policy" "security_headers" {
+  name    = "${local.name_prefix}-security-headers"
+  comment = "Security headers para plataforma de microcréditos (RNF_16)"
+  security_headers_config {
+    strict_transport_security {
+      access_control_max_age_sec = 31536000
+      include_subdomains         = true
+      preload                    = true
+      override                   = true
+    }
+    content_type_options {
+      override = true
+    }
+    frame_options {
+      frame_option = "DENY"
+      override     = true
+    }
+    xss_protection {
+      mode_block = true
+      protection = true
+      override   = true
+    }
+    referrer_policy {
+      referrer_policy = "strict-origin-when-cross-origin"
+      override        = true
+    }
+  }
 }
