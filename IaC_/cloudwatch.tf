@@ -1,13 +1,13 @@
 resource "aws_cloudwatch_log_group" "ecs_api" {
   name              = "/ecs/${local.name_prefix}-api"
-  retention_in_days = 30
+  retention_in_days = 365
   kms_key_id        = aws_kms_key.main.arn
   tags              = local.common_tags
 }
 
 resource "aws_cloudwatch_log_group" "ecs_worker" {
   name              = "/ecs/${local.name_prefix}-worker"
-  retention_in_days = 30
+  retention_in_days = 365
   kms_key_id        = aws_kms_key.main.arn
   tags              = local.common_tags
 }
