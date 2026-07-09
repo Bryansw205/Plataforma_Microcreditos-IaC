@@ -139,7 +139,7 @@ variable "aurora_preferred_maintenance_window" {
 variable "aurora_deletion_protection" {
   description = "Proteccion contra eliminacion accidental del cluster Aurora. En produccion debe ser true"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "aurora_skip_final_snapshot" {
