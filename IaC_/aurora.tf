@@ -51,6 +51,10 @@ resource "aws_rds_cluster" "aurora" {
 }
 
 resource "aws_rds_cluster_instance" "aurora" {
+
+  monitoring_interval = 15
+  monitoring_role_arn = aws_iam_role.rds_enhanced_monitoring.arn
+
   count = var.aurora_instance_count
 
   identifier         = "${local.name_prefix}-aurora-${count.index + 1}"
