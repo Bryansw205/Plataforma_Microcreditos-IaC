@@ -288,6 +288,12 @@ resource "aws_ecs_service" "api" {
     container_port   = var.backend_port
   }
 
+  depends_on = [
+    aws_lb_listener.https,
+    aws_lb_listener.http_redirect,
+    aws_lb_listener.http_forward
+  ]
+
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-api-service"
     Type = "ecs-service"

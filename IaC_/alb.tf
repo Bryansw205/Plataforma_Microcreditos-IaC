@@ -73,3 +73,41 @@ resource "aws_lb_listener" "https" {
     Name = "${local.name_prefix}-https-listener"
   })
 }
+
+resource "aws_lb_listener" "http_redirect" {
+  count             = local.alb_certificate_arn != null ? 1 : 0
+  load_balancer_arn = aws_lb.api.arn
+  port              = 80
+  protocol          = "HTTP"
+
+  default_action {
+    type = "redirect"
+
+    redirect {
+      port        = "443"
+      protocol    = "HTTPS"
+      status_code = "HTTP_301"
+    }
+  }
+
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-http-redirect-listener"
+  })
+}
+
+resource "aws_lb_listener" "http_forward" {
+  count             = local.alb_certificate_arn == null ? 1 : 0
+  load_balancer_arn = aws_lb.api.arn
+  port              = 80
+  protocol          = "HTTP"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.ecs_api.arn
+  }
+
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-http-forward-listener"
+  })
+}
+
