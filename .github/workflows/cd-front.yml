@@ -39,15 +39,13 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Subir archivos al bucket de Amazon S3
-        env:
-          BUCKET_NAME: microcreditos-frontend-bucked 
         run: |
+          BUCKET_NAME=$(aws ssm get-parameter --name "/microcreditos-dev/frontend/bucket_name" --query "Parameter.Value" --output text)
           aws s3 sync ./app/frontend/dist s3://$BUCKET_NAME --delete
 
       - name: Invalidar caché de CloudFront
-        env:
-          DISTRIBUTION_ID: E1A2B3C4D5E6F7 
         run: |
+          DISTRIBUTION_ID=$(aws ssm get-parameter --name "/microcreditos-dev/frontend/cloudfront_id" --query "Parameter.Value" --output text)
           aws cloudfront create-invalidation \
             --distribution-id $DISTRIBUTION_ID \
             --paths "/*"
