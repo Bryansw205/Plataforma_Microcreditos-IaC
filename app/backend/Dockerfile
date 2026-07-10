@@ -9,6 +9,8 @@ RUN npm ci
 # Copiamos el resto del código
 COPY . .
 
+# Generamos el cliente de Prisma
+RUN npx prisma generate
 # Exponemos el puerto de la API
 EXPOSE 3000
 
