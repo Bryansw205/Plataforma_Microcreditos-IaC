@@ -40,7 +40,8 @@ resource "aws_iam_policy" "ecs_execution_secrets" {
           "secretsmanager:GetSecretValue"
         ]
         Resource = [
-          aws_secretsmanager_secret.db_api_credenciales.arn
+          aws_secretsmanager_secret.db_api_credenciales.arn,
+          aws_rds_cluster.aurora.master_user_secret[0].secret_arn
         ]
       },
       {
