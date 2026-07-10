@@ -36,7 +36,7 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: microcreditos-api 
+          ECR_REPOSITORY: microcreditos-dev-api 
           IMAGE_TAG: latest
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./app/backend
@@ -44,9 +44,9 @@ jobs:
 
       - name: Forzar actualización en Amazon ECS
         env:
-          CLUSTER_NAME: microcreditos-cluster
-          API_SERVICE_NAME: microcreditos-api-service
-          WORKER_SERVICE_NAME: microcreditos-worker-service 
+          CLUSTER_NAME: microcreditos-dev-cluster
+          API_SERVICE_NAME: microcreditos-dev-api-service
+          WORKER_SERVICE_NAME: microcreditos-dev-worker-service 
         run: |
           echo "Actualizando el servicio de la API HTTP..."
           aws ecs update-service \
