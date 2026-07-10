@@ -384,7 +384,8 @@ resource "aws_appautoscaling_policy" "worker_queue_depth" {
   resource_id        = aws_appautoscaling_target.worker.resource_id
   scalable_dimension = aws_appautoscaling_target.worker.scalable_dimension
   service_namespace  = aws_appautoscaling_target.worker.service_namespace
-
+  depends_on         = [aws_appautoscaling_target.worker]
+  
   target_tracking_scaling_policy_configuration {
     target_value = var.ecs_worker_queue_messages_target
 
