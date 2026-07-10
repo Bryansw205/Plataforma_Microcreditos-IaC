@@ -1,0 +1,51 @@
+name: CD - Frontend
+
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - "app/frontend/**"
+      - ".github/workflows/cd-front.yml"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-frontend:
+    name: Desplegar Web a S3 y CloudFront
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar dependencias y compilar
+        working-directory: ./app/frontend
+        run: |
+          npm install
+          npm run build
+
+      - name: Configurar credenciales de AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Subir archivos al bucket de Amazon S3
+        env:
+          BUCKET_NAME: microcreditos-frontend-bucked 
+        run: |
+          aws s3 sync ./app/frontend/dist s3://$BUCKET_NAME --delete
+
+      - name: Invalidar caché de CloudFront
+        env:
+          
+          DISTRIBUTION_ID: E1A2B3C4D5E6F7 
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id $DISTRIBUTION_ID \
+            --paths "/*"
