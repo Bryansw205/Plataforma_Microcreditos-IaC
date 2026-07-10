@@ -187,6 +187,7 @@ resource "aws_ecs_task_definition" "worker" {
       name      = local.ecs_worker_container_name
       image     = local.worker_container_image
       essential = true
+      command   = ["npm", "run", "start:worker"]
 
       environment = [
         {
