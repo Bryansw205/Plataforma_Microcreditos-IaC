@@ -156,6 +156,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "documents" {
 resource "aws_s3_bucket" "audit" {
   bucket              = "${local.name_prefix}-audit-${data.aws_caller_identity.current.account_id}"
   object_lock_enabled = true
+  force_destroy       = true
 
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-audit-bucket"
