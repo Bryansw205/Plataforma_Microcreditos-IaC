@@ -11,13 +11,14 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "Ejecutar Plan / Apply"
+        description: "Ejecutar Plan / Apply / Destroy"
         required: true
         type: choice
         default: apply
         options:
           - plan
           - apply
+          - destroy
 
 permissions:
   contents: read
@@ -70,12 +71,19 @@ jobs:
           set -o pipefail
           terraform apply -input=false -auto-approve -no-color tfplan | tee terraform-apply.txt
 
+      - name: Terraform Destroy
+        if: ${{ inputs.mode == 'destroy' }}
+        run: |
+          set -o pipefail
+          terraform destroy -auto-approve -no-color | tee terraform-destroy.txt
+
       - name: Upload Terraform logs
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: terraform-deployment-logs
           path: |
-            iac/terraform-plan.txt
-            iac/terraform-apply.txt
+            IaC_/terraform-plan.txt
+            IaC_/terraform-apply.txt
+            IaC_/terraform-destroy.txt
           if-no-files-found: ignore
