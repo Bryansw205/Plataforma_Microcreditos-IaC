@@ -1,14 +1,14 @@
-name: Analisis con SonarQube Cloud
+name: CI - SonarQube
 
 on:
   push:
     branches:
       - dev
     paths:
-      - "iac/**"
+      - "IaC_/**"
       - "app/**"
       - "sonar-project.properties"
-      - ".github/workflows/sonarqube.yml"
+      - ".github/workflows/ci-sonarqube.yml"
 
   pull_request:
     branches:
@@ -18,13 +18,19 @@ on:
       - synchronize
       - reopened
     paths:
-      - "iac/**"
+      - "IaC_/**"
       - "app/**"
       - "sonar-project.properties"
-      - ".github/workflows/sonarqube.yml"
+      - ".github/workflows/ci-sonarqube.yml"
+
+  workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: sonarqube-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   sonarqube:
@@ -39,5 +45,9 @@ jobs:
 
       - name: Ejecutar analisis con SonarQube Cloud
         uses: SonarSource/sonarqube-scan-action@v7.0.0
+        with:
+          args: >
+            -Dsonar.qualitygate.wait=false
+            -Dsonar.qualitygate.timeout=600
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

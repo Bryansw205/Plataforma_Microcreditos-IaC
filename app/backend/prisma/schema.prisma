@@ -1,0 +1,42 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  dni       String    @unique
+  role      String    @default("cliente") // "cliente" | "operador"
+  ingresos  Float
+  gastos    Float
+  createdAt DateTime  @default(now())
+  credits   Credit[]
+}
+
+model Credit {
+  id            Int         @id @default(autoincrement())
+  userId        Int
+  user          User        @relation(fields: [userId], references: [id])
+  montoSolicitado Float?
+  plazoMeses    Int?
+  tasaInteres   Float?
+  montoAprobado Float
+  status        String      // "Rechazado", "Pre-aprobado", "Aprobado - Pendiente Desembolso", "Desembolsado"
+  createdAt     DateTime    @default(now())
+  schedules     Schedule[]
+}
+
+model Schedule {
+  id        Int      @id @default(autoincrement())
+  creditId  Int
+  credit    Credit   @relation(fields: [creditId], references: [id])
+  cuota     Int
+  amount    Float
+  status    String   // "Pendiente", "Pagada"
+  dueDate   DateTime?
+}

@@ -1,0 +1,94 @@
+---
+- name: Deploy Frontend to S3 + CloudFront
+  hosts: local
+  gather_facts: false
+
+  tasks:
+    # -------------------------------------------------------
+    # Validaciones previas
+    # -------------------------------------------------------
+    - name: Validar comandos requeridos
+      ansible.builtin.command: "which {{ item }}"
+      loop:
+        - aws
+        - node
+        - npm
+      changed_when: false
+
+    # -------------------------------------------------------
+    # Obtener contexto
+    # -------------------------------------------------------
+    - name: Obtener AWS Account ID
+      ansible.builtin.command: aws sts get-caller-identity --query Account --output text
+      environment: "{{ aws_environment }}"
+      changed_when: false
+      register: aws_account_raw
+
+    - name: Registrar AWS Account ID
+      ansible.builtin.set_fact:
+        aws_account_id: "{{ aws_account_raw.stdout | trim }}"
+
+    - name: Componer nombre del bucket frontend
+      ansible.builtin.set_fact:
+        resolved_frontend_bucket: "{{ lookup('env', 'FRONTEND_BUCKET') | default(name_prefix + '-frontend-' + aws_account_id, true) }}"
+
+    # -------------------------------------------------------
+    # Build del frontend
+    # -------------------------------------------------------
+    - name: Instalar dependencias del frontend
+      ansible.builtin.command: npm ci
+      args:
+        chdir: "{{ frontend_dir }}"
+      register: npm_install
+
+    - name: Ejecutar build del frontend
+      ansible.builtin.command: npm run build
+      args:
+        chdir: "{{ frontend_dir }}"
+      register: npm_build
+
+    - name: Validar que exista la carpeta dist
+      ansible.builtin.stat:
+        path: "{{ frontend_dir }}/dist"
+      register: dist_dir
+
+    - name: Fallar si dist no existe
+      ansible.builtin.fail:
+        msg: "La carpeta dist no fue generada. Revisa la salida de npm run build."
+      when: not dist_dir.stat.exists or not dist_dir.stat.isdir
+
+    # -------------------------------------------------------
+    # Subir a S3
+    # -------------------------------------------------------
+    - name: Sincronizar dist con S3
+      ansible.builtin.command: >
+        aws s3 sync {{ frontend_dir }}/dist/
+        s3://{{ resolved_frontend_bucket }}/ --delete
+      environment: "{{ aws_environment }}"
+      register: s3_sync
+
+    # -------------------------------------------------------
+    # Invalidar CloudFront
+    # -------------------------------------------------------
+    - name: Invalidar caché de CloudFront
+      ansible.builtin.command: >
+        aws cloudfront create-invalidation
+        --distribution-id {{ frontend_distribution_id }}
+        --paths "/*"
+      environment: "{{ aws_environment }}"
+      when: frontend_distribution_id | length > 0
+      register: cf_invalidation
+
+    # -------------------------------------------------------
+    # Resumen
+    # -------------------------------------------------------
+    - name: Mostrar resumen del despliegue frontend
+      ansible.builtin.debug:
+        msg: |
+          ================================================
+          DESPLIEGUE FRONTEND COMPLETADO
+          ================================================
+          Bucket S3:       {{ resolved_frontend_bucket }}
+          Distribution ID: {{ frontend_distribution_id | default('No configurado', true) }}
+          Invalidación:    {{ 'Creada' if (frontend_distribution_id | length > 0) else 'Omitida (sin distribution ID)' }}
+          ================================================

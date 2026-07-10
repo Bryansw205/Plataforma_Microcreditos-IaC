@@ -1,0 +1,40 @@
+name: CI - Terraform
+
+on:
+  pull_request:
+    branches:
+      - dev
+    paths:
+      - ".github/workflows/ci-terraform.yml"
+      - "IaC_/**"
+
+permissions:
+  contents: read
+
+jobs:
+  terraform:
+    name: Terraform Syntax Validation
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./IaC_
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e
+        with:
+          terraform_version: "1.9.0"
+
+      - name: Check Terraform format
+        run: terraform fmt -check -recursive
+
+      - name: Terraform init
+        run: terraform init -backend=false -input=false
+
+      - name: Terraform validate
+        run: terraform validate
