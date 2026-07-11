@@ -2,6 +2,7 @@ data "aws_caller_identity" "current" {}
 
 resource "aws_s3_bucket" "frontend" {
   bucket = "${local.name_prefix}-frontend-${data.aws_caller_identity.current.account_id}"
+  force_destroy       = true
 
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-frontend-bucket"
@@ -68,7 +69,8 @@ resource "aws_s3_bucket_lifecycle_configuration" "frontend" {
 resource "aws_s3_bucket" "documents" {
   bucket              = "${local.name_prefix}-documents-${data.aws_caller_identity.current.account_id}"
   object_lock_enabled = true
-
+  force_destroy       = true
+  
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-documents-bucket"
     Type = "documents"
