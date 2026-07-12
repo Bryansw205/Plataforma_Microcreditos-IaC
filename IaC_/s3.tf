@@ -240,7 +240,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "audit" {
 
 data "aws_elb_service_account" "main" {}
 
-resource "aws_s3_bucket_policy" "audit_alb" {
+resource "aws_s3_bucket_policy" "audit" {
   bucket = aws_s3_bucket.audit.id
 
   policy = jsonencode({
@@ -253,6 +253,27 @@ resource "aws_s3_bucket_policy" "audit_alb" {
         }
         Action   = "s3:PutObject"
         Resource = "${aws_s3_bucket.audit.arn}/alb-access-logs/AWSLogs/${data.aws_caller_identity.current.account_id}/*"
+      },
+      {
+        Effect = "Allow"
+        Principal = {
+          Service = "cloudtrail.amazonaws.com"
+        }
+        Action   = "s3:GetBucketAcl"
+        Resource = aws_s3_bucket.audit.arn
+      },
+      {
+        Effect = "Allow"
+        Principal = {
+          Service = "cloudtrail.amazonaws.com"
+        }
+        Action   = "s3:PutObject"
+        Resource = "${aws_s3_bucket.audit.arn}/cloudtrail/AWSLogs/${data.aws_caller_identity.current.account_id}/*"
+        Condition = {
+          StringEquals = {
+            "s3:x-amz-acl" = "bucket-owner-full-control"
+          }
+        }
       }
     ]
   })
