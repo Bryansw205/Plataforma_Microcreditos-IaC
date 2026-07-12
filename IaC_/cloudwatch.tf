@@ -78,3 +78,10 @@ resource "aws_cloudwatch_metric_alarm" "ecs_api_memory_high" {
   }
   tags = local.common_tags
 }
+
+resource "aws_cloudwatch_log_group" "cloudtrail" {
+  name              = "/aws/cloudtrail/${local.name_prefix}-audit"
+  retention_in_days = 365
+  kms_key_id        = aws_kms_key.main.arn
+  tags              = local.common_tags
+}

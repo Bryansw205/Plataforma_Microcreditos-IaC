@@ -169,3 +169,45 @@ resource "aws_iam_role_policy_attachment" "rds_monitoring" {
   role       = aws_iam_role.rds_enhanced_monitoring.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole"
 }
+
+# Rol para CloudTrail enviar a CloudWatch Logs:
+resource "aws_iam_role" "cloudtrail" {
+  name = "${local.name_prefix}-cloudtrail-cw-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Action = "sts:AssumeRole"
+      Effect = "Allow"
+      Principal = {
+        Service = "cloudtrail.amazonaws.com"
+      }
+    }]
+  })
+
+  tags = local.common_tags
+}
+
+resource "aws_iam_policy" "cloudtrail_cw_logs" {
+  name        = "${local.name_prefix}-cloudtrail-cw-policy"
+  description = "Policy para CloudTrail escribir en CW Logs"
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ]
+        Resource = "${aws_cloudwatch_log_group.cloudtrail.arn}:log-stream:*"
+      }
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "cloudtrail_cw" {
+  role       = aws_iam_role.cloudtrail.name
+  policy_arn = aws_iam_policy.cloudtrail_cw_logs.arn
+}
