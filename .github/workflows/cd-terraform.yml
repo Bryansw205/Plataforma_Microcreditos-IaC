@@ -63,7 +63,7 @@ jobs:
         if: ${{ github.event_name == 'push' || inputs.mode == 'plan' || inputs.mode == 'apply' }}
         run: |
           set -o pipefail
-          terraform plan -input=false -out=tfplan -no-color | tee terraform-plan.txt
+          terraform plan -var-file="envs/dev.tfvars" -input=false -out=tfplan -no-color | tee terraform-plan.txt
 
       - name: Terraform Apply
         if: ${{ github.event_name == 'push' || inputs.mode == 'apply' }}
@@ -75,7 +75,7 @@ jobs:
         if: ${{ inputs.mode == 'destroy' }}
         run: |
           set -o pipefail
-          terraform destroy -auto-approve -no-color | tee terraform-destroy.txt
+          terraform destroy -var-file="envs/dev.tfvars" -auto-approve -no-color | tee terraform-destroy.txt
 
       - name: Upload Terraform logs
         if: always()
