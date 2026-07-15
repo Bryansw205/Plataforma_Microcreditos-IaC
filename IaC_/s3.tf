@@ -2,6 +2,7 @@ data "aws_caller_identity" "current" {}
 
 resource "aws_s3_bucket" "frontend" {
   # checkov:skip=CKV2_AWS_62: Bucket estatico, no requiere notificaciones. :3
+  # checkov:skip=CKV_AWS_145: Contenido estatiico publico. AES256 suficiente; KMS añade latencia sin beneficio de confidencialidad.
   bucket        = "${local.name_prefix}-frontend-${data.aws_caller_identity.current.account_id}"
   force_destroy = true
 
@@ -198,7 +199,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "audit" {
 
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
+      kms_master_key_id = aws_kms_key.main.arn
+      sse_algorithm     = "aws:kms"
     }
   }
 }
