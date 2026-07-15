@@ -1,15 +1,10 @@
-# ============================================================
 # CloudWatch Observability Dashboard
-# ============================================================
 
 resource "aws_cloudwatch_dashboard" "observability" {
   dashboard_name = "${local.name_prefix}-observability"
 
   dashboard_body = jsonencode({
     widgets = [
-      # --------------------------------------------------
-      # HEADER GENERAL
-      # --------------------------------------------------
       {
         type   = "text"
         x      = 0
@@ -17,13 +12,11 @@ resource "aws_cloudwatch_dashboard" "observability" {
         width  = 24
         height = 2
         properties = {
-          markdown = "# 📊 Plataforma de Microcréditos - Dashboard de Observabilidad\nMonitoreo en tiempo real de los 4 atributos de calidad más críticos: **Rendimiento**, **Disponibilidad**, **Tolerancia a fallos** y **Escalabilidad**."
+          markdown = "# Plataforma de Microcréditos - Dashboard de Observabilidad\nMonitoreo en tiempo real de los 4 atributos de calidad más críticos: **Rendimiento**, **Disponibilidad**, **Tolerancia a fallos** y **Escalabilidad**."
         }
       },
 
-      # --------------------------------------------------
-      # SECCIÓN 1: RENDIMIENTO (PERFORMANCE)
-      # --------------------------------------------------
+      # 1. RENDIMIENTO
       {
         type   = "text"
         x      = 0
@@ -31,7 +24,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         width  = 24
         height = 1
         properties = {
-          markdown = "## ⚡ Rendimiento (Performance) - Latencia y eficiencia en transacciones"
+          markdown = "## Rendimiento - Latencia y eficiencia en transacciones"
         }
       },
       {
@@ -43,7 +36,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         properties = {
           metrics = [
             ["AWS/ApplicationELB", "TargetResponseTime", "LoadBalancer", aws_lb.api.arn_suffix, { "stat" : "Average", "label" : "Latencia Promedio", "period" : 60 }],
-            [".", ".", ".", ".", { "stat" : "p95", "label" : "Latencia p95", "period" : 60 }]
+            ["...", "...", "...", "...", { "stat" : "p95", "label" : "Latencia p95", "period" : 60 }]
           ]
           region = var.aws_region
           title  = "Red (ALB): Latencia de Respuesta del Backend (Segundos)"
@@ -97,9 +90,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         }
       },
 
-      # --------------------------------------------------
-      # SECCIÓN 2: DISPONIBILIDAD (AVAILABILITY)
-      # --------------------------------------------------
+      # 2. DISPONIBILIDAD
       {
         type   = "text"
         x      = 0
@@ -107,7 +98,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         width  = 24
         height = 1
         properties = {
-          markdown = "## 🟢 Disponibilidad (Availability) - Continuidad del servicio y salud del sistema"
+          markdown = "## Disponibilidad - Continuidad del servicio y salud del sistema"
         }
       },
       {
@@ -160,7 +151,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         properties = {
           metrics = [
             ["AWS/ApplicationELB", "HealthyHostCount", "TargetGroup", aws_lb_target_group.ecs_api.arn_suffix, "LoadBalancer", aws_lb.api.arn_suffix, { "stat" : "Average", "label" : "Hosts Saludables", "period" : 60 }],
-            [".", "UnHealthyHostCount", ".", ".", ".", ".", { "stat" : "Average", "label" : "Hosts No Saludables", "color" : "#d13212", "period" : 60 }]
+            ["...", "UnHealthyHostCount", "...", "...", "...", "...", { "stat" : "Average", "label" : "Hosts No Saludables", "color" : "#d13212", "period" : 60 }]
           ]
           region = var.aws_region
           title  = "Red (ALB): Salud de Instancias en Target Group"
@@ -173,9 +164,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         }
       },
 
-      # --------------------------------------------------
-      # SECCIÓN 3: TOLERANCIA A FALLOS (FAULT TOLERANCE)
-      # --------------------------------------------------
+      # 3. TOLERANCIA A FALLOS
       {
         type   = "text"
         x      = 0
@@ -183,7 +172,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         width  = 24
         height = 1
         properties = {
-          markdown = "## 🛡️ Tolerancia a Fallos (Fault Tolerance) - Gestión de errores y colas de descarte"
+          markdown = "## Tolerancia a Fallos - Gestión de errores y colas de descarte"
         }
       },
       {
@@ -195,8 +184,8 @@ resource "aws_cloudwatch_dashboard" "observability" {
         properties = {
           metrics = [
             ["AWS/ApplicationELB", "HTTPCode_Target_2XX_Count", "LoadBalancer", aws_lb.api.arn_suffix, { "stat" : "Sum", "label" : "HTTP 2xx (Éxito)", "color" : "#2ca02c", "period" : 60 }],
-            [".", "HTTPCode_Target_4XX_Count", ".", ".", { "stat" : "Sum", "label" : "HTTP 4xx (Error Cliente)", "color" : "#ff7f0e", "period" : 60 }],
-            [".", "HTTPCode_Target_5XX_Count", ".", ".", { "stat" : "Sum", "label" : "HTTP 5xx (Error Servidor)", "color" : "#d62728", "period" : 60 }]
+            ["...", "HTTPCode_Target_4XX_Count", "...", "...", { "stat" : "Sum", "label" : "HTTP 4xx (Error Cliente)", "color" : "#ff7f0e", "period" : 60 }],
+            ["...", "HTTPCode_Target_5XX_Count", "...", "...", { "stat" : "Sum", "label" : "HTTP 5xx (Error Servidor)", "color" : "#d62728", "period" : 60 }]
           ]
           region = var.aws_region
           title  = "Red (ALB): Códigos de Respuesta HTTP del Target Group"
@@ -229,9 +218,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         }
       },
 
-      # --------------------------------------------------
-      # SECCIÓN 4: ESCALABILIDAD (SCALABILITY)
-      # --------------------------------------------------
+      # 4. ESCALABILIDAD
       {
         type   = "text"
         x      = 0
@@ -239,7 +226,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         width  = 24
         height = 1
         properties = {
-          markdown = "## 📈 Escalabilidad (Scalability) - Capacidad de cómputo, memoria y carga de colas"
+          markdown = "## Escalabilidad - Capacidad de cómputo, memoria y carga de colas"
         }
       },
       {
@@ -251,7 +238,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         properties = {
           metrics = [
             ["AWS/ECS", "CPUUtilization", "ServiceName", aws_ecs_service.api.name, "ClusterName", aws_ecs_cluster.main.name, { "stat" : "Average", "label" : "API CPU %", "period" : 60 }],
-            [".", ".", "ServiceName", aws_ecs_service.worker.name, "ClusterName", aws_ecs_cluster.main.name, { "stat" : "Average", "label" : "Worker CPU %", "period" : 60 }]
+            ["...", "...", "ServiceName", aws_ecs_service.worker.name, "ClusterName", aws_ecs_cluster.main.name, { "stat" : "Average", "label" : "Worker CPU %", "period" : 60 }]
           ]
           region = var.aws_region
           title  = "Cómputo (ECS): Utilización de CPU (%)"
@@ -273,7 +260,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         properties = {
           metrics = [
             ["AWS/ECS", "MemoryUtilization", "ServiceName", aws_ecs_service.api.name, "ClusterName", aws_ecs_cluster.main.name, { "stat" : "Average", "label" : "API Memoria %", "period" : 60 }],
-            [".", ".", "ServiceName", aws_ecs_service.worker.name, "ClusterName", aws_ecs_cluster.main.name, { "stat" : "Average", "label" : "Worker Memoria %", "period" : 60 }]
+            ["...", "...", "ServiceName", aws_ecs_service.worker.name, "ClusterName", aws_ecs_cluster.main.name, { "stat" : "Average", "label" : "Worker Memoria %", "period" : 60 }]
           ]
           region = var.aws_region
           title  = "Cómputo (ECS): Utilización de Memoria (%)"
@@ -295,7 +282,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         properties = {
           metrics = [
             ["AWS/SQS", "ApproximateNumberOfMessagesVisible", "QueueName", aws_sqs_queue.processing.name, { "stat" : "Average", "label" : "Mensajes Visibles", "period" : 60 }],
-            [".", "ApproximateNumberOfMessagesNotVisible", ".", ".", { "stat" : "Average", "label" : "Mensajes Procesando (In-Flight)", "period" : 60 }]
+            ["...", "ApproximateNumberOfMessagesNotVisible", "...", "...", { "stat" : "Average", "label" : "Mensajes Procesando (In-Flight)", "period" : 60 }]
           ]
           region = var.aws_region
           title  = "Colas (SQS): Mensajes en Cola Principal"
@@ -308,9 +295,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         }
       },
 
-      # --------------------------------------------------
-      # SECCIÓN 5: LOGS Y AUDITORÍA
-      # --------------------------------------------------
+      # 5. LOGS Y AUDITORÍA
       {
         type   = "text"
         x      = 0
@@ -318,7 +303,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         width  = 24
         height = 1
         properties = {
-          markdown = "## 📝 Logs de Aplicación e Infraestructura - Registro centralizado"
+          markdown = "## Logs de Aplicación e Infraestructura - Registro centralizado"
         }
       },
       {
