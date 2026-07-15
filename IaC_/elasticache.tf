@@ -22,7 +22,7 @@ resource "aws_elasticache_replication_group" "redis" {
   num_cache_clusters         = 2
   at_rest_encryption_enabled = true
   transit_encryption_enabled = true
-  auth_token = var.redis_auth_token
+  auth_token                 = var.redis_auth_token
   kms_key_id                 = aws_kms_key.main.arn
   apply_immediately          = true
   maintenance_window         = "sun:05:00-sun:06:00"
