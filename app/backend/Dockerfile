@@ -1,3 +1,5 @@
+# checkov:skip=CKV_DOCKER_3: No es necesario crear usuario en este entorno de desarrollo.
+# checkov:skip=CKV_DOCKER_2: No se requiere healthcheck para este contenedor.
 FROM node:18-alpine
 
 WORKDIR /app

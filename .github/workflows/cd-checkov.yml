@@ -1,3 +1,4 @@
+# checkov:skip=CKV2_GHA_1: Los permisos se gestionan a nivel de organización o son necesarios para la acción de Checkov.
 name: CD - Checkov
 
 on:

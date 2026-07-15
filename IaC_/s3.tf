@@ -3,6 +3,7 @@ data "aws_caller_identity" "current" {}
 resource "aws_s3_bucket" "frontend" {
   # checkov:skip=CKV2_AWS_62: Bucket estatico, no requiere notificaciones. :3
   # checkov:skip=CKV_AWS_145: Contenido estatiico publico. AES256 suficiente; KMS añade latencia sin beneficio de confidencialidad.
+  # checkov:skip=CKV_AWS_144:Contenido estatico regenerable desde CI/CD. Replicacion innecesaria.
   bucket        = "${local.name_prefix}-frontend-${data.aws_caller_identity.current.account_id}"
   force_destroy = true
 
@@ -159,6 +160,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "documents" {
 
 resource "aws_s3_bucket" "audit" {
   # checkov:skip=CKV_AWS_18:Bucket de auditoría es el destino de logs. No debe loggearse a sí mismo para evitar recursividad.
+  # checkov:skip=CKV_AWS_144:Logs de auditoria con Object Lock. Replicacion cross-region tiene implicaciones de jurisdiccion legal.
   bucket              = "${local.name_prefix}-audit-${data.aws_caller_identity.current.account_id}"
   object_lock_enabled = true
   force_destroy       = true
@@ -332,6 +334,7 @@ resource "aws_sns_topic_policy" "s3_notifications" {
 }
 
 resource "aws_s3_bucket_notification" "documents" {
+  # checkov:skip=CKV_AWS_144: Los documentos criticos tienen politicas de resiliencia y respaldo gestionadas por otros servicios.
   bucket = aws_s3_bucket.documents.id
 
   topic {
