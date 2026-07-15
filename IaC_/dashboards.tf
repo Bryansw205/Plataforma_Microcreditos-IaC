@@ -313,7 +313,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         width  = 12
         height = 6
         properties = {
-          query  = "SOURCE '${aws_cloudwatch_log_group.ecs_api.name}' | fields @timestamp, @message, @logStream | filter @message like /(?i)(error|fail|warn|exception)/ | sort @timestamp desc | limit 50"
+          query  = "SOURCE '${aws_cloudwatch_log_group.ecs_api.name}'\nfields @timestamp, @message, @logStream | filter @message =~ /(?i)(error|fail|warn|exception)/ | sort @timestamp desc | limit 50"
           region = var.aws_region
           title  = "Aplicación (ECS API Logs): Errores y Advertencias"
           view   = "table"
@@ -326,7 +326,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         width  = 12
         height = 6
         properties = {
-          query  = "SOURCE '${aws_cloudwatch_log_group.ecs_worker.name}' | fields @timestamp, @message, @logStream | filter @message like /(?i)(error|fail|warn|process|start|complete)/ | sort @timestamp desc | limit 50"
+          query  = "SOURCE '${aws_cloudwatch_log_group.ecs_worker.name}'\nfields @timestamp, @message, @logStream | filter @message =~ /(?i)(error|fail|warn|process|start|complete)/ | sort @timestamp desc | limit 50"
           region = var.aws_region
           title  = "Aplicación (ECS Worker Logs): Tareas y Mensajes de Procesamiento"
           view   = "table"
@@ -339,7 +339,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         width  = 12
         height = 6
         properties = {
-          query  = "SOURCE '/aws/rds/cluster/${aws_rds_cluster.aurora.cluster_identifier}/postgresql' | fields @timestamp, @message | filter @message like /(?i)(alter|drop|create|duration|statement|error|fatal)/ | sort @timestamp desc | limit 50"
+          query  = "SOURCE '/aws/rds/cluster/${aws_rds_cluster.aurora.cluster_identifier}/postgresql'\nfields @timestamp, @message | filter @message =~ /(?i)(alter|drop|create|duration|statement|error|fatal)/ | sort @timestamp desc | limit 50"
           region = var.aws_region
           title  = "Base de Datos (Aurora PostgreSQL Logs): Auditoría DDL y Errores"
           view   = "table"
@@ -352,7 +352,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         width  = 12
         height = 6
         properties = {
-          query  = "SOURCE '${aws_cloudwatch_log_group.cloudtrail.name}' | fields @timestamp, eventName, eventSource, userIdentity.arn, errorCode, errorMessage | sort @timestamp desc | limit 50"
+          query  = "SOURCE '${aws_cloudwatch_log_group.cloudtrail.name}'\nfields @timestamp, eventName, eventSource, userIdentity.arn, errorCode, errorMessage | sort @timestamp desc | limit 50"
           region = var.aws_region
           title  = "Auditoría e Infraestructura (AWS CloudTrail Logs): Eventos de API"
           view   = "table"
