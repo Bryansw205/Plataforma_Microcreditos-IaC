@@ -29,6 +29,7 @@ jobs:
         working-directory: ./app/frontend
         run: |
           npm install
+          npm run test:unit
           npm run build
 
       - name: Configurar credenciales de AWS
