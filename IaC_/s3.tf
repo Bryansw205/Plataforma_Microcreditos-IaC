@@ -70,6 +70,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "frontend" {
 }
 
 resource "aws_s3_bucket" "documents" {
+  # checkov:skip=CKV_AWS_144: Los documentos criticos tienen politicas de resiliencia y respaldo gestionadas por otros servicios.
   bucket              = "${local.name_prefix}-documents-${data.aws_caller_identity.current.account_id}"
   object_lock_enabled = true
   force_destroy       = true
@@ -334,7 +335,6 @@ resource "aws_sns_topic_policy" "s3_notifications" {
 }
 
 resource "aws_s3_bucket_notification" "documents" {
-  # checkov:skip=CKV_AWS_144: Los documentos criticos tienen politicas de resiliencia y respaldo gestionadas por otros servicios.
   bucket = aws_s3_bucket.documents.id
 
   topic {
