@@ -15,6 +15,9 @@ resource "aws_kms_alias" "main" {
 }
 
 data "aws_iam_policy_document" "kms" {
+  # checkov:skip=CKV_AWS_109:KMS key policy requiere resources="*" por diseño de AWS.
+  # checkov:skip=CKV_AWS_356:KMS key policy requiere resources="*". No es una IAM policy standard.
+  # checkov:skip=CKV_AWS_111:Write actions obligatorios en KMS key policy con resources="*" por requerimiento AWS.
   statement {
     sid       = "Enable IAM User Permissions"
     effect    = "Allow"
