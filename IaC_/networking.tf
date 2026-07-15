@@ -20,6 +20,19 @@ resource "aws_internet_gateway" "main" {
   })
 }
 
+resource "aws_flow_log" "main" {
+  vpc_id                   = aws_vpc.main.id
+  traffic_type             = "ALL"
+  iam_role_arn             = aws_iam_role.vpc_flow_logs.arn
+  log_destination_type     = "cloud-watch-logs"
+  log_destination          = aws_cloudwatch_log_group.vpc_flow_logs.arn
+  max_aggregation_interval = 60
+
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-vpc-flow-log"
+  })
+}
+
 resource "aws_subnet" "public" {
   count = 2
 
