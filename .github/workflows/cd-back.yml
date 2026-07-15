@@ -21,6 +21,12 @@ jobs:
       - name: Descargar código del repositorio
         uses: actions/checkout@v4
 
+      - name: Ejecutar pruebas unitarias (Backend)
+        working-directory: ./app/backend
+        run: |
+          npm ci
+          npm run test:unit
+
       - name: Configurar credenciales de AWS
         uses: aws-actions/configure-aws-credentials@v4
         with:
