@@ -157,6 +157,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "documents" {
 }
 
 resource "aws_s3_bucket" "audit" {
+  # checkov:skip=CKV_AWS_18:Bucket de auditoría es el destino de logs. No debe loggearse a sí mismo para evitar recursividad.
   bucket              = "${local.name_prefix}-audit-${data.aws_caller_identity.current.account_id}"
   object_lock_enabled = true
   force_destroy       = true
@@ -275,6 +276,26 @@ resource "aws_s3_bucket_policy" "audit" {
             "s3:x-amz-acl" = "bucket-owner-full-control"
           }
         }
+      },
+      {
+        Sid    = "AllowS3LogDelivery"
+        Effect = "Allow"
+        Principal = {
+          Service = "logging.s3.amazonaws.com"
+        }
+        Action   = "s3:PutObject"
+        Resource = "${aws_s3_bucket.audit.arn}/s3-logs/*"
+        Condition = {
+          ArnLike = {
+            "aws:SourceArn" = [
+              aws_s3_bucket.frontend.arn,
+              aws_s3_bucket.documents.arn
+            ]
+          }
+          StringEquals = {
+            "aws:SourceAccount" = data.aws_caller_identity.current.account_id
+          }
+        }
       }
     ]
   })
@@ -328,4 +349,20 @@ resource "aws_s3_bucket_notification" "audit" {
   }
 
   depends_on = [aws_sns_topic_policy.s3_notifications]
+}
+
+resource "aws_s3_bucket_logging" "frontend" {
+  bucket        = aws_s3_bucket.frontend.id
+  target_bucket = aws_s3_bucket.audit.id
+  target_prefix = "s3-logs/frontend/"
+
+  depends_on = [aws_s3_bucket_policy.audit]
+}
+
+resource "aws_s3_bucket_logging" "documents" {
+  bucket        = aws_s3_bucket.documents.id
+  target_bucket = aws_s3_bucket.audit.id
+  target_prefix = "s3-logs/documents/"
+
+  depends_on = [aws_s3_bucket_policy.audit]
 }
