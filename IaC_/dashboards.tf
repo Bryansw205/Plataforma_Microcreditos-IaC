@@ -36,7 +36,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         properties = {
           metrics = [
             ["AWS/ApplicationELB", "TargetResponseTime", "LoadBalancer", aws_lb.api.arn_suffix, { "stat" : "Average", "label" : "Latencia Promedio", "period" : 60 }],
-            ["...", "...", "...", "...", { "stat" : "p95", "label" : "Latencia p95", "period" : 60 }]
+            [".", ".", ".", ".", { "stat" : "p95", "label" : "Latencia p95", "period" : 60 }]
           ]
           region = var.aws_region
           title  = "Red (ALB): Latencia de Respuesta del Backend (Segundos)"
@@ -151,7 +151,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         properties = {
           metrics = [
             ["AWS/ApplicationELB", "HealthyHostCount", "TargetGroup", aws_lb_target_group.ecs_api.arn_suffix, "LoadBalancer", aws_lb.api.arn_suffix, { "stat" : "Average", "label" : "Hosts Saludables", "period" : 60 }],
-            ["...", "UnHealthyHostCount", "...", "...", "...", "...", { "stat" : "Average", "label" : "Hosts No Saludables", "color" : "#d13212", "period" : 60 }]
+            [".", "UnHealthyHostCount", ".", ".", ".", ".", { "stat" : "Average", "label" : "Hosts No Saludables", "color" : "#d13212", "period" : 60 }]
           ]
           region = var.aws_region
           title  = "Red (ALB): Salud de Instancias en Target Group"
@@ -184,8 +184,8 @@ resource "aws_cloudwatch_dashboard" "observability" {
         properties = {
           metrics = [
             ["AWS/ApplicationELB", "HTTPCode_Target_2XX_Count", "LoadBalancer", aws_lb.api.arn_suffix, { "stat" : "Sum", "label" : "HTTP 2xx (Éxito)", "color" : "#2ca02c", "period" : 60 }],
-            ["...", "HTTPCode_Target_4XX_Count", "...", "...", { "stat" : "Sum", "label" : "HTTP 4xx (Error Cliente)", "color" : "#ff7f0e", "period" : 60 }],
-            ["...", "HTTPCode_Target_5XX_Count", "...", "...", { "stat" : "Sum", "label" : "HTTP 5xx (Error Servidor)", "color" : "#d62728", "period" : 60 }]
+            [".", "HTTPCode_Target_4XX_Count", ".", ".", { "stat" : "Sum", "label" : "HTTP 4xx (Error Cliente)", "color" : "#ff7f0e", "period" : 60 }],
+            [".", "HTTPCode_Target_5XX_Count", ".", ".", { "stat" : "Sum", "label" : "HTTP 5xx (Error Servidor)", "color" : "#d62728", "period" : 60 }]
           ]
           region = var.aws_region
           title  = "Red (ALB): Códigos de Respuesta HTTP del Target Group"
@@ -238,7 +238,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         properties = {
           metrics = [
             ["AWS/ECS", "CPUUtilization", "ServiceName", aws_ecs_service.api.name, "ClusterName", aws_ecs_cluster.main.name, { "stat" : "Average", "label" : "API CPU %", "period" : 60 }],
-            ["...", "...", "ServiceName", aws_ecs_service.worker.name, "ClusterName", aws_ecs_cluster.main.name, { "stat" : "Average", "label" : "Worker CPU %", "period" : 60 }]
+            [".", ".", "ServiceName", aws_ecs_service.worker.name, "ClusterName", aws_ecs_cluster.main.name, { "stat" : "Average", "label" : "Worker CPU %", "period" : 60 }]
           ]
           region = var.aws_region
           title  = "Cómputo (ECS): Utilización de CPU (%)"
@@ -260,7 +260,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         properties = {
           metrics = [
             ["AWS/ECS", "MemoryUtilization", "ServiceName", aws_ecs_service.api.name, "ClusterName", aws_ecs_cluster.main.name, { "stat" : "Average", "label" : "API Memoria %", "period" : 60 }],
-            ["...", "...", "ServiceName", aws_ecs_service.worker.name, "ClusterName", aws_ecs_cluster.main.name, { "stat" : "Average", "label" : "Worker Memoria %", "period" : 60 }]
+            [".", ".", "ServiceName", aws_ecs_service.worker.name, "ClusterName", aws_ecs_cluster.main.name, { "stat" : "Average", "label" : "Worker Memoria %", "period" : 60 }]
           ]
           region = var.aws_region
           title  = "Cómputo (ECS): Utilización de Memoria (%)"
@@ -282,7 +282,7 @@ resource "aws_cloudwatch_dashboard" "observability" {
         properties = {
           metrics = [
             ["AWS/SQS", "ApproximateNumberOfMessagesVisible", "QueueName", aws_sqs_queue.processing.name, { "stat" : "Average", "label" : "Mensajes Visibles", "period" : 60 }],
-            ["...", "ApproximateNumberOfMessagesNotVisible", "...", "...", { "stat" : "Average", "label" : "Mensajes Procesando (In-Flight)", "period" : 60 }]
+            [".", "ApproximateNumberOfMessagesNotVisible", ".", ".", { "stat" : "Average", "label" : "Mensajes Procesando (In-Flight)", "period" : 60 }]
           ]
           region = var.aws_region
           title  = "Colas (SQS): Mensajes en Cola Principal"
