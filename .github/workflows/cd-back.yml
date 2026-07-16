@@ -26,7 +26,7 @@ jobs:
       - name: Ejecutar pruebas unitarias 
         working-directory: ./app/backend
         run: |
-          npm ci
+          npm install --no-audit
           npm run test:unit
           
       - name: Configurar credenciales de AWS
