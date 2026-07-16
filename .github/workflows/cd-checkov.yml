@@ -42,3 +42,18 @@ jobs:
           name: checkov-security-report
           path: results_junitxml.xml
           if-no-files-found: ignore
+
+      - name: Enviar reporte de Checkov por correo
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.MAIL_SERVER }}
+          server_port: ${{ secrets.MAIL_PORT }}
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: Resultados de Checkov - ${{ github.repository }}
+          to: ${{ secrets.MAIL_TO }}
+          from: GitHub Actions
+          body: Se ha completado el análisis de Checkov. Adjunto encontrarás los resultados (results_junitxml.xml).
+          attachments: results_junitxml.xml
