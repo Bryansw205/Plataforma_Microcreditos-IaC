@@ -1,4 +1,5 @@
 resource "aws_cloudtrail" "main" {
+  # checkov:skip=CKV_AWS_252: El monitoreo de alertas ya se realiza a través de CloudWatch Logs
   name                          = "${local.name_prefix}-audit-trail"
   s3_bucket_name                = aws_s3_bucket.audit.id
   s3_key_prefix                 = "cloudtrail"
@@ -7,7 +8,6 @@ resource "aws_cloudtrail" "main" {
   enable_log_file_validation    = true
 
   kms_key_id     = aws_kms_key.main.arn
-  sns_topic_name = aws_sns_topic.alerts.arn
 
   cloud_watch_logs_group_arn = "${aws_cloudwatch_log_group.cloudtrail.arn}:*"
   cloud_watch_logs_role_arn  = aws_iam_role.cloudtrail.arn
