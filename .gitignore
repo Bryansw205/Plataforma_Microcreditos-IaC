@@ -5,6 +5,7 @@
 .terraform/
 crash.log
 crash.*.log
+.terraform.lock.hcl
 
 # Sensitive variable files
 terraform.tfvars
@@ -29,3 +30,17 @@ terraform.rc
 # OS
 .DS_Store
 Thumbs.db
+IaC_/.terraform/
+
+node_modules/
+**/node_modules/
+
+.env
+**/.env
+
+dist/
+build/
+
+# Coverage reports
+coverage/
+**/coverage/

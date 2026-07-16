@@ -1,0 +1,53 @@
+name: CD - Frontend
+
+on:
+  workflow_run:
+    workflows: ["CD - Checkov"]
+    types:
+      - completed
+    branches:
+      - dev
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  AWS_REGION: us-east-1
+
+jobs:
+  deploy-frontend:
+    name: Desplegar Web a S3 y CloudFront
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Descargar código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar dependencias y compilar
+        working-directory: ./app/frontend
+        run: |
+          npm install
+          npm run test:unit
+          npm run build
+
+      - name: Configurar credenciales de AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Subir archivos al bucket de Amazon S3
+        run: |
+          BUCKET_NAME=$(aws ssm get-parameter --name "/microcreditos-dev/frontend/bucket_name" --query "Parameter.Value" --output text)
+          aws s3 sync ./app/frontend/dist s3://$BUCKET_NAME --delete
+
+      - name: Invalidar caché de CloudFront
+        run: |
+          DISTRIBUTION_ID=$(aws ssm get-parameter --name "/microcreditos-dev/frontend/cloudfront_id" --query "Parameter.Value" --output text)
+          aws cloudfront create-invalidation \
+            --distribution-id $DISTRIBUTION_ID \
+            --paths "/*"
