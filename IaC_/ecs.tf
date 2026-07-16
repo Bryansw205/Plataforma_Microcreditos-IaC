@@ -278,7 +278,6 @@ resource "aws_ecs_service" "api" {
 
   deployment_minimum_healthy_percent = 100
   deployment_maximum_percent         = 200
-
   network_configuration {
     subnets          = aws_subnet.private_app[*].id
     security_groups  = [aws_security_group.ecs_api.id]
