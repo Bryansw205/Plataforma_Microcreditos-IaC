@@ -38,45 +38,29 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY_API: microcreditos-dev-api
           ECR_REPOSITORY_WORKER: microcreditos-dev-worker
-          IMAGE_TAG: ${{ github.sha }}
+          IMAGE_TAG: latest
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY_API:$IMAGE_TAG ./app/backend
           docker tag $ECR_REGISTRY/$ECR_REPOSITORY_API:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY_WORKER:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY_API:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY_WORKER:$IMAGE_TAG
-          echo "image_api=$ECR_REGISTRY/$ECR_REPOSITORY_API:$IMAGE_TAG" >> $GITHUB_OUTPUT
-          echo "image_worker=$ECR_REGISTRY/$ECR_REPOSITORY_WORKER:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
-      - name: Desplegar en Amazon ECS (API y Worker)
+      - name: Forzar actualización en Amazon ECS
         env:
           CLUSTER_NAME: microcreditos-dev-cluster
           API_SERVICE_NAME: microcreditos-dev-api-service
-          WORKER_SERVICE_NAME: microcreditos-dev-worker-service
-          API_TASK_FAMILY: microcreditos-dev-api-task
-          WORKER_TASK_FAMILY: microcreditos-dev-worker-task
-          IMAGE_API: ${{ steps.build-image.outputs.image_api }}
-          IMAGE_WORKER: ${{ steps.build-image.outputs.image_worker }}
+          WORKER_SERVICE_NAME: microcreditos-dev-worker-service 
         run: |
-          echo "Descargando Task Definition del API..."
-          aws ecs describe-task-definition --task-definition $API_TASK_FAMILY --query taskDefinition > task-def-api.json
-          
-          echo "Actualizando imagen en Task Definition del API..."
-          jq --arg IMAGE "$IMAGE_API" '.containerDefinitions[0].image = $IMAGE | del(.taskDefinitionArn, .revision, .status, .requiresAttributes, .compatibilities, .registeredAt, .registeredBy)' task-def-api.json > new-task-def-api.json
-          
-          echo "Registrando nueva version de Task Definition del API..."
-          NEW_TASK_DEF_ARN_API=$(aws ecs register-task-definition --cli-input-json file://new-task-def-api.json --query taskDefinition.taskDefinitionArn --output text)
-          
-          echo "Actualizando servicio ECS de la API con la nueva version..."
-          aws ecs update-service --cluster $CLUSTER_NAME --service $API_SERVICE_NAME --task-definition $NEW_TASK_DEF_ARN_API
+          echo "Actualizando el servicio de la API HTTP..."
+          aws ecs update-service \
+            --cluster $CLUSTER_NAME \
+            --service $API_SERVICE_NAME \
+            --force-new-deployment \
+            --region us-east-1
 
-          echo "Descargando Task Definition del Worker..."
-          aws ecs describe-task-definition --task-definition $WORKER_TASK_FAMILY --query taskDefinition > task-def-worker.json
-          
-          echo "Actualizando imagen en Task Definition del Worker..."
-          jq --arg IMAGE "$IMAGE_WORKER" '.containerDefinitions[0].image = $IMAGE | del(.taskDefinitionArn, .revision, .status, .requiresAttributes, .compatibilities, .registeredAt, .registeredBy)' task-def-worker.json > new-task-def-worker.json
-          
-          echo "Registrando nueva version de Task Definition del Worker..."
-          NEW_TASK_DEF_ARN_WORKER=$(aws ecs register-task-definition --cli-input-json file://new-task-def-worker.json --query taskDefinition.taskDefinitionArn --output text)
-          
-          echo "Actualizando servicio ECS del Worker con la nueva version..."
-          aws ecs update-service --cluster $CLUSTER_NAME --service $WORKER_SERVICE_NAME --task-definition $NEW_TASK_DEF_ARN_WORKER
+          echo "Actualizando el servicio del Worker (Procesamiento en segundo plano)..."
+          aws ecs update-service \
+            --cluster $CLUSTER_NAME \
+            --service $WORKER_SERVICE_NAME \
+            --force-new-deployment \
+            --region us-east-1
