@@ -31,16 +31,31 @@ const processMessage = async (message) => {
   }
 };
 
+let isRunning = true;
+
+// Manejar apagado controlado (Graceful Shutdown)
+process.on('SIGINT', () => {
+  logger.info('[WORKER] Señal SIGINT recibida. Apagando worker de forma controlada...');
+  isRunning = false;
+});
+
+process.on('SIGTERM', () => {
+  logger.info('[WORKER] Señal SIGTERM recibida. Apagando worker de forma controlada...');
+  isRunning = false;
+});
+
 const pollQueue = async () => {
   logger.info('[WORKER] Escuchando mensajes en SQS...');
   
-  while (true) {
+  while (isRunning) {
     try {
       const response = await sqsClient.send(new ReceiveMessageCommand({
         QueueUrl: QUEUE_URL,
         MaxNumberOfMessages: 1,
         WaitTimeSeconds: 20 // Long polling
       }));
+
+      if (!isRunning) break;
 
       if (response.Messages && response.Messages.length > 0) {
         for (const message of response.Messages) {
@@ -57,9 +72,13 @@ const pollQueue = async () => {
       }
     } catch (error) {
       logger.error('[WORKER] Error en polling:', error);
-      await new Promise(res => setTimeout(res, 5000)); // wait before retry
+      if (isRunning) {
+        await new Promise(res => setTimeout(res, 5000)); // wait before retry
+      }
     }
   }
+  logger.info('[WORKER] Loop de polling detenido. Saliendo del proceso.');
 };
 
 pollQueue();
+
