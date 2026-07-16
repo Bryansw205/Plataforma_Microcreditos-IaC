@@ -185,7 +185,7 @@ resource "aws_s3_bucket_ownership_controls" "audit" {
   bucket = aws_s3_bucket.audit.id
 
   rule {
-    object_ownership = "BucketOwnerEnforced"
+    object_ownership = "BucketOwnerPreferred"
   }
 }
 
