@@ -1,0 +1,778 @@
+<?xml version="1.0" ?>
+<testsuites disabled="0" errors="0" failures="2" tests="583" time="0.0">
+	<testsuite disabled="0" errors="0" failures="0" name="terraform scan" skipped="25" tests="365" time="0">
+		<properties>
+			<property name="directory" value="['/tf']"/>
+			<property name="add_check" value="False"/>
+			<property name="list" value="False"/>
+			<property name="output" value="['junitxml']"/>
+			<property name="output_file_path" value="results_corregido_b.xml"/>
+			<property name="output_bc_ids" value="False"/>
+			<property name="include_all_checkov_policies" value="True"/>
+			<property name="quiet" value="False"/>
+			<property name="compact" value="False"/>
+			<property name="framework" value="['all']"/>
+			<property name="skip_framework" value="[]"/>
+			<property name="run_all_external_checks" value="False"/>
+			<property name="soft_fail" value="False"/>
+			<property name="skip_results_upload" value="False"/>
+			<property name="repo_id" value="cli_repo/tf"/>
+			<property name="branch" value="master"/>
+			<property name="skip_download" value="False"/>
+			<property name="use_enforcement_rules" value="False"/>
+			<property name="external_modules_download_path" value=".external_modules"/>
+			<property name="evaluate_variables" value="True"/>
+			<property name="no_cert_verify" value="False"/>
+			<property name="create_baseline" value="False"/>
+			<property name="output_baseline_as_skipped" value="False"/>
+			<property name="secrets_scan_file_type" value="[]"/>
+			<property name="enable_secret_scan_all_files" value="False"/>
+			<property name="block_list_secret_scan" value="[]"/>
+			<property name="summary_position" value="top"/>
+			<property name="skip_resources_without_violations" value="False"/>
+			<property name="deep_analysis" value="False"/>
+			<property name="no_fail_on_crash" value="False"/>
+			<property name="mask" value="defaultdict(&lt;class 'set'&gt;, {})"/>
+			<property name="scan_secrets_history" value="False"/>
+			<property name="secrets_history_timeout" value="12h"/>
+			<property name="custom_tool_name" value="Checkov"/>
+		</properties>
+		<testcase name="[NONE][CKV_AWS_234] Verify logging preference for ACM certificates" classname="/IaC_/acm.tf.aws_acm_certificate.cloudfront" file="/IaC_/acm.tf"/>
+		<testcase name="[NONE][CKV_AWS_233] Ensure Create before destroy for ACM certificates" classname="/IaC_/acm.tf.aws_acm_certificate.cloudfront" file="/IaC_/acm.tf"/>
+		<testcase name="[NONE][CKV_AWS_234] Verify logging preference for ACM certificates" classname="/IaC_/acm.tf.aws_acm_certificate.alb" file="/IaC_/acm.tf"/>
+		<testcase name="[NONE][CKV_AWS_233] Ensure Create before destroy for ACM certificates" classname="/IaC_/acm.tf.aws_acm_certificate.alb" file="/IaC_/acm.tf"/>
+		<testcase name="[NONE][CKV_AWS_328] Ensure that ALB is configured with defensive or strictest desync mitigation mode" classname="/IaC_/alb.tf.aws_lb.api" file="/IaC_/alb.tf"/>
+		<testcase name="[NONE][CKV_AWS_150] Ensure that Load Balancer has deletion protection enabled" classname="/IaC_/alb.tf.aws_lb.api" file="/IaC_/alb.tf"/>
+		<testcase name="[NONE][CKV_AWS_131] Ensure that ALB drops HTTP headers" classname="/IaC_/alb.tf.aws_lb.api" file="/IaC_/alb.tf"/>
+		<testcase name="[NONE][CKV_AWS_91] Ensure the ELBv2 (Application/Network) has access logging enabled" classname="/IaC_/alb.tf.aws_lb.api" file="/IaC_/alb.tf"/>
+		<testcase name="[NONE][CKV_AWS_261] Ensure HTTP HTTPS Target group defines Healthcheck" classname="/IaC_/alb.tf.aws_lb_target_group.ecs_api" file="/IaC_/alb.tf"/>
+		<testcase name="[NONE][CKV_AWS_2] Ensure ALB protocol is HTTPS" classname="/IaC_/alb.tf.aws_lb_listener.https[0]" file="/IaC_/alb.tf"/>
+		<testcase name="[NONE][CKV_AWS_2] Ensure ALB protocol is HTTPS" classname="/IaC_/alb.tf.aws_lb_listener.http_redirect[0]" file="/IaC_/alb.tf"/>
+		<testcase name="[NONE][CKV_AWS_96] Ensure all data stored in Aurora is securely encrypted at rest" classname="/IaC_/aurora.tf.aws_rds_cluster.aurora" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_133] Ensure that RDS instances has backup policy" classname="/IaC_/aurora.tf.aws_rds_cluster.aurora" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_324] Ensure that RDS Cluster log capture is enabled" classname="/IaC_/aurora.tf.aws_rds_cluster.aurora" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_162] Ensure RDS cluster has IAM authentication enabled" classname="/IaC_/aurora.tf.aws_rds_cluster.aurora" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_327] Ensure RDS Clusters are encrypted using KMS CMKs" classname="/IaC_/aurora.tf.aws_rds_cluster.aurora" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_313] Ensure RDS cluster configured to copy tags to snapshots" classname="/IaC_/aurora.tf.aws_rds_cluster.aurora" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_250] Ensure that RDS PostgreSQL instances use a non vulnerable version with the log_fdw extension (https://aws.amazon.com/security/security-bulletins/AWS-2022-004/)" classname="/IaC_/aurora.tf.aws_rds_cluster.aurora" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_139] Ensure that RDS clusters have deletion protection enabled" classname="/IaC_/aurora.tf.aws_rds_cluster.aurora" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_118] Ensure that enhanced monitoring is enabled for Amazon RDS instances" classname="/IaC_/aurora.tf.aws_rds_cluster_instance.aurora[0]" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_226] Ensure DB instance gets all minor upgrades automatically" classname="/IaC_/aurora.tf.aws_rds_cluster_instance.aurora[0]" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_353] Ensure that RDS instances have performance insights enabled" classname="/IaC_/aurora.tf.aws_rds_cluster_instance.aurora[0]" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_354] Ensure RDS Performance Insights are encrypted using KMS CMKs" classname="/IaC_/aurora.tf.aws_rds_cluster_instance.aurora[0]" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_17] Ensure all data stored in RDS is not publicly accessible" classname="/IaC_/aurora.tf.aws_rds_cluster_instance.aurora[0]" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_118] Ensure that enhanced monitoring is enabled for Amazon RDS instances" classname="/IaC_/aurora.tf.aws_rds_cluster_instance.aurora[1]" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_226] Ensure DB instance gets all minor upgrades automatically" classname="/IaC_/aurora.tf.aws_rds_cluster_instance.aurora[1]" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_353] Ensure that RDS instances have performance insights enabled" classname="/IaC_/aurora.tf.aws_rds_cluster_instance.aurora[1]" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_354] Ensure RDS Performance Insights are encrypted using KMS CMKs" classname="/IaC_/aurora.tf.aws_rds_cluster_instance.aurora[1]" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_17] Ensure all data stored in RDS is not publicly accessible" classname="/IaC_/aurora.tf.aws_rds_cluster_instance.aurora[1]" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV_AWS_166] Ensure Backup Vault is encrypted at rest using KMS CMK" classname="/IaC_/backup.tf.aws_backup_vault.main" file="/IaC_/backup.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/IaC_/backup.tf.aws_iam_role.backup" file="/IaC_/backup.tf"/>
+		<testcase name="[NONE][CKV_AWS_60] Ensure IAM role allows only specific services or principals to assume it" classname="/IaC_/backup.tf.aws_iam_role.backup" file="/IaC_/backup.tf"/>
+		<testcase name="[NONE][CKV_AWS_61] Ensure AWS IAM policy does not allow assume role permission across all services" classname="/IaC_/backup.tf.aws_iam_role.backup" file="/IaC_/backup.tf"/>
+		<testcase name="[NONE][CKV_AWS_393] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order on IAM role" classname="/IaC_/backup.tf.aws_iam_role.backup" file="/IaC_/backup.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/IaC_/backup.tf.aws_iam_role_policy_attachment.backup_policy" file="/IaC_/backup.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/IaC_/backup.tf.aws_iam_role_policy_attachment.backup_restore_policy" file="/IaC_/backup.tf"/>
+		<testcase name="[NONE][CKV_AWS_259] Ensure CloudFront response header policy enforces Strict Transport Security" classname="/IaC_/cloudfront.tf.aws_cloudfront_response_headers_policy.security_headers" file="/IaC_/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_34] Ensure CloudFront distribution ViewerProtocolPolicy is set to HTTPS" classname="/IaC_/cloudfront.tf.aws_cloudfront_distribution.main" file="/IaC_/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_68] CloudFront Distribution should have WAF enabled" classname="/IaC_/cloudfront.tf.aws_cloudfront_distribution.main" file="/IaC_/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_216] Ensure CloudFront distribution is enabled" classname="/IaC_/cloudfront.tf.aws_cloudfront_distribution.main" file="/IaC_/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_305] Ensure CloudFront distribution has a default root object configured" classname="/IaC_/cloudfront.tf.aws_cloudfront_distribution.main" file="/IaC_/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/IaC_/cloudfront.tf.aws_s3_bucket_policy.frontend_cloudfront" file="/IaC_/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_70] Ensure S3 bucket does not allow an action with any Principal" classname="/IaC_/cloudfront.tf.aws_s3_bucket_policy.frontend_cloudfront" file="/IaC_/cloudfront.tf"/>
+		<testcase name="[NONE][CKV_AWS_67] Ensure CloudTrail is enabled in all Regions" classname="/IaC_/cloudtrail.tf.aws_cloudtrail.main" file="/IaC_/cloudtrail.tf"/>
+		<testcase name="[NONE][CKV_AWS_36] Ensure CloudTrail log file validation is enabled" classname="/IaC_/cloudtrail.tf.aws_cloudtrail.main" file="/IaC_/cloudtrail.tf"/>
+		<testcase name="[NONE][CKV_AWS_35] Ensure CloudTrail logs are encrypted at rest using KMS CMKs" classname="/IaC_/cloudtrail.tf.aws_cloudtrail.main" file="/IaC_/cloudtrail.tf"/>
+		<testcase name="[NONE][CKV_AWS_251] Ensure CloudTrail logging is enabled" classname="/IaC_/cloudtrail.tf.aws_cloudtrail.main" file="/IaC_/cloudtrail.tf"/>
+		<testcase name="[NONE][CKV_AWS_338] Ensure CloudWatch log groups retains logs for at least 1 year" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_log_group.ecs_api" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_66] Ensure that CloudWatch Log Group specifies retention days" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_log_group.ecs_api" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_158] Ensure that CloudWatch Log Group is encrypted by KMS" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_log_group.ecs_api" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_338] Ensure CloudWatch log groups retains logs for at least 1 year" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_log_group.ecs_worker" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_66] Ensure that CloudWatch Log Group specifies retention days" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_log_group.ecs_worker" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_158] Ensure that CloudWatch Log Group is encrypted by KMS" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_log_group.ecs_worker" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_319] Ensure that CloudWatch alarm actions are enabled" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_metric_alarm.dlq_not_empty" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_319] Ensure that CloudWatch alarm actions are enabled" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_metric_alarm.alb_5xx_errors" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_319] Ensure that CloudWatch alarm actions are enabled" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_metric_alarm.ecs_api_cpu_high" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_319] Ensure that CloudWatch alarm actions are enabled" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_metric_alarm.ecs_api_memory_high" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_338] Ensure CloudWatch log groups retains logs for at least 1 year" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_log_group.cloudtrail" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_66] Ensure that CloudWatch Log Group specifies retention days" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_log_group.cloudtrail" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_158] Ensure that CloudWatch Log Group is encrypted by KMS" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_log_group.cloudtrail" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_338] Ensure CloudWatch log groups retains logs for at least 1 year" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_log_group.vpc_flow_logs" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_66] Ensure that CloudWatch Log Group specifies retention days" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_log_group.vpc_flow_logs" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_158] Ensure that CloudWatch Log Group is encrypted by KMS" classname="/IaC_/cloudwatch.tf.aws_cloudwatch_log_group.vpc_flow_logs" file="/IaC_/cloudwatch.tf"/>
+		<testcase name="[NONE][CKV_AWS_136] Ensure that ECR repositories are encrypted using KMS" classname="/IaC_/ecs.tf.aws_ecr_repository.api" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_163] Ensure ECR image scanning on push is enabled" classname="/IaC_/ecs.tf.aws_ecr_repository.api" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_51] Ensure ECR Image Tags are immutable" classname="/IaC_/ecs.tf.aws_ecr_repository.api" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_136] Ensure that ECR repositories are encrypted using KMS" classname="/IaC_/ecs.tf.aws_ecr_repository.worker" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_163] Ensure ECR image scanning on push is enabled" classname="/IaC_/ecs.tf.aws_ecr_repository.worker" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_51] Ensure ECR Image Tags are immutable" classname="/IaC_/ecs.tf.aws_ecr_repository.worker" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_65] Ensure container insights are enabled on ECS cluster" classname="/IaC_/ecs.tf.aws_ecs_cluster.main" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_223] Ensure ECS Cluster enables logging of ECS Exec" classname="/IaC_/ecs.tf.aws_ecs_cluster.main" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_335] Ensure ECS task definitions should not share the host's process namespace" classname="/IaC_/ecs.tf.aws_ecs_task_definition.api" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_97] Ensure Encryption in transit is enabled for EFS volumes in ECS Task definitions" classname="/IaC_/ecs.tf.aws_ecs_task_definition.api" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_334] Ensure ECS containers should run as non-privileged" classname="/IaC_/ecs.tf.aws_ecs_task_definition.api" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_336] Ensure ECS containers are limited to read-only access to root filesystems" classname="/IaC_/ecs.tf.aws_ecs_task_definition.api" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_249] Ensure that the Execution Role ARN and the Task Role ARN are different in ECS Task definitions" classname="/IaC_/ecs.tf.aws_ecs_task_definition.api" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_335] Ensure ECS task definitions should not share the host's process namespace" classname="/IaC_/ecs.tf.aws_ecs_task_definition.worker" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_97] Ensure Encryption in transit is enabled for EFS volumes in ECS Task definitions" classname="/IaC_/ecs.tf.aws_ecs_task_definition.worker" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_334] Ensure ECS containers should run as non-privileged" classname="/IaC_/ecs.tf.aws_ecs_task_definition.worker" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_336] Ensure ECS containers are limited to read-only access to root filesystems" classname="/IaC_/ecs.tf.aws_ecs_task_definition.worker" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_249] Ensure that the Execution Role ARN and the Task Role ARN are different in ECS Task definitions" classname="/IaC_/ecs.tf.aws_ecs_task_definition.worker" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_333] Ensure ECS services do not have public IP addresses assigned to them automatically" classname="/IaC_/ecs.tf.aws_ecs_service.api" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_332] Ensure ECS Fargate services run on the latest Fargate platform version" classname="/IaC_/ecs.tf.aws_ecs_service.api" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_333] Ensure ECS services do not have public IP addresses assigned to them automatically" classname="/IaC_/ecs.tf.aws_ecs_service.worker" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_332] Ensure ECS Fargate services run on the latest Fargate platform version" classname="/IaC_/ecs.tf.aws_ecs_service.worker" file="/IaC_/ecs.tf"/>
+		<testcase name="[NONE][CKV_AWS_30] Ensure all data stored in the ElastiCache Replication Group is securely encrypted at transit" classname="/IaC_/elasticache.tf.aws_elasticache_replication_group.redis" file="/IaC_/elasticache.tf"/>
+		<testcase name="[NONE][CKV_AWS_29] Ensure all data stored in the ElastiCache Replication Group is securely encrypted at rest" classname="/IaC_/elasticache.tf.aws_elasticache_replication_group.redis" file="/IaC_/elasticache.tf"/>
+		<testcase name="[NONE][CKV_AWS_191] Ensure ElastiCache replication group is encrypted by KMS using a customer managed Key (CMK)" classname="/IaC_/elasticache.tf.aws_elasticache_replication_group.redis" file="/IaC_/elasticache.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/IaC_/iam.tf.aws_iam_role.ecs_execution_role" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_60] Ensure IAM role allows only specific services or principals to assume it" classname="/IaC_/iam.tf.aws_iam_role.ecs_execution_role" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_61] Ensure AWS IAM policy does not allow assume role permission across all services" classname="/IaC_/iam.tf.aws_iam_role.ecs_execution_role" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_393] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order on IAM role" classname="/IaC_/iam.tf.aws_iam_role.ecs_execution_role" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/IaC_/iam.tf.aws_iam_role_policy_attachment.ecs_execution_standard" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_286] Ensure IAM policies does not allow privilege escalation" classname="/IaC_/iam.tf.aws_iam_policy.ecs_execution_secrets" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_287] Ensure IAM policies does not allow credentials exposure" classname="/IaC_/iam.tf.aws_iam_policy.ecs_execution_secrets" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_289] Ensure IAM policies does not allow permissions management / resource exposure without constraints" classname="/IaC_/iam.tf.aws_iam_policy.ecs_execution_secrets" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_63] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/IaC_/iam.tf.aws_iam_policy.ecs_execution_secrets" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_355] Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions" classname="/IaC_/iam.tf.aws_iam_policy.ecs_execution_secrets" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_290] Ensure IAM policies does not allow write access without constraints" classname="/IaC_/iam.tf.aws_iam_policy.ecs_execution_secrets" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_288] Ensure IAM policies does not allow data exfiltration" classname="/IaC_/iam.tf.aws_iam_policy.ecs_execution_secrets" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_62] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/IaC_/iam.tf.aws_iam_policy.ecs_execution_secrets" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/IaC_/iam.tf.aws_iam_role_policy_attachment.ecs_execution_secrets_attach" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/IaC_/iam.tf.aws_iam_role.ecs_task_role" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_60] Ensure IAM role allows only specific services or principals to assume it" classname="/IaC_/iam.tf.aws_iam_role.ecs_task_role" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_61] Ensure AWS IAM policy does not allow assume role permission across all services" classname="/IaC_/iam.tf.aws_iam_role.ecs_task_role" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_393] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order on IAM role" classname="/IaC_/iam.tf.aws_iam_role.ecs_task_role" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_63] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/IaC_/iam.tf.aws_iam_policy.ecs_task_app_policy" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_62] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/IaC_/iam.tf.aws_iam_policy.ecs_task_app_policy" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/IaC_/iam.tf.aws_iam_role_policy_attachment.ecs_task_app_attach" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/IaC_/iam.tf.aws_iam_role.rds_enhanced_monitoring" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_60] Ensure IAM role allows only specific services or principals to assume it" classname="/IaC_/iam.tf.aws_iam_role.rds_enhanced_monitoring" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_61] Ensure AWS IAM policy does not allow assume role permission across all services" classname="/IaC_/iam.tf.aws_iam_role.rds_enhanced_monitoring" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_393] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order on IAM role" classname="/IaC_/iam.tf.aws_iam_role.rds_enhanced_monitoring" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/IaC_/iam.tf.aws_iam_role_policy_attachment.rds_monitoring" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/IaC_/iam.tf.aws_iam_role.cloudtrail" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_60] Ensure IAM role allows only specific services or principals to assume it" classname="/IaC_/iam.tf.aws_iam_role.cloudtrail" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_61] Ensure AWS IAM policy does not allow assume role permission across all services" classname="/IaC_/iam.tf.aws_iam_role.cloudtrail" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_393] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order on IAM role" classname="/IaC_/iam.tf.aws_iam_role.cloudtrail" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_286] Ensure IAM policies does not allow privilege escalation" classname="/IaC_/iam.tf.aws_iam_policy.cloudtrail_cw_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_287] Ensure IAM policies does not allow credentials exposure" classname="/IaC_/iam.tf.aws_iam_policy.cloudtrail_cw_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_289] Ensure IAM policies does not allow permissions management / resource exposure without constraints" classname="/IaC_/iam.tf.aws_iam_policy.cloudtrail_cw_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_63] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/IaC_/iam.tf.aws_iam_policy.cloudtrail_cw_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_355] Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions" classname="/IaC_/iam.tf.aws_iam_policy.cloudtrail_cw_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_290] Ensure IAM policies does not allow write access without constraints" classname="/IaC_/iam.tf.aws_iam_policy.cloudtrail_cw_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_288] Ensure IAM policies does not allow data exfiltration" classname="/IaC_/iam.tf.aws_iam_policy.cloudtrail_cw_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_62] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/IaC_/iam.tf.aws_iam_policy.cloudtrail_cw_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/IaC_/iam.tf.aws_iam_role_policy_attachment.cloudtrail_cw" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_274] Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy" classname="/IaC_/iam.tf.aws_iam_role.vpc_flow_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_60] Ensure IAM role allows only specific services or principals to assume it" classname="/IaC_/iam.tf.aws_iam_role.vpc_flow_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_61] Ensure AWS IAM policy does not allow assume role permission across all services" classname="/IaC_/iam.tf.aws_iam_role.vpc_flow_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_393] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order on IAM role" classname="/IaC_/iam.tf.aws_iam_role.vpc_flow_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_63] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/IaC_/iam.tf.aws_iam_role_policy.vpc_flow_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_62] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/IaC_/iam.tf.aws_iam_role_policy.vpc_flow_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_110] Ensure IAM policies does not allow privilege escalation" classname="/IaC_/kms.tf.aws_iam_policy_document.kms" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_107] Ensure IAM policies does not allow credentials exposure" classname="/IaC_/kms.tf.aws_iam_policy_document.kms" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_49] Ensure no IAM policies documents allow &quot;*&quot; as a statement's actions" classname="/IaC_/kms.tf.aws_iam_policy_document.kms" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_283] Ensure no IAM policies documents allow ALL or any AWS principal permissions to the resource" classname="/IaC_/kms.tf.aws_iam_policy_document.kms" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_1] Ensure IAM policies that allow full &quot;*-*&quot; administrative privileges are not created" classname="/IaC_/kms.tf.aws_iam_policy_document.kms" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_108] Ensure IAM policies does not allow data exfiltration" classname="/IaC_/kms.tf.aws_iam_policy_document.kms" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_358] Ensure AWS GitHub Actions OIDC authorization policies only allow safe claims and claim order" classname="/IaC_/kms.tf.aws_iam_policy_document.kms" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_33] Ensure KMS key policy does not contain wildcard (*) principal" classname="/IaC_/kms.tf.aws_kms_key.main" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_227] Ensure KMS key is enabled" classname="/IaC_/kms.tf.aws_kms_key.main" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_7] Ensure rotation for customer created CMKs is enabled" classname="/IaC_/kms.tf.aws_kms_key.main" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/IaC_/networking.tf.aws_subnet.public[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/IaC_/networking.tf.aws_subnet.private_app[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/IaC_/networking.tf.aws_subnet.private_data[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/IaC_/networking.tf.aws_subnet.public[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/IaC_/networking.tf.aws_subnet.private_app[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_130] Ensure VPC subnets do not assign public IP by default" classname="/IaC_/networking.tf.aws_subnet.private_data[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_337] Ensure SSM parameters are using KMS CMK" classname="/IaC_/parameter_store.tf.aws_ssm_parameter.tasa_interes" file="/IaC_/parameter_store.tf"/>
+		<testcase name="[NONE][CKV_AWS_337] Ensure SSM parameters are using KMS CMK" classname="/IaC_/parameter_store.tf.aws_ssm_parameter.limite_creditos" file="/IaC_/parameter_store.tf"/>
+		<testcase name="[NONE][CKV_AWS_337] Ensure SSM parameters are using KMS CMK" classname="/IaC_/parameter_store.tf.aws_ssm_parameter.plazo_maximo" file="/IaC_/parameter_store.tf"/>
+		<testcase name="[NONE][CKV_AWS_41] Ensure no hard coded AWS access key and secret key exists in provider" classname="/IaC_/providers.tf.aws.default" file="/IaC_/providers.tf"/>
+		<testcase name="[NONE][CKV_AWS_41] Ensure no hard coded AWS access key and secret key exists in provider" classname="/IaC_/providers.tf.aws.us_east_1" file="/IaC_/providers.tf"/>
+		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_56] Ensure S3 bucket has 'restrict_public_buckets' enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_53] Ensure S3 bucket has block public ACLS enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_55] Ensure S3 bucket has ignore public ACLs enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_54] Ensure S3 bucket has block public policy enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_300] Ensure S3 lifecycle configuration sets period for aborting failed uploads" classname="/IaC_/s3.tf.aws_s3_bucket_lifecycle_configuration.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_56] Ensure S3 bucket has 'restrict_public_buckets' enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_53] Ensure S3 bucket has block public ACLS enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_55] Ensure S3 bucket has ignore public ACLs enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_54] Ensure S3 bucket has block public policy enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_300] Ensure S3 lifecycle configuration sets period for aborting failed uploads" classname="/IaC_/s3.tf.aws_s3_bucket_lifecycle_configuration.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_56] Ensure S3 bucket has 'restrict_public_buckets' enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_53] Ensure S3 bucket has block public ACLS enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_55] Ensure S3 bucket has ignore public ACLs enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_54] Ensure S3 bucket has block public policy enabled" classname="/IaC_/s3.tf.aws_s3_bucket_public_access_block.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_300] Ensure S3 lifecycle configuration sets period for aborting failed uploads" classname="/IaC_/s3.tf.aws_s3_bucket_lifecycle_configuration.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_93] Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)" classname="/IaC_/s3.tf.aws_s3_bucket_policy.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_70] Ensure S3 bucket does not allow an action with any Principal" classname="/IaC_/s3.tf.aws_s3_bucket_policy.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_169] Ensure SNS topic policy is not public by only allowing specific services or principals to access it" classname="/IaC_/s3.tf.aws_sns_topic_policy.s3_notifications" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_385] Ensure AWS SNS topic policies do not allow cross-account access" classname="/IaC_/s3.tf.aws_sns_topic_policy.s3_notifications" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_149] Ensure that Secrets Manager secret is encrypted using KMS CMK" classname="/IaC_/secrets.tf.aws_secretsmanager_secret.db_api_credenciales" file="/IaC_/secrets.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_security_group.alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_security_group.alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_security_group.alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_security_group.alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.alb_https_from_cloudfront" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.alb_https_from_cloudfront" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.alb_https_from_cloudfront" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.alb_https_from_cloudfront" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.alb_https_from_cloudfront" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.alb_to_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.alb_to_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.ecs_api_from_alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.ecs_api_from_alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.ecs_api_from_alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.ecs_api_from_alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.ecs_api_from_alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_api_to_aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_api_to_aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_api_to_redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_api_to_redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_api_to_https" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_api_to_https" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_worker_to_aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_worker_to_aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_worker_to_redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_worker_to_redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_worker_to_https" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_egress_rule.ecs_worker_to_https" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_security_group.aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_security_group.aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_security_group.aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_security_group.aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.aurora_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_382] Ensure no security groups allow egress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_security_group.redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_security_group.redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_security_group.redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_security_group.redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_security_group.redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_260] Ensure no security groups allow ingress from 0.0.0.0:0 to port 80" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_277] Ensure no security groups allow ingress from 0.0.0.0:0 to port -1" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_25] Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_23] Ensure every security group and rule has a description" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_24] Ensure no security groups allow ingress from 0.0.0.0:0 to port 22" classname="/IaC_/segurity_groups.tf.aws_vpc_security_group_ingress_rule.redis_from_ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV_AWS_26] Ensure all data stored in the SNS topic is encrypted" classname="/IaC_/sns.tf.aws_sns_topic.alerts" file="/IaC_/sns.tf"/>
+		<testcase name="[NONE][CKV_AWS_168] Ensure SQS queue policy is not public by only allowing specific services or principals to access it" classname="/IaC_/sqs.tf.aws_sqs_queue.processing_dlq" file="/IaC_/sqs.tf"/>
+		<testcase name="[NONE][CKV_AWS_27] Ensure all data stored in the SQS queue is encrypted" classname="/IaC_/sqs.tf.aws_sqs_queue.processing_dlq" file="/IaC_/sqs.tf"/>
+		<testcase name="[NONE][CKV_AWS_168] Ensure SQS queue policy is not public by only allowing specific services or principals to access it" classname="/IaC_/sqs.tf.aws_sqs_queue.processing" file="/IaC_/sqs.tf"/>
+		<testcase name="[NONE][CKV_AWS_27] Ensure all data stored in the SQS queue is encrypted" classname="/IaC_/sqs.tf.aws_sqs_queue.processing" file="/IaC_/sqs.tf"/>
+		<testcase name="[NONE][CKV_AWS_337] Ensure SSM parameters are using KMS CMK" classname="/IaC_/ssm_parameters.tf.aws_ssm_parameter.frontend_bucket_name" file="/IaC_/ssm_parameters.tf"/>
+		<testcase name="[NONE][CKV_AWS_337] Ensure SSM parameters are using KMS CMK" classname="/IaC_/ssm_parameters.tf.aws_ssm_parameter.cloudfront_distribution_id" file="/IaC_/ssm_parameters.tf"/>
+		<testcase name="[NONE][CKV_AWS_192] Ensure WAF prevents message lookup in Log4j2. See CVE-2021-44228 aka log4jshell" classname="/IaC_/waf.tf.aws_wafv2_web_acl.main" file="/IaC_/waf.tf"/>
+		<testcase name="[NONE][CKV_AWS_175] Ensure WAF has associated rules" classname="/IaC_/waf.tf.aws_wafv2_web_acl.main" file="/IaC_/waf.tf"/>
+		<testcase name="[NONE][CKV_AWS_342] Ensure WAF rule has any actions" classname="/IaC_/waf.tf.aws_wafv2_web_acl.main" file="/IaC_/waf.tf"/>
+		<testcase name="[NONE][CKV2_AWS_71] Ensure AWS ACM Certificate domain name does not include wildcards" classname="/IaC_/acm.tf.aws_acm_certificate.cloudfront" file="/IaC_/acm.tf"/>
+		<testcase name="[NONE][CKV2_AWS_71] Ensure AWS ACM Certificate domain name does not include wildcards" classname="/IaC_/acm.tf.aws_acm_certificate.alb" file="/IaC_/acm.tf"/>
+		<testcase name="[NONE][CKV2_AWS_74] Ensure AWS Load Balancers use strong ciphers" classname="/IaC_/alb.tf.aws_lb_listener.https[0]" file="/IaC_/alb.tf"/>
+		<testcase name="[NONE][CKV2_AWS_74] Ensure AWS Load Balancers use strong ciphers" classname="/IaC_/alb.tf.aws_lb_listener.http_redirect[0]" file="/IaC_/alb.tf"/>
+		<testcase name="[NONE][CKV2_AWS_74] Ensure AWS Load Balancers use strong ciphers" classname="/IaC_/alb.tf.aws_lb_listener.http_forward" file="/IaC_/alb.tf"/>
+		<testcase name="[NONE][CKV2_AWS_10] Ensure CloudTrail trails are integrated with CloudWatch Logs" classname="/IaC_/cloudtrail.tf.aws_cloudtrail.main" file="/IaC_/cloudtrail.tf"/>
+		<testcase name="[NONE][CKV2_AWS_8] Ensure that RDS clusters has backup plan of AWS Backup" classname="/IaC_/aurora.tf.aws_rds_cluster.aurora" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV2_AWS_50] Ensure AWS ElastiCache Redis cluster with Multi-AZ Automatic Failover feature set to enabled" classname="/IaC_/elasticache.tf.aws_elasticache_replication_group.redis" file="/IaC_/elasticache.tf"/>
+		<testcase name="[NONE][CKV2_AWS_32] Ensure CloudFront distribution has a response headers policy attached" classname="/IaC_/cloudfront.tf.aws_cloudfront_distribution.main" file="/IaC_/cloudfront.tf"/>
+		<testcase name="[NONE][CKV2_AWS_72] Ensure AWS CloudFront origin protocol policy enforces HTTPS-only" classname="/IaC_/cloudfront.tf.aws_cloudfront_distribution.main" file="/IaC_/cloudfront.tf"/>
+		<testcase name="[NONE][CKV2_AWS_46] Ensure AWS CloudFront Distribution with S3 have Origin Access set to enabled" classname="/IaC_/cloudfront.tf.aws_cloudfront_distribution.main" file="/IaC_/cloudfront.tf"/>
+		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_103] Ensure that load balancer is using at least TLS 1.2" classname="/IaC_/alb.tf.aws_lb_listener.https[0]" file="/IaC_/alb.tf"/>
+		<testcase name="[NONE][CKV_AWS_103] Ensure that load balancer is using at least TLS 1.2" classname="/IaC_/alb.tf.aws_lb_listener.http_redirect[0]" file="/IaC_/alb.tf"/>
+		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_21] Ensure all data stored in the S3 bucket have versioning enabled" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_19] Ensure that all EIP addresses allocated to a VPC are attached to EC2 instances" classname="/IaC_/networking.tf.aws_eip.nat[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_19] Ensure that all EIP addresses allocated to a VPC are attached to EC2 instances" classname="/IaC_/networking.tf.aws_eip.nat[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_19] Ensure all data stored in the S3 bucket is securely encrypted at rest" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/IaC_/backup.tf.aws_iam_role.backup" file="/IaC_/backup.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/IaC_/backup.tf.aws_iam_role_policy_attachment.backup_policy" file="/IaC_/backup.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/IaC_/backup.tf.aws_iam_role_policy_attachment.backup_restore_policy" file="/IaC_/backup.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/IaC_/iam.tf.aws_iam_role.ecs_execution_role" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/IaC_/iam.tf.aws_iam_role_policy_attachment.ecs_execution_standard" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/IaC_/iam.tf.aws_iam_role.ecs_task_role" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/IaC_/iam.tf.aws_iam_role.rds_enhanced_monitoring" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/IaC_/iam.tf.aws_iam_role_policy_attachment.rds_monitoring" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/IaC_/iam.tf.aws_iam_role.cloudtrail" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV2_AWS_56] Ensure AWS Managed IAMFullAccess IAM policy is not used." classname="/IaC_/iam.tf.aws_iam_role.vpc_flow_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV_AWS_20] S3 Bucket has an ACL defined which allows public READ access." classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_20] S3 Bucket has an ACL defined which allows public READ access." classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_20] S3 Bucket has an ACL defined which allows public READ access." classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_65] Ensure access control lists for S3 buckets are disabled" classname="/IaC_/s3.tf.aws_s3_bucket_ownership_controls.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_65] Ensure access control lists for S3 buckets are disabled" classname="/IaC_/s3.tf.aws_s3_bucket_ownership_controls.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_65] Ensure access control lists for S3 buckets are disabled" classname="/IaC_/s3.tf.aws_s3_bucket_ownership_controls.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_54] Ensure AWS CloudFront distribution is using secure SSL protocols for HTTPS communication" classname="/IaC_/cloudfront.tf.aws_cloudfront_distribution.main" file="/IaC_/cloudfront.tf"/>
+		<testcase name="[NONE][CKV2_AWS_34] AWS SSM Parameter should be Encrypted" classname="/IaC_/parameter_store.tf.aws_ssm_parameter.tasa_interes" file="/IaC_/parameter_store.tf"/>
+		<testcase name="[NONE][CKV2_AWS_34] AWS SSM Parameter should be Encrypted" classname="/IaC_/parameter_store.tf.aws_ssm_parameter.limite_creditos" file="/IaC_/parameter_store.tf"/>
+		<testcase name="[NONE][CKV2_AWS_34] AWS SSM Parameter should be Encrypted" classname="/IaC_/parameter_store.tf.aws_ssm_parameter.plazo_maximo" file="/IaC_/parameter_store.tf"/>
+		<testcase name="[NONE][CKV_AWS_18] Ensure the S3 bucket has access logging enabled" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_18] Ensure the S3 bucket has access logging enabled" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_57] S3 Bucket has an ACL defined which allows public WRITE access." classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_57] S3 Bucket has an ACL defined which allows public WRITE access." classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_57] S3 Bucket has an ACL defined which allows public WRITE access." classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/IaC_/segurity_groups.tf.aws_security_group.alb" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/IaC_/segurity_groups.tf.aws_security_group.aurora" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_api" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/IaC_/segurity_groups.tf.aws_security_group.ecs_worker" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV2_AWS_5] Ensure that Security Groups are attached to another resource" classname="/IaC_/segurity_groups.tf.aws_security_group.redis" file="/IaC_/segurity_groups.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/IaC_/networking.tf.aws_route_table.public" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/IaC_/networking.tf.aws_route_table.private_app[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/IaC_/networking.tf.aws_route_table.private_data[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/IaC_/networking.tf.aws_route_table.private_app[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_44] Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic" classname="/IaC_/networking.tf.aws_route_table.private_data[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_61] Ensure that an S3 bucket has a lifecycle configuration" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_61] Ensure that an S3 bucket has a lifecycle configuration" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_61] Ensure that an S3 bucket has a lifecycle configuration" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_64] Ensure KMS key Policy is defined" classname="/IaC_/kms.tf.aws_kms_key.main" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/IaC_/networking.tf.aws_route_table.public" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/IaC_/networking.tf.aws_route_table.private_app[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/IaC_/networking.tf.aws_route_table.private_data[0]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/IaC_/networking.tf.aws_route_table.private_app[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_35] AWS NAT Gateways should be utilized for the default route" classname="/IaC_/networking.tf.aws_route_table.private_data[1]" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV2_AWS_11] Ensure VPC flow logging is enabled in all VPCs" classname="/IaC_/networking.tf.aws_vpc.main" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_145] Ensure that S3 buckets are encrypted with KMS by default" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV_AWS_145] Ensure that S3 buckets are encrypted with KMS by default" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_40] Ensure AWS IAM policy does not allow full IAM privileges" classname="/IaC_/iam.tf.aws_iam_policy.ecs_execution_secrets" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV2_AWS_40] Ensure AWS IAM policy does not allow full IAM privileges" classname="/IaC_/iam.tf.aws_iam_policy.cloudtrail_cw_logs" file="/IaC_/iam.tf"/>
+		<testcase name="[NONE][CKV2_AWS_40] Ensure AWS IAM policy does not allow full IAM privileges" classname="/IaC_/kms.tf.aws_iam_policy_document.kms" file="/IaC_/kms.tf"/>
+		<testcase name="[NONE][CKV2_AWS_27] Ensure Postgres RDS as aws_rds_cluster has Query Logging enabled" classname="/IaC_/aurora.tf.aws_rds_cluster.aurora" file="/IaC_/aurora.tf"/>
+		<testcase name="[NONE][CKV2_AWS_76] Ensure AWS ALB attached WAFv2 WebACL is configured with AMR for Log4j Vulnerability" classname="/IaC_/alb.tf.aws_lb.api" file="/IaC_/alb.tf"/>
+		<testcase name="[NONE][CKV2_AWS_6] Ensure that S3 bucket has a Public Access block" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_6] Ensure that S3 bucket has a Public Access block" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_6] Ensure that S3 bucket has a Public Access block" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf"/>
+		<testcase name="[NONE][CKV2_AWS_12] Ensure the default security group of every VPC restricts all traffic" classname="/IaC_/networking.tf.aws_vpc.main" file="/IaC_/networking.tf"/>
+		<testcase name="[NONE][CKV_AWS_86] Ensure CloudFront distribution has Access Logging enabled" classname="/IaC_/cloudfront.tf.aws_cloudfront_distribution.main" file="/IaC_/cloudfront.tf">
+			<skipped type="skipped" message="CloudFront standard logging requiere ACL en S3. El bucket audit usa BucketOwnerEnforced y Object Lock. Para logs de CloudFront se recomienda bucket dedicado."/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_310] Ensure CloudFront distributions should have origin failover configured" classname="/IaC_/cloudfront.tf.aws_cloudfront_distribution.main" file="/IaC_/cloudfront.tf">
+			<skipped type="skipped" message="El frontend usa S3 con versioning y lifecycle. La API usa ALB como segundo origen."/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_374] Ensure AWS CloudFront web distribution has geo restriction enabled" classname="/IaC_/cloudfront.tf.aws_cloudfront_distribution.main" file="/IaC_/cloudfront.tf">
+			<skipped type="skipped" message="No se aplica restriccion geografica por requisito de inclusion financiera."/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_174] Verify CloudFront Distribution Viewer Certificate is using TLS v1.2 or higher" classname="/IaC_/cloudfront.tf.aws_cloudfront_distribution.main" file="/IaC_/cloudfront.tf">
+			<skipped type="skipped" message="Certificado personalizado pendiente de configuración de dominio. En producción se usará ACM con TLS 1.2."/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_252] Ensure CloudTrail defines an SNS Topic" classname="/IaC_/cloudtrail.tf.aws_cloudtrail.main" file="/IaC_/cloudtrail.tf">
+			<skipped type="skipped" message=" El monitoreo de alertas ya se realiza a través de CloudWatch Logs"/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_31] Ensure all data stored in the ElastiCache Replication Group is securely encrypted at transit and has auth token" classname="/IaC_/elasticache.tf.aws_elasticache_replication_group.redis" file="/IaC_/elasticache.tf">
+			<skipped type="skipped" message=" ElastiCache Redis tiene cifrado en transito y en reposo (KMS) habilitado; configuración de seguridad validada manualmente."/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_109] Ensure IAM policies does not allow permissions management / resource exposure without constraints" classname="/IaC_/kms.tf.aws_iam_policy_document.kms" file="/IaC_/kms.tf">
+			<skipped type="skipped" message="KMS key policy requiere resources=&quot;*&quot; por diseño de AWS."/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_356] Ensure no IAM policies documents allow &quot;*&quot; as a statement's resource for restrictable actions" classname="/IaC_/kms.tf.aws_iam_policy_document.kms" file="/IaC_/kms.tf">
+			<skipped type="skipped" message="KMS key policy requiere resources=&quot;*&quot;. No es una IAM policy standard."/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_111] Ensure IAM policies does not allow write access without constraints" classname="/IaC_/kms.tf.aws_iam_policy_document.kms" file="/IaC_/kms.tf">
+			<skipped type="skipped" message="Write actions obligatorios en KMS key policy con resources=&quot;*&quot; por requerimiento AWS."/>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_42] Ensure AWS CloudFront distribution uses custom SSL certificate" classname="/IaC_/cloudfront.tf.aws_cloudfront_distribution.main" file="/IaC_/cloudfront.tf">
+			<skipped type="skipped" message="Certificado ACM personalizado (aws_acm_certificate.cloudfront) ya definido en acm.tf. Se activa al configurar var.domain_name en producción."/>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_31] Ensure WAF2 has a Logging Configuration" classname="/IaC_/waf.tf.aws_wafv2_web_acl.main" file="/IaC_/waf.tf">
+			<skipped type="skipped" message=" El logging de WAF se gestiona mediante auditoria centralizada en el bucket de logs de S3"/>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_62] Ensure S3 buckets should have event notifications enabled" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf">
+			<skipped type="skipped" message=" Bucket estatico, no requiere notificaciones. :3"/>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_57] Ensure Secrets Manager secrets should have automatic rotation enabled" classname="/IaC_/secrets.tf.aws_secretsmanager_secret.db_api_credenciales" file="/IaC_/secrets.tf">
+			<skipped type="skipped" message=" La rotacion automatica se configurara en entornos de produccion segun necesidades de seguridad."/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_103] Ensure that load balancer is using at least TLS 1.2" classname="/IaC_/alb.tf.aws_lb_listener.http_forward" file="/IaC_/alb.tf">
+			<skipped type="skipped" message="Listener HTTP condicional (count = alb_certificate_arn == null). En producción con certificado ACM este recurso no se despliega. :o"/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_378] Ensure AWS Load Balancer doesn't use HTTP protocol" classname="/IaC_/alb.tf.aws_lb_target_group.ecs_api" file="/IaC_/alb.tf">
+			<skipped type="skipped" message="SSL termination en ALB. Tráfico ALB→ECS es HTTP interno en subnet privada (private_app). No expuesto externamente. :3"/>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_34] AWS SSM Parameter should be Encrypted" classname="/IaC_/ssm_parameters.tf.aws_ssm_parameter.frontend_bucket_name" file="/IaC_/ssm_parameters.tf">
+			<skipped type="skipped" message="ID de bucket S3, dato no sensiible. Usado por CI/CD para despliegue."/>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_34] AWS SSM Parameter should be Encrypted" classname="/IaC_/ssm_parameters.tf.aws_ssm_parameter.cloudfront_distribution_id" file="/IaC_/ssm_parameters.tf">
+			<skipped type="skipped" message="ID de distribución CloudFront, dato no sensible. Usado por CI/CD."/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_18] Ensure the S3 bucket has access logging enabled" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf">
+			<skipped type="skipped" message="Bucket de auditoría es el destino de logs. No debe loggearse a sí mismo para evitar recursividad."/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_144] Ensure that S3 bucket has cross-region replication enabled" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf">
+			<skipped type="skipped" message="Contenido estatico regenerable desde CI/CD. Replicacion innecesaria."/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_144] Ensure that S3 bucket has cross-region replication enabled" classname="/IaC_/s3.tf.aws_s3_bucket.documents" file="/IaC_/s3.tf">
+			<skipped type="skipped" message=" Los documentos criticos tienen politicas de resiliencia y respaldo gestionadas por otros servicios."/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_144] Ensure that S3 bucket has cross-region replication enabled" classname="/IaC_/s3.tf.aws_s3_bucket.audit" file="/IaC_/s3.tf">
+			<skipped type="skipped" message="Logs de auditoria con Object Lock. Replicacion cross-region tiene implicaciones de jurisdiccion legal."/>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_20] Ensure that ALB redirects HTTP requests into HTTPS ones" classname="/IaC_/alb.tf.aws_lb.api" file="/IaC_/alb.tf">
+			<skipped type="skipped" message="El redirect HTTP→HTTPS está implementado en aws_lb_listener.http_redirect (HTTP 301). El listener http_forward solo existe en entornos siin certificado. :3"/>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_47] Ensure AWS CloudFront attached WAFv2 WebACL is configured with AMR for Log4j Vulnerability" classname="/IaC_/cloudfront.tf.aws_cloudfront_distribution.main" file="/IaC_/cloudfront.tf">
+			<skipped type="skipped" message="El WAF adjunto posee la regla AWSManagedRulesKnownBadInputsRuleSet para Log4j. Falso positivo de validación cross-file."/>
+		</testcase>
+		<testcase name="[NONE][CKV_AWS_145] Ensure that S3 buckets are encrypted with KMS by default" classname="/IaC_/s3.tf.aws_s3_bucket.frontend" file="/IaC_/s3.tf">
+			<skipped type="skipped" message=" Contenido estatiico publico. AES256 suficiente; KMS añade latencia sin beneficio de confidencialidad."/>
+		</testcase>
+		<testcase name="[NONE][CKV2_AWS_28] Ensure public facing ALB are protected by WAF" classname="/IaC_/alb.tf.aws_lb.api" file="/IaC_/alb.tf">
+			<skipped type="skipped" message="El WAF está asociado a CloudFront por diseño arquitectónico, no al ALB. :3"/>
+		</testcase>
+	</testsuite>
+	<testsuite disabled="0" errors="0" failures="0" name="dockerfile scan" skipped="2" tests="42" time="0">
+		<properties>
+			<property name="directory" value="['/tf']"/>
+			<property name="add_check" value="False"/>
+			<property name="list" value="False"/>
+			<property name="output" value="['junitxml']"/>
+			<property name="output_file_path" value="results_corregido_b.xml"/>
+			<property name="output_bc_ids" value="False"/>
+			<property name="include_all_checkov_policies" value="True"/>
+			<property name="quiet" value="False"/>
+			<property name="compact" value="False"/>
+			<property name="framework" value="['all']"/>
+			<property name="skip_framework" value="[]"/>
+			<property name="run_all_external_checks" value="False"/>
+			<property name="soft_fail" value="False"/>
+			<property name="skip_results_upload" value="False"/>
+			<property name="repo_id" value="cli_repo/tf"/>
+			<property name="branch" value="master"/>
+			<property name="skip_download" value="False"/>
+			<property name="use_enforcement_rules" value="False"/>
+			<property name="external_modules_download_path" value=".external_modules"/>
+			<property name="evaluate_variables" value="True"/>
+			<property name="no_cert_verify" value="False"/>
+			<property name="create_baseline" value="False"/>
+			<property name="output_baseline_as_skipped" value="False"/>
+			<property name="secrets_scan_file_type" value="[]"/>
+			<property name="enable_secret_scan_all_files" value="False"/>
+			<property name="block_list_secret_scan" value="[]"/>
+			<property name="summary_position" value="top"/>
+			<property name="skip_resources_without_violations" value="False"/>
+			<property name="deep_analysis" value="False"/>
+			<property name="no_fail_on_crash" value="False"/>
+			<property name="mask" value="defaultdict(&lt;class 'set'&gt;, {})"/>
+			<property name="scan_secrets_history" value="False"/>
+			<property name="secrets_history_timeout" value="12h"/>
+			<property name="custom_tool_name" value="Checkov"/>
+		</properties>
+		<testcase name="[NONE][CKV_DOCKER_9] Ensure that APT isn't used" classname="/app/backend/Dockerfile./app/backend/Dockerfile." file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV_DOCKER_5] Ensure update instructions are not use alone in the Dockerfile" classname="/app/backend/Dockerfile./app/backend/Dockerfile." file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV_DOCKER_1] Ensure port 22 is not exposed" classname="/app/backend/Dockerfile./app/backend/Dockerfile." file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV_DOCKER_10] Ensure that WORKDIR values are absolute paths" classname="/app/backend/Dockerfile./app/backend/Dockerfile." file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV_DOCKER_7] Ensure the base image uses a non latest version tag" classname="/app/backend/Dockerfile./app/backend/Dockerfile.FROM" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV_DOCKER_11] Ensure From Alias are unique for multistage builds." classname="/app/backend/Dockerfile./app/backend/Dockerfile." file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_16] Ensure that certificate validation isn't disabled with pip via the 'PIP_TRUSTED_HOST' environment variable" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_16] Ensure that certificate validation isn't disabled with pip via the 'PIP_TRUSTED_HOST' environment variable" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_17] Ensure that 'chpasswd' is not used to set or remove passwords" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_17] Ensure that 'chpasswd' is not used to set or remove passwords" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_1] Ensure that sudo isn't used" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_1] Ensure that sudo isn't used" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_5] Ensure that certificate validation isn't disabled with the PYTHONHTTPSVERIFY environment variable" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_5] Ensure that certificate validation isn't disabled with the PYTHONHTTPSVERIFY environment variable" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_14] Ensure that certificate validation isn't disabled for git by setting the environment variable 'GIT_SSL_NO_VERIFY' to any value" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_14] Ensure that certificate validation isn't disabled for git by setting the environment variable 'GIT_SSL_NO_VERIFY' to any value" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_6] Ensure that certificate validation isn't disabled with the NODE_TLS_REJECT_UNAUTHORIZED environment variable" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_6] Ensure that certificate validation isn't disabled with the NODE_TLS_REJECT_UNAUTHORIZED environment variable" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_7] Ensure that packages with untrusted or missing signatures are not used by apk via the '--allow-untrusted' option" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_7] Ensure that packages with untrusted or missing signatures are not used by apk via the '--allow-untrusted' option" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_9] Ensure that packages with untrusted or missing GPG signatures are not used by dnf, tdnf, or yum via the '--nogpgcheck' option" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_9] Ensure that packages with untrusted or missing GPG signatures are not used by dnf, tdnf, or yum via the '--nogpgcheck' option" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_13] Ensure that certificate validation isn't disabled for npm or yarn by setting the option strict-ssl to false" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_13] Ensure that certificate validation isn't disabled for npm or yarn by setting the option strict-ssl to false" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_15] Ensure that the yum and dnf package managers are not configured to disable SSL certificate validation via the 'sslverify' configuration option" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_15] Ensure that the yum and dnf package managers are not configured to disable SSL certificate validation via the 'sslverify' configuration option" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_8] Ensure that packages with untrusted or missing signatures are not used by apt-get via the '--allow-unauthenticated' option" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_8] Ensure that packages with untrusted or missing signatures are not used by apt-get via the '--allow-unauthenticated' option" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_12] Ensure that certificate validation isn't disabled for npm via the 'NPM_CONFIG_STRICT_SSL' environment variable" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_12] Ensure that certificate validation isn't disabled for npm via the 'NPM_CONFIG_STRICT_SSL' environment variable" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_2] Ensure that certificate validation isn't disabled with curl" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_2] Ensure that certificate validation isn't disabled with curl" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_4] Ensure that certificate validation isn't disabled with the pip '--trusted-host' option" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_4] Ensure that certificate validation isn't disabled with the pip '--trusted-host' option" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_11] Ensure that the '--force-yes' option is not used, as it disables signature validation and allows packages to be downgraded which can leave the system in a broken or inconsistent state" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_11] Ensure that the '--force-yes' option is not used, as it disables signature validation and allows packages to be downgraded which can leave the system in a broken or inconsistent state" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_10] Ensure that packages with untrusted or missing signatures are not used by rpm via the '--nodigest', '--nosignature', '--noverify', or '--nofiledigest' options" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_10] Ensure that packages with untrusted or missing signatures are not used by rpm via the '--nodigest', '--nosignature', '--noverify', or '--nofiledigest' options" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_3] Ensure that certificate validation isn't disabled with wget" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV2_DOCKER_3] Ensure that certificate validation isn't disabled with wget" classname="/app/backend/Dockerfile./app/backend/Dockerfile.RUN" file="/app/backend/Dockerfile"/>
+		<testcase name="[NONE][CKV_DOCKER_3] Ensure that a user for the container has been created" classname="/app/backend/Dockerfile./app/backend/Dockerfile." file="/app/backend/Dockerfile">
+			<skipped type="skipped" message=" No es necesario crear usuario en este entorno de desarrollo."/>
+		</testcase>
+		<testcase name="[NONE][CKV_DOCKER_2] Ensure that HEALTHCHECK instructions have been added to container images" classname="/app/backend/Dockerfile./app/backend/Dockerfile." file="/app/backend/Dockerfile">
+			<skipped type="skipped" message=" No se requiere healthcheck para este contenedor."/>
+		</testcase>
+	</testsuite>
+	<testsuite disabled="0" errors="0" failures="2" name="github_actions scan" skipped="0" tests="176" time="0">
+		<properties>
+			<property name="directory" value="['/tf']"/>
+			<property name="add_check" value="False"/>
+			<property name="list" value="False"/>
+			<property name="output" value="['junitxml']"/>
+			<property name="output_file_path" value="results_corregido_b.xml"/>
+			<property name="output_bc_ids" value="False"/>
+			<property name="include_all_checkov_policies" value="True"/>
+			<property name="quiet" value="False"/>
+			<property name="compact" value="False"/>
+			<property name="framework" value="['all']"/>
+			<property name="skip_framework" value="[]"/>
+			<property name="run_all_external_checks" value="False"/>
+			<property name="soft_fail" value="False"/>
+			<property name="skip_results_upload" value="False"/>
+			<property name="repo_id" value="cli_repo/tf"/>
+			<property name="branch" value="master"/>
+			<property name="skip_download" value="False"/>
+			<property name="use_enforcement_rules" value="False"/>
+			<property name="external_modules_download_path" value=".external_modules"/>
+			<property name="evaluate_variables" value="True"/>
+			<property name="no_cert_verify" value="False"/>
+			<property name="create_baseline" value="False"/>
+			<property name="output_baseline_as_skipped" value="False"/>
+			<property name="secrets_scan_file_type" value="[]"/>
+			<property name="enable_secret_scan_all_files" value="False"/>
+			<property name="block_list_secret_scan" value="[]"/>
+			<property name="summary_position" value="top"/>
+			<property name="skip_resources_without_violations" value="False"/>
+			<property name="deep_analysis" value="False"/>
+			<property name="no_fail_on_crash" value="False"/>
+			<property name="mask" value="defaultdict(&lt;class 'set'&gt;, {})"/>
+			<property name="scan_secrets_history" value="False"/>
+			<property name="secrets_history_timeout" value="12h"/>
+			<property name="custom_tool_name" value="Checkov"/>
+		</properties>
+		<testcase name="[NONE][CKV_GHA_5] Found artifact build without evidence of cosign sign execution in pipeline" classname="/.github/workflows/cd-back.yml.jobs" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_6] Found artifact build without evidence of cosign sbom attestation in pipeline" classname="/.github/workflows/cd-back.yml.jobs" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_7] The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. " classname="/.github/workflows/cd-back.yml.on(CD - Backend)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[1](Descargar código del repositorio)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[2](Configurar credenciales de AWS)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[3](Iniciar sesión en Amazon ECR)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[4](Construir, etiquetar y subir la imagen a ECR)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[5](Forzar actualización en Amazon ECS)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[1](Descargar código del repositorio)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[2](Configurar credenciales de AWS)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[3](Iniciar sesión en Amazon ECR)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[4](Construir, etiquetar y subir la imagen a ECR)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[5](Forzar actualización en Amazon ECS)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[1](Descargar código del repositorio)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[2](Configurar credenciales de AWS)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[3](Iniciar sesión en Amazon ECR)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[4](Construir, etiquetar y subir la imagen a ECR)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[5](Forzar actualización en Amazon ECS)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[1](Descargar código del repositorio)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[2](Configurar credenciales de AWS)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[3](Iniciar sesión en Amazon ECR)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[4](Construir, etiquetar y subir la imagen a ECR)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-back.yml.jobs(build-and-deploy).steps[5](Forzar actualización en Amazon ECS)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV_GHA_5] Found artifact build without evidence of cosign sign execution in pipeline" classname="/.github/workflows/cd-checkov.yml.jobs" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_6] Found artifact build without evidence of cosign sbom attestation in pipeline" classname="/.github/workflows/cd-checkov.yml.jobs" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_7] The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. " classname="/.github/workflows/cd-checkov.yml.on(CD - Checkov)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit).steps[1](Checkout repo)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit).steps[2](Ejecutar Checkov vía Docker)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit).steps[3](Guardar reporte de Checkov)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit).steps[1](Checkout repo)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit).steps[2](Ejecutar Checkov vía Docker)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit).steps[3](Guardar reporte de Checkov)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit).steps[1](Checkout repo)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit).steps[2](Ejecutar Checkov vía Docker)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit).steps[3](Guardar reporte de Checkov)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit).steps[1](Checkout repo)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit).steps[2](Ejecutar Checkov vía Docker)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-checkov.yml.jobs(checkov-audit).steps[3](Guardar reporte de Checkov)" file="/.github/workflows/cd-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_5] Found artifact build without evidence of cosign sign execution in pipeline" classname="/.github/workflows/cd-front.yml.jobs" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_6] Found artifact build without evidence of cosign sbom attestation in pipeline" classname="/.github/workflows/cd-front.yml.jobs" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_7] The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. " classname="/.github/workflows/cd-front.yml.on(CD - Frontend)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[1](Descargar código del repositorio)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[2](Instalar dependencias y compilar)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[3](Configurar credenciales de AWS)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[4](Subir archivos al bucket de Amazon S3)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[5](Invalidar caché de CloudFront)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[1](Descargar código del repositorio)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[2](Instalar dependencias y compilar)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[3](Configurar credenciales de AWS)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[4](Subir archivos al bucket de Amazon S3)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[5](Invalidar caché de CloudFront)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[1](Descargar código del repositorio)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[2](Instalar dependencias y compilar)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[3](Configurar credenciales de AWS)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[4](Subir archivos al bucket de Amazon S3)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[5](Invalidar caché de CloudFront)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[1](Descargar código del repositorio)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[2](Instalar dependencias y compilar)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[3](Configurar credenciales de AWS)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[4](Subir archivos al bucket de Amazon S3)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-front.yml.jobs(deploy-frontend).steps[5](Invalidar caché de CloudFront)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV_GHA_5] Found artifact build without evidence of cosign sign execution in pipeline" classname="/.github/workflows/cd-terraform.yml.jobs" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_6] Found artifact build without evidence of cosign sbom attestation in pipeline" classname="/.github/workflows/cd-terraform.yml.jobs" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[1](Checkout Repository)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[2](Setup Terraform)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[3](Configurar credenciales de AWS)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[4](Terraform Init)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[5](Terraform Plan)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[6](Terraform Apply)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[7](Terraform Destroy)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[8](Upload Terraform logs)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[1](Checkout Repository)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[2](Setup Terraform)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[3](Configurar credenciales de AWS)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[4](Terraform Init)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[5](Terraform Plan)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[6](Terraform Apply)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[7](Terraform Destroy)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[8](Upload Terraform logs)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[1](Checkout Repository)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[2](Setup Terraform)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[3](Configurar credenciales de AWS)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[4](Terraform Init)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[5](Terraform Plan)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[6](Terraform Apply)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[7](Terraform Destroy)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[8](Upload Terraform logs)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[1](Checkout Repository)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[2](Setup Terraform)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[3](Configurar credenciales de AWS)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[4](Terraform Init)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[5](Terraform Plan)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[6](Terraform Apply)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[7](Terraform Destroy)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/cd-terraform.yml.jobs(terraform-deploy).steps[8](Upload Terraform logs)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_5] Found artifact build without evidence of cosign sign execution in pipeline" classname="/.github/workflows/ci-checkov.yml.jobs" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/ci-checkov.yml.jobs(checkov)" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/ci-checkov.yml.jobs(checkov)" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_6] Found artifact build without evidence of cosign sbom attestation in pipeline" classname="/.github/workflows/ci-checkov.yml.jobs" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/ci-checkov.yml.jobs(checkov)" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/ci-checkov.yml.jobs(checkov)" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_7] The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. " classname="/.github/workflows/ci-checkov.yml.on(CI - Checkov)" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/ci-checkov.yml.jobs(checkov).steps[1](Descargar código del repositorio)" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/ci-checkov.yml.jobs(checkov).steps[2](Ejecutar Checkov)" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/ci-checkov.yml.jobs(checkov).steps[1](Descargar código del repositorio)" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/ci-checkov.yml.jobs(checkov).steps[2](Ejecutar Checkov)" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/ci-checkov.yml.jobs(checkov).steps[1](Descargar código del repositorio)" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/ci-checkov.yml.jobs(checkov).steps[2](Ejecutar Checkov)" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/ci-checkov.yml.jobs(checkov).steps[1](Descargar código del repositorio)" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/ci-checkov.yml.jobs(checkov).steps[2](Ejecutar Checkov)" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV_GHA_5] Found artifact build without evidence of cosign sign execution in pipeline" classname="/.github/workflows/ci-sonarqube.yml.jobs" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/ci-sonarqube.yml.jobs(sonarqube)" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/ci-sonarqube.yml.jobs(sonarqube)" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_6] Found artifact build without evidence of cosign sbom attestation in pipeline" classname="/.github/workflows/ci-sonarqube.yml.jobs" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/ci-sonarqube.yml.jobs(sonarqube)" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/ci-sonarqube.yml.jobs(sonarqube)" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_7] The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. " classname="/.github/workflows/ci-sonarqube.yml.on(CI - SonarQube)" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/ci-sonarqube.yml.jobs(sonarqube).steps[1](Descargar codigo del repositorio)" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/ci-sonarqube.yml.jobs(sonarqube).steps[2](Ejecutar analisis con SonarQube Cloud)" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/ci-sonarqube.yml.jobs(sonarqube).steps[1](Descargar codigo del repositorio)" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/ci-sonarqube.yml.jobs(sonarqube).steps[2](Ejecutar analisis con SonarQube Cloud)" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/ci-sonarqube.yml.jobs(sonarqube).steps[1](Descargar codigo del repositorio)" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/ci-sonarqube.yml.jobs(sonarqube).steps[2](Ejecutar analisis con SonarQube Cloud)" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/ci-sonarqube.yml.jobs(sonarqube).steps[1](Descargar codigo del repositorio)" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/ci-sonarqube.yml.jobs(sonarqube).steps[2](Ejecutar analisis con SonarQube Cloud)" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV_GHA_5] Found artifact build without evidence of cosign sign execution in pipeline" classname="/.github/workflows/ci-terraform.yml.jobs" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/ci-terraform.yml.jobs(terraform)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/ci-terraform.yml.jobs(terraform)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_6] Found artifact build without evidence of cosign sbom attestation in pipeline" classname="/.github/workflows/ci-terraform.yml.jobs" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/ci-terraform.yml.jobs(terraform)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/ci-terraform.yml.jobs(terraform)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_7] The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. " classname="/.github/workflows/ci-terraform.yml.on(CI - Terraform)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[1](Checkout)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[2](Setup Terraform)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[3](Check Terraform format)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[4](Terraform init)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_1] Ensure ACTIONS_ALLOW_UNSECURE_COMMANDS isn't true on environment variables" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[5](Terraform validate)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[1](Checkout)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[2](Setup Terraform)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[3](Check Terraform format)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[4](Terraform init)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_2] Ensure run commands are not vulnerable to shell injection" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[5](Terraform validate)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[1](Checkout)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[2](Setup Terraform)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[3](Check Terraform format)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[4](Terraform init)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_3] Suspicious use of curl with secrets" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[5](Terraform validate)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[1](Checkout)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[2](Setup Terraform)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[3](Check Terraform format)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[4](Terraform init)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_4] Suspicious use of netcat with IP address" classname="/.github/workflows/ci-terraform.yml.jobs(terraform).steps[5](Terraform validate)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all" classname="/.github/workflows/cd-back.yml.on(CD - Backend)" file="/.github/workflows/cd-back.yml"/>
+		<testcase name="[NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all" classname="/.github/workflows/cd-front.yml.on(CD - Frontend)" file="/.github/workflows/cd-front.yml"/>
+		<testcase name="[NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all" classname="/.github/workflows/cd-terraform.yml.on(CD - Terraform)" file="/.github/workflows/cd-terraform.yml"/>
+		<testcase name="[NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all" classname="/.github/workflows/ci-checkov.yml.on(CI - Checkov)" file="/.github/workflows/ci-checkov.yml"/>
+		<testcase name="[NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all" classname="/.github/workflows/ci-sonarqube.yml.on(CI - SonarQube)" file="/.github/workflows/ci-sonarqube.yml"/>
+		<testcase name="[NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all" classname="/.github/workflows/ci-terraform.yml.on(CI - Terraform)" file="/.github/workflows/ci-terraform.yml"/>
+		<testcase name="[NONE][CKV_GHA_7] The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. " classname="/.github/workflows/cd-terraform.yml.on(CD - Terraform)" file="/.github/workflows/cd-terraform.yml">
+			<failure type="failure" message="The build output cannot be affected by user parameters other than the build entry point and the top-level source location. GitHub Actions workflow_dispatch inputs MUST be empty. ">
+Resource: on(CD - Terraform)
+File: /.github/workflows/cd-terraform.yml: 13-24
+Guideline: None
+
+		13 |       mode:
+		14 |         description: &quot;Ejecutar Plan / Apply / Destroy&quot;
+		15 |         required: true
+		16 |         type: choice
+		17 |         default: apply
+		18 |         options:
+		19 |           - plan
+		20 |           - apply
+		21 |           - destroy
+		22 | 
+		23 | permissions:
+		24 |   contents: read
+</failure>
+		</testcase>
+		<testcase name="[NONE][CKV2_GHA_1] Ensure top-level permissions are not set to write-all" classname="/.github/workflows/cd-checkov.yml.on(CD - Checkov)" file="/.github/workflows/cd-checkov.yml">
+			<failure type="failure" message="Ensure top-level permissions are not set to write-all">
+Resource: on(CD - Checkov)
+File: /.github/workflows/cd-checkov.yml: 18-19
+Guideline: None</failure>
+		</testcase>
+	</testsuite>
+</testsuites>
