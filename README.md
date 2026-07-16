@@ -5,18 +5,35 @@ Este repositorio contiene la arquitectura completa de nube e infraestructura com
 ---
 
 ## 1. Contexto del Proyecto
+
 Este proyecto consiste en el aprovisionamiento, securización y automatización de la infraestructura en la nube para la **Plataforma Transaccional de Microcréditos**. La solución integra componentes de red aislados, almacenamiento inmutable de datos y registros de auditoría, orquestación de contenedores y bases de datos relacionales en alta disponibilidad.
 
 ---
 
 ## 2. Arquitectura de Nube (AWS)
+
 La arquitectura sigue un patrón Multi-Tier desacoplado y seguro dentro de una red aislada en la región `us-east-1`:
 
 ![Diagrama de Arquitectura de AWS](docs/diagrama_arquitectura.png)
 
 ---
 
-## 3. Estructura del Repositorio
+## 3. Tecnologías Utilizadas
+La plataforma integra las siguientes tecnologías y servicios para asegurar alta disponibilidad, rendimiento y cumplimiento de seguridad:
+
+| Categoría | Tecnologías y Servicios |
+| :--- | :--- |
+| **Infraestructura como Código (IaC)** | Terraform v1.5+ (Aprovisionamiento automatizado y reproducible en AWS). |
+| **Cómputo & Contenedores** | AWS ECS Fargate, ECR, Docker Desktop. |
+| **Redes & Conectividad** | AWS VPC (Multi-AZ), NAT Gateways, Application Load Balancer (ALB). |
+| **Almacenamiento & Bases de Datos** | Amazon RDS Aurora (PostgreSQL), ElastiCache (Redis), Amazon S3 (Object Lock). |
+| **Seguridad & Gobernanza** | AWS WAFv2, AWS KMS, AWS CloudTrail, CloudWatch, IAM (Least Privilege). |
+| **Distribución y CDN** | AWS CloudFront (Frontend SPA). |
+| **Calidad & Escaneo** | Checkov (Análisis estático de IaC), SonarQube (Calidad de código). |
+
+---
+
+## 4. Estructura del Repositorio
 ```text
 ├── .github/workflows/
 │   ├── ci-terraform.yml
@@ -41,14 +58,13 @@ La arquitectura sigue un patrón Multi-Tier desacoplado y seguro dentro de una r
 │   └── diagrama_arquitectura.png
 ├── app/
 │   ├── backend/
-│   │   └── Dockerfile
 │   └── frontend/
 └── README.md
 ```
 
 ---
 
-## 4. Requisitos Previos
+## 5. Requisitos Previos
 Para desplegar y administrar este entorno de manera local, asegúrate de tener instalados los siguientes componentes:
 
 *   **Terraform** (versión `1.5.0` o superior)
@@ -58,35 +74,35 @@ Para desplegar y administrar este entorno de manera local, asegúrate de tener i
 
 ---
 
-## 5. Configuración y Despliegue Local
+## 6. Configuración y Despliegue Local
 
-### 1. Inicializar Terraform
+### a. Inicializar Terraform
 Descarga los proveedores de AWS y configura el backend de inicialización.
 ```bash
 cd IaC_/
 terraform init
 ```
 
-### 2. Validar sintaxis y formateo
+### b. Validar sintaxis y formateo
 Comprueba la consistencia del código Terraform.
 ```bash
 terraform fmt -check
 terraform validate
 ```
 
-### 3. Planificar Cambios
+### c. Planificar Cambios
 Visualiza las modificaciones de infraestructura que se realizarán en AWS.
 ```bash
 terraform plan -out=tfplan
 ```
 
-### 4. Aplicar Cambios
+### d. Aplicar Cambios
 Aplica la infraestructura en tu entorno.
 ```bash
 terraform apply tfplan
 ```
 
-### 5. Escaneo de seguridad local (Checkov)
+### e. Escaneo de seguridad local (Checkov)
 Ejecuta Checkov mediante Docker para validar que no haya regresiones en seguridad:
 ```bash
 docker run --rm -v "${PWD}:/tf" --workdir /tf bridgecrew/checkov:3 --directory /tf
@@ -94,7 +110,7 @@ docker run --rm -v "${PWD}:/tf" --workdir /tf bridgecrew/checkov:3 --directory /
 
 ---
 
-## 6. Variables Clave de Terraform
+## 7. Variables Clave de Terraform
 
 | Variable | Tipo | Default | Descripción |
 |---|---|---|---|
@@ -108,7 +124,7 @@ docker run --rm -v "${PWD}:/tf" --workdir /tf bridgecrew/checkov:3 --directory /
 
 ---
 
-## 7. Flujo de Despliegue Continuo (CI/CD)
+## 8. Flujo de Despliegue Continuo (CI/CD)
 El ciclo de vida del código está completamente automatizado a través de GitHub Actions:
 
 ### Integración Continua (Pull Requests a `dev`)
@@ -120,30 +136,20 @@ El ciclo de vida del código está completamente automatizado a través de GitHu
 ### Despliegue Continuo (Pushes a `dev`)
 1.  **Despliegue de Infraestructura:** El pipeline ejecuta `terraform apply` de forma automática actualizando la topología de red, bases de datos y configuraciones.
 2.  **Compilación y Despliegue de Contenedores:**
-    *   Se construye la imagen Docker en base al `Dockerfile` usando a `appuser` (non-root) para cumplir con las políticas de ejecución de contenedores no privilegiados.
+    *   Se construye la imagen Docker en base al [Dockerfile] usando a `appuser` (non-root) para cumplir con las políticas de ejecución de contenedores no privilegiados.
     *   La imagen se etiqueta y se sube de forma **inmutable** a su repositorio ECR.
     *   Se descarga la Task Definition actual del clúster de ECS Fargate, se actualiza el tag de la imagen, se registra y se despliega la nueva revisión sin pérdida de servicio.
 
 ---
 
-## 8. Tecnologías Utilizadas
-La plataforma integra las siguientes tecnologías y servicios para asegurar alta disponibilidad, rendimiento y cumplimiento de seguridad:
+## 9. Dirección de Acceso al Sistema
+Una vez finalizado el despliegue del pipeline y aprovisionada la distribución de CloudFront, puedes acceder al portal a través del siguiente enlace:
 
-| Categoría | Tecnología/Servicio | Descripción / Uso en el Proyecto |
-|---|---|---|
-| **Infraestructura como Código** | Terraform v1.5+ | Aprovisionamiento y orquestación automatizada de recursos AWS. |
-| **Capa de Cómputo** | AWS ECS Fargate & ECR | Orquestación de contenedores Serverless y registro inmutable de imágenes Docker. |
-| **Redes & Conectividad** | AWS VPC, ALB & NAT Gateway | Aislamiento de red (Multi-AZ), balanceo de carga y salida segura a Internet. |
-| **Bases de Datos & Caché** | Aurora PostgreSQL & ElastiCache Redis | Base de datos relacional altamente disponible y caché en memoria para lecturas rápidas. |
-| **Almacenamiento** | Amazon S3 con Object Lock | Bucket frontend estático y almacenamiento inmutable (WORM) para logs de auditoría. |
-| **Seguridad & Encriptación** | AWS KMS & WAFv2 | Cifrado en reposo mediante llaves CMK del cliente y firewall de aplicación con Rate Limiting. |
-| **Gobernanza & Auditoría** | AWS CloudTrail & CloudWatch Logs | Trazabilidad completa de APIs de AWS y alertas de consumo de recursos. |
-| **CDN & Distribución** | AWS CloudFront | Red de distribución de contenido global para la SPA de frontend con TLS. |
-| **DevOps & Calidad** | GitHub Actions, Checkov & Docker | Pipelines de CI/CD automatizados, análisis de seguridad estático y empaquetamiento. |
+*   **Enlace de Acceso:** [Plataforma de Microcréditos](https://d1hd60otl26rw6.cloudfront.net/register)
 
 ---
 
-## 9. Destrucción de la Infraestructura
+## 10. Destrucción de la Infraestructura
 Para eliminar por completo todos los recursos aprovisionados en AWS y detener la facturación de servicios, sitúate en la carpeta `IaC_/` y ejecuta el comando de destrucción:
 
 ```bash
@@ -152,10 +158,3 @@ terraform destroy -auto-approve
 ```
 
 *Nota: Este comando destruirá bases de datos, subredes, balanceadores de carga y servicios de cómputo en Fargate. El bucket de estado remoto y la tabla de DynamoDB deben eliminarse manualmente desde la consola de administración de AWS si se desea remover toda la infraestructura persistente de estado.*
-
----
-
-## 10. Dirección de Acceso al Sistema
-Una vez finalizado el despliegue del pipeline y aprovisionada la distribución de CloudFront, puedes acceder al portal a través del siguiente enlace:
-
-*   **Enlace de Acceso:** [Plataforma de Microcréditos](https://d1hd60otl26rw6.cloudfront.net/register)
