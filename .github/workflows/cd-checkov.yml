@@ -2,12 +2,12 @@
 name: CD - Checkov
 
 on:
-  push:
+  workflow_run:
+    workflows: ["CD - Terraform"]
+    types:
+      - completed
     branches:
       - dev
-    paths:
-      - ".github/workflows/cd-checkov.yml"
-      - "IaC_/**"
 
   workflow_dispatch:
 
@@ -15,6 +15,7 @@ jobs:
   checkov-audit:
     name: Checkov reporte
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     permissions:
       contents: read
 

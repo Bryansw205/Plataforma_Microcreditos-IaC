@@ -1,11 +1,12 @@
 name: CD - Backend
 
 on:
-  push:
+  workflow_run:
+    workflows: ["CD - Checkov"]
+    types:
+      - completed
     branches:
       - dev
-    paths:
-      - "app/backend/**" 
 
   workflow_dispatch:
 
@@ -16,11 +17,18 @@ jobs:
   build-and-deploy:
     name: Construir y Desplegar en ECS
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
 
     steps:
       - name: Descargar código del repositorio
         uses: actions/checkout@v4
 
+      - name: Ejecutar pruebas unitarias 
+        working-directory: ./app/backend
+        run: |
+          npm ci
+          npm run test:unit
+          
       - name: Configurar credenciales de AWS
         uses: aws-actions/configure-aws-credentials@v4
         with:

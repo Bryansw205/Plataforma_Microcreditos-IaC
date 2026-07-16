@@ -5,8 +5,8 @@ on:
     branches:
       - dev
     paths:
-      - 'IaC_/**'
-      - '.github/workflows/ci-checkov.yml'
+      - "IaC_/**"
+      - ".github/workflows/ci-checkov.yml"
 
   workflow_dispatch:
 
