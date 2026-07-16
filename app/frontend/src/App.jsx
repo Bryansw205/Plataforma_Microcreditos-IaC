@@ -10,8 +10,11 @@ export default function App() {
   const [role, setRole] = useState(localStorage.getItem('role') || 'cliente');
   
   useEffect(() => {
-    if (token) localStorage.setItem('token', token);
-    else { 
+    if (token) {
+      // Sanitizar token para evitar inyecciones XSS y caracteres dañinos
+      const cleanToken = String(token).replace(/[^A-Za-z0-9-_./]/g, '');
+      localStorage.setItem('token', cleanToken);
+    } else { 
       localStorage.removeItem('token');
       localStorage.removeItem('role');
       localStorage.removeItem('activeCredit');
@@ -19,7 +22,11 @@ export default function App() {
   }, [token]);
 
   useEffect(() => {
-    if (role) localStorage.setItem('role', role);
+    if (role) {
+      // Validar rol frente a los roles permitidos del sistema
+      const cleanRole = ['cliente', 'operador'].includes(role) ? role : 'cliente';
+      localStorage.setItem('role', cleanRole);
+    }
   }, [role]);
 
   const handleLogin = (newToken, newRole) => {

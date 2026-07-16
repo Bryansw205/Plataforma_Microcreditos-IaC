@@ -8,7 +8,14 @@ const apiFetch = async (endpoint, options = {}) => {
     headers['Authorization'] = `Bearer ${token}`;
   }
 
-  const response = await fetch(`${API_URL}${endpoint}`, { ...options, headers });
+  // Validamos que el endpoint sea una ruta relativa para evitar inyección de URLs externas
+  if (typeof endpoint !== 'string' || endpoint.includes('://') || endpoint.startsWith('//')) {
+    throw new Error('URL de endpoint no permitida por seguridad');
+  }
+
+  const safeEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+
+  const response = await fetch(`${API_URL}${safeEndpoint}`, { ...options, headers });
   const data = await response.json();
 
   if (!response.ok) {
