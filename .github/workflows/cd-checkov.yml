@@ -2,12 +2,12 @@
 name: CD - Checkov
 
 on:
-  push:
+  workflow_run:
+    workflows: ["CD - Terraform"]
+    types:
+      - completed
     branches:
       - dev
-    paths:
-      - ".github/workflows/cd-checkov.yml"
-      - "IaC_/**"
 
   workflow_dispatch:
 
@@ -15,6 +15,7 @@ jobs:
   checkov-audit:
     name: Checkov reporte
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     permissions:
       contents: read
 
@@ -43,6 +44,55 @@ jobs:
           path: results_junitxml.xml
           if-no-files-found: ignore
 
+      - name: Generar Reporte HTML
+        if: always()
+        run: |
+          python3 -c "
+          import xml.etree.ElementTree as ET
+          try:
+              tree = ET.parse('results_junitxml.xml')
+              root = tree.getroot()
+              tests = 0
+              failures = 0
+              errors = 0
+              skipped = 0
+              for ts in root.iter('testsuite'):
+                  tests += int(ts.attrib.get('tests', 0))
+                  failures += int(ts.attrib.get('failures', 0))
+                  errors += int(ts.attrib.get('errors', 0))
+                  skipped += int(ts.attrib.get('skipped', 0))
+              
+              if tests == 0 and root.tag == 'testsuite':
+                  tests += int(root.attrib.get('tests', 0))
+                  failures += int(root.attrib.get('failures', 0))
+                  errors += int(root.attrib.get('errors', 0))
+                  skipped += int(root.attrib.get('skipped', 0))
+
+              passed = tests - errors - failures - skipped
+              html = f'''
+              <div style=\"font-family: Arial, sans-serif; color: #333;\">
+                <h2 style=\"color: #2c3e50;\">Reporte de Seguridad - Checkov</h2>
+                <p>El análisis de infraestructura como código ha finalizado.</p>
+                <table border=\"1\" cellpadding=\"10\" style=\"border-collapse: collapse; text-align: left; width: 300px;\">
+                  <tr style=\"background-color: #f8f9fa;\">
+                    <th>Estado</th>
+                    <th>Cantidad</th>
+                  </tr>
+                  <tr><td style=\"color: #28a745;\">✅ Pasados</td><td style=\"text-align: center; font-weight: bold;\">{passed}</td></tr>
+                  <tr><td style=\"color: #dc3545;\">❌ Fallidos</td><td style=\"text-align: center; font-weight: bold;\">{failures}</td></tr>
+                  <tr><td style=\"color: #fd7e14;\">⚠️ Omitidos</td><td style=\"text-align: center; font-weight: bold;\">{skipped}</td></tr>
+                </table>
+                <br>
+                <p>Revisa el archivo XML adjunto para obtener el detalle de las vulnerabilidades y configuraciones fallidas.</p>
+              </div>
+              '''
+              with open('email_body.html', 'w', encoding='utf-8') as f:
+                  f.write(html)
+          except Exception as e:
+              with open('email_body.html', 'w', encoding='utf-8') as f:
+                  f.write(f'<p>Error al generar el reporte HTML: {e}</p>')
+          "
+
       - name: Enviar reporte de Checkov por correo
         if: always()
         uses: dawidd6/action-send-mail@v3
@@ -55,5 +105,5 @@ jobs:
           subject: Resultados de Checkov - ${{ github.repository }}
           to: ${{ secrets.MAIL_TO }}
           from: GitHub Actions
-          body: Se ha completado el análisis de Checkov. Adjunto encontrarás los resultados (results_junitxml.xml).
+          html_body: file://email_body.html
           attachments: results_junitxml.xml

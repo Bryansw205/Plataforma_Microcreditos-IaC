@@ -5,8 +5,8 @@ on:
     branches:
       - dev
     paths:
-      - ".github/workflows/ci-terraform.yml"
       - "IaC_/**"
+      - ".github/workflows/ci-terraform.yml"
 
 permissions:
   contents: read

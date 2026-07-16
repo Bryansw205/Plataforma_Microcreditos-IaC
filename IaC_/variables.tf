@@ -91,7 +91,7 @@ variable "alert_email" {
 variable "aurora_engine_version" {
   description = "Version del motor Aurora PostgreSQL"
   type        = string
-  default     = "16.4"
+  default     = "16.8"
 }
 
 variable "aurora_database_name" {
