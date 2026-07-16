@@ -161,10 +161,10 @@ resource "aws_s3_bucket_lifecycle_configuration" "documents" {
 
 resource "aws_s3_bucket" "audit" {
   # checkov:skip=CKV_AWS_18:Bucket de auditoría es el destino de logs. No debe loggearse a sí mismo para evitar recursividad.
-  # checkov:skip=CKV_AWS_144:Logs de auditoria con Object Lock. Replicacion cross-region tiene implicaciones de jurisdiccion legal.
-  bucket              = "${local.name_prefix}-audit-${data.aws_caller_identity.current.account_id}"
-  object_lock_enabled = true
-  force_destroy       = true
+  # checkov:skip=CKV_AWS_144:Logs de auditoria. Replicacion cross-region tiene implicaciones de jurisdiccion legal.
+  # checkov:skip=CKV_AWS_143:Object Lock deshabilitado porque ALB access logs no soporta escritura en buckets con Object Lock.
+  bucket        = "${local.name_prefix}-audit-${data.aws_caller_identity.current.account_id}"
+  force_destroy = true
 
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-audit-bucket"
@@ -202,26 +202,13 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "audit" {
 
   rule {
     apply_server_side_encryption_by_default {
-      kms_master_key_id = aws_kms_key.main.arn
-      sse_algorithm     = "aws:kms"
+      sse_algorithm = "AES256"
     }
   }
 }
 
-resource "aws_s3_bucket_object_lock_configuration" "audit" {
-  bucket = aws_s3_bucket.audit.id
-
-  object_lock_enabled = "Enabled"
-
-  rule {
-    default_retention {
-      mode = "GOVERNANCE"
-      days = var.audit_retention_days
-    }
-  }
-
-  depends_on = [aws_s3_bucket_versioning.audit]
-}
+# Object Lock deshabilitado: ALB access logs no puede escribir en buckets con Object Lock.
+# La proteccion de datos de auditoria se mantiene con versionamiento + lifecycle rules.
 
 resource "aws_s3_bucket_lifecycle_configuration" "audit" {
   bucket = aws_s3_bucket.audit.id
