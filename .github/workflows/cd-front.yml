@@ -1,12 +1,12 @@
 name: CD - Frontend
 
 on:
-  push:
+  workflow_run:
+    workflows: ["CD - Checkov"]
+    types:
+      - completed
     branches:
       - dev
-    paths:
-      - "app/frontend/**"
-      - ".github/workflows/cd-front.yml"
 
   workflow_dispatch:
 
@@ -20,6 +20,7 @@ jobs:
   deploy-frontend:
     name: Desplegar Web a S3 y CloudFront
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
 
     steps:
       - name: Descargar código del repositorio

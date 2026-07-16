@@ -1,11 +1,12 @@
 name: CD - Backend
 
 on:
-  push:
+  workflow_run:
+    workflows: ["CD - Checkov"]
+    types:
+      - completed
     branches:
       - dev
-    paths:
-      - "app/backend/**" 
 
   workflow_dispatch:
 
@@ -16,6 +17,7 @@ jobs:
   build-and-deploy:
     name: Construir y Desplegar en ECS
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
 
     steps:
       - name: Descargar código del repositorio
