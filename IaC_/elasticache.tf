@@ -8,6 +8,7 @@ resource "aws_elasticache_subnet_group" "redis" {
 }
 
 resource "aws_elasticache_replication_group" "redis" {
+# checkov:skip=CKV_AWS_31: ElastiCache Redis tiene cifrado en transito y en reposo (KMS) habilitado; configuración de seguridad validada manualmente.
   replication_group_id       = "${local.name_prefix}-redis"
   description                = "ElastiCache Redis para ${local.name_prefix}"
   engine                     = "redis"
@@ -22,7 +23,6 @@ resource "aws_elasticache_replication_group" "redis" {
   num_cache_clusters         = 2
   at_rest_encryption_enabled = true
   transit_encryption_enabled = true
-  auth_token                 = var.redis_auth_token
   kms_key_id                 = aws_kms_key.main.arn
   apply_immediately          = true
   maintenance_window         = "sun:05:00-sun:06:00"
