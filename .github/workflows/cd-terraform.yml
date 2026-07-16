@@ -5,8 +5,8 @@ on:
     branches:
       - dev
     paths:
-      - ".github/workflows/cd-terraform.yml"
       - "IaC_/**" 
+      - ".github/workflows/cd-terraform.yml"
   
   workflow_dispatch:
     inputs:
