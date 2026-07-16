@@ -307,6 +307,33 @@ resource "aws_s3_bucket_policy" "audit" {
 }
 
 
+resource "aws_sns_topic_policy" "s3_notifications" {
+  arn = aws_sns_topic.alerts.arn
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Sid    = "AllowS3ToPublish"
+        Effect = "Allow"
+        Principal = {
+          Service = "s3.amazonaws.com"
+        }
+        Action   = "SNS:Publish"
+        Resource = aws_sns_topic.alerts.arn
+        Condition = {
+          ArnLike = {
+            "aws:SourceArn" = [
+              aws_s3_bucket.documents.arn,
+              aws_s3_bucket.audit.arn
+            ]
+          }
+        }
+      }
+    ]
+  })
+}
+
 resource "aws_s3_bucket_notification" "documents" {
   bucket = aws_s3_bucket.documents.id
 
@@ -315,7 +342,7 @@ resource "aws_s3_bucket_notification" "documents" {
     events    = ["s3:ObjectCreated:*"]
   }
 
-  depends_on = [aws_sns_topic_policy.alerts]
+  depends_on = [aws_sns_topic_policy.s3_notifications]
 }
 
 resource "aws_s3_bucket_notification" "audit" {
@@ -326,7 +353,7 @@ resource "aws_s3_bucket_notification" "audit" {
     events    = ["s3:ObjectCreated:*", "s3:ObjectRemoved:*"]
   }
 
-  depends_on = [aws_sns_topic_policy.alerts]
+  depends_on = [aws_sns_topic_policy.s3_notifications]
 }
 
 resource "aws_s3_bucket_logging" "frontend" {

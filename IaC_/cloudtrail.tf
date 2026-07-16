@@ -7,14 +7,13 @@ resource "aws_cloudtrail" "main" {
   enable_log_file_validation    = true
 
   kms_key_id     = aws_kms_key.main.arn
-  sns_topic_name = aws_sns_topic.alerts.name
+  sns_topic_name = aws_sns_topic.alerts.arn
 
   cloud_watch_logs_group_arn = "${aws_cloudwatch_log_group.cloudtrail.arn}:*"
   cloud_watch_logs_role_arn  = aws_iam_role.cloudtrail.arn
 
   depends_on = [
-    aws_s3_bucket_policy.audit,
-    aws_sns_topic_policy.alerts
+    aws_s3_bucket_policy.audit
   ]
 
   tags = merge(local.common_tags, {
