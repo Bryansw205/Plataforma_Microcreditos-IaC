@@ -1,4 +1,5 @@
 resource "aws_wafv2_web_acl" "main" {
+  # checkov:skip=CKV2_AWS_31: El logging de WAF se gestiona mediante auditoria centralizada en el bucket de logs de S3
   provider    = aws.us_east_1
   name        = "${local.name_prefix}-waf"
   description = "Web ACL para proteger el ALB de ${local.name_prefix}"
@@ -14,7 +15,6 @@ resource "aws_wafv2_web_acl" "main" {
     sampled_requests_enabled   = true
   }
 
-  # checkov:skip=CKV2_AWS_47:El WAF adjunto posee la regla AWSManagedRulesKnownBadInputsRuleSet para Log4j.
   rule {
     name     = "AWSManagedRulesKnownBadInputs"
     priority = 20

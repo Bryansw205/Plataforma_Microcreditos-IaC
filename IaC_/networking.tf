@@ -12,11 +12,31 @@ resource "aws_vpc" "main" {
   })
 }
 
+resource "aws_default_security_group" "default" {
+  vpc_id = aws_vpc.main.id
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-default-sg-locked"
+  })
+}
+
 resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
 
   tags = merge(local.common_tags, {
     Name = "${local.name_prefix}-igw"
+  })
+}
+
+resource "aws_flow_log" "main" {
+  vpc_id                   = aws_vpc.main.id
+  traffic_type             = "ALL"
+  iam_role_arn             = aws_iam_role.vpc_flow_logs.arn
+  log_destination_type     = "cloud-watch-logs"
+  log_destination          = aws_cloudwatch_log_group.vpc_flow_logs.arn
+  max_aggregation_interval = 60
+
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-vpc-flow-log"
   })
 }
 

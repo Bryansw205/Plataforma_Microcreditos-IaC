@@ -170,7 +170,7 @@ resource "aws_iam_role_policy_attachment" "rds_monitoring" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole"
 }
 
-# Rol para CloudTrail enviar a CloudWatch Logs:
+
 resource "aws_iam_role" "cloudtrail" {
   name = "${local.name_prefix}-cloudtrail-cw-role"
 
@@ -210,4 +210,47 @@ resource "aws_iam_policy" "cloudtrail_cw_logs" {
 resource "aws_iam_role_policy_attachment" "cloudtrail_cw" {
   role       = aws_iam_role.cloudtrail.name
   policy_arn = aws_iam_policy.cloudtrail_cw_logs.arn
+}
+
+resource "aws_iam_role" "vpc_flow_logs" {
+  name = "${local.name_prefix}-vpc-flow-logs-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Action = "sts:AssumeRole"
+      Effect = "Allow"
+      Principal = {
+        Service = "vpc-flow-logs.amazonaws.com"
+      }
+    }]
+  })
+
+  tags = merge(local.common_tags, {
+    Name = "${local.name_prefix}-vpc-flow-logs-role"
+  })
+}
+
+resource "aws_iam_role_policy" "vpc_flow_logs" {
+  name = "${local.name_prefix}-vpc-flow-logs-policy"
+  role = aws_iam_role.vpc_flow_logs.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "logs:CreateLogStream",
+          "logs:PutLogEvents",
+          "logs:DescribeLogGroups",
+          "logs:DescribeLogStreams"
+        ]
+        Resource = [
+          aws_cloudwatch_log_group.vpc_flow_logs.arn,
+          "${aws_cloudwatch_log_group.vpc_flow_logs.arn}:log-stream:*"
+        ]
+      }
+    ]
+  })
 }

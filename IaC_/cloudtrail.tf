@@ -6,7 +6,8 @@ resource "aws_cloudtrail" "main" {
   is_multi_region_trail         = true
   enable_log_file_validation    = true
 
-  kms_key_id = aws_kms_key.main.arn
+  kms_key_id     = aws_kms_key.main.arn
+  sns_topic_name = aws_sns_topic.alerts.arn
 
   cloud_watch_logs_group_arn = "${aws_cloudwatch_log_group.cloudtrail.arn}:*"
   cloud_watch_logs_role_arn  = aws_iam_role.cloudtrail.arn
