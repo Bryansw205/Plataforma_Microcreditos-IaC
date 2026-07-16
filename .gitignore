@@ -40,3 +40,7 @@ node_modules/
 
 dist/
 build/
+
+# Coverage reports
+coverage/
+**/coverage/
