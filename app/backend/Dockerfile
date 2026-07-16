@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copiamos primero los archivos de dependencias para aprovechar el caché de Docker
 COPY package*.json ./
-RUN npm ci
+RUN npm install --no-audit
 
 # Copiamos el resto del código
 COPY . .
