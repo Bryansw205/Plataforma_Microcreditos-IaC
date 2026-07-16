@@ -254,9 +254,19 @@ resource "aws_s3_bucket_policy" "audit" {
     Version = "2012-10-17"
     Statement = [
       {
+        Sid    = "AllowELBServiceAccountPutObject"
         Effect = "Allow"
         Principal = {
           AWS = data.aws_elb_service_account.main.arn
+        }
+        Action   = "s3:PutObject"
+        Resource = "${aws_s3_bucket.audit.arn}/alb-access-logs/AWSLogs/${data.aws_caller_identity.current.account_id}/*"
+      },
+      {
+        Sid    = "AllowELBLogDeliveryPutObject"
+        Effect = "Allow"
+        Principal = {
+          Service = "logdelivery.elasticloadbalancing.amazonaws.com"
         }
         Action   = "s3:PutObject"
         Resource = "${aws_s3_bucket.audit.arn}/alb-access-logs/AWSLogs/${data.aws_caller_identity.current.account_id}/*"
