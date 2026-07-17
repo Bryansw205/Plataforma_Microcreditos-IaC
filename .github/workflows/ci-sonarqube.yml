@@ -17,7 +17,6 @@ on:
       - synchronize
       - reopened
     paths:
-      - "IaC_/**"
       - "app/**"
       - "sonar-project.properties"
       - ".github/workflows/ci-sonarqube.yml"
